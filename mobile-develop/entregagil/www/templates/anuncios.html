@@ -1,0 +1,119 @@
+<ion-view view-title="Anúncios" ng-init="tab=1">
+  <link rel="stylesheet" type="text/css" href="css/lances.css">
+  <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+    <div class="tabs fundoLance">
+      <a class="tab-item txtMenu col-50" ng-click="tab=1" ng-class="{active : tab==1}">
+        TODOS
+      </a>
+      <a class="tab-item txtMenu col-50" ng-click="tab=2" ng-class="{active : tab==2}">
+        MEUS LANCES
+      </a>
+    </div>
+  </div>
+  <ion-content class="laces">
+    <div id="todosLances" ng-show="tab==1">
+      <div class="card">
+        <a class="item item-thumbnail-left" ng-click="darLance()">
+          <img src="img/img1.jpg">
+          <h2>Mesa com cadeiras</h2>
+          <br>
+          <p><i class="icon ion-android-calendar"></i> Expira em 03 dias</p>
+          <p><i class="icon ion-ios-plus-outline"></i> Detalhes</p>
+        </a>
+      </div>
+      <div class="card">
+        <a class="item item-thumbnail-left" href="#">
+          <img src="img/img1.jpg">
+          <h2>Mesa com cadeiras</h2>
+          <br>
+          <p><i class="icon ion-android-calendar"></i> Expira em 03 dias</p>
+          <p><i class="icon ion-ios-plus-outline"></i> Detalhes</p>
+        </a>
+      </div>
+      <div class="card">
+        <a class="item item-thumbnail-left" href="#">
+          <img src="img/img1.jpg">
+          <h2>Mesa com cadeiras</h2>
+          <br>
+          <p><i class="icon ion-android-calendar"></i> Expira em 03 dias</p>
+          <p><i class="icon ion-ios-plus-outline"></i> Detalhes</p>
+        </a>
+      </div>
+      <div class="card">
+        <a class="item item-thumbnail-left" href="#">
+          <img src="img/img1.jpg">
+          <h2>Mesa com cadeiras</h2>
+          <br>
+          <p><i class="icon ion-android-calendar"></i> Expira em 03 dias</p>
+          <p><i class="icon ion-ios-plus-outline"></i> Detalhes</p>
+        </a>
+      </div>
+      <div class="card">
+        <a class="item item-thumbnail-left" href="#">
+          <img src="img/img1.jpg">
+          <h2>Mesa com cadeiras</h2>
+          <br>
+          <p><i class="icon ion-android-calendar"></i> Expira em 03 dias</p>
+          <p><i class="icon ion-ios-plus-outline"></i> Detalhes</p>
+        </a>
+      </div>
+    </div>
+    <div id="meusLances" ng-show="tab==2">
+      <div class="card">
+        <a class="item item-thumbnail-left" href="#/app/lance">
+          <img src="img/img1.jpg">
+          <h2>Mesa com cadeiras</h2>
+          <br>
+          <div class="row">
+            <p class="col-50"><i class="icon ion-ios-pricetags"></i> R$125,00</p>
+            <p class="col-50"><i class="icon ion-android-calendar"></i> 24/02 03 dias</p>
+          </div>
+        </a>
+      </div>
+      <div class="card">
+        <a class="item item-thumbnail-left" href="#/app/lance">
+          <img src="img/img1.jpg">
+          <h2>Mesa com cadeiras</h2>
+          <br>
+          <div class="row">
+            <p class="col-50"><i class="icon ion-ios-pricetags"></i> R$125,00</p>
+            <p class="col-50"><i class="icon ion-android-calendar"></i> 24/02 03 dias</p>
+          </div>
+        </a>
+      </div>
+      <div class="card">
+        <a class="item item-thumbnail-left" href="#/app/lance">
+          <img src="img/img1.jpg">
+          <h2>Mesa com cadeiras</h2>
+          <br>
+          <div class="row">
+            <p class="col-50"><i class="icon ion-ios-pricetags"></i> R$125,00</p>
+            <p class="col-50"><i class="icon ion-android-calendar"></i> 24/02 03 dias</p>
+          </div>
+        </a>
+      </div>
+      <div class="card">
+        <a class="item item-thumbnail-left" href="#/app/lance">
+          <img src="img/img1.jpg">
+          <h2>Mesa com cadeiras</h2>
+          <br>
+          <div class="row">
+            <p class="col-50"><i class="icon ion-ios-pricetags"></i> R$125,00</p>
+            <p class="col-50"><i class="icon ion-android-calendar"></i> 24/02 03 dias</p>
+          </div>
+        </a>
+      </div>
+      <div class="card">
+        <a class="item item-thumbnail-left" href="#/app/lance">
+          <img src="img/img1.jpg">
+          <h2>Mesa com cadeiras</h2>
+          <br>
+          <div class="row">
+            <p class="col-50"><i class="icon ion-ios-pricetags"></i> R$125,00</p>
+            <p class="col-50"><i class="icon ion-android-calendar"></i> 24/02 03 dias</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,458 @@
+<link href="css/criarAnuncio/domestico/domestico.css" rel="stylesheet">
+<style type="text/css">
+  .mini-img {
+    display: inline-block;
+    width: 150px;
+    height: 135px;
+    padding: 0!important;
+    margin-right: 5px;
+  }
+  .mini-img div {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center; 
+  }
+  .ico-excluir {
+    position: absolute!important;
+    right: 0;
+    margin: 0;
+  }
+
+</style>
+
+<div id="domestico" class="container" ng-init="init()">
+    <div class="title-pag">Criar Anúncio</div>
+    <div class="etapas">
+        <ul>
+            <li ng-class="{}"><b>1º | Categoria</b></li>
+            <li ng-class="{on : count==2}"><b>2º | Produto</b></li>
+            <li ng-class="{}"><b>3º | Entrega</b></li>
+        </ul>
+    </div>
+    <div class="titulocategorias">
+        <label>Preencha as informações do produto que será transportado.</label>
+    </div>
+    <form ng-submit="salvarItem()">
+        <div id="criarAnuncio">
+            <div class="domesticoEletronicos" ng-show="subcategoria=='737cb317-2640-44ba-9dca-193136b67246'">
+                <div class="anuncioBox">
+                    <div class="tituloanuncio">Doméstico - Eletrônicos (Som, Tv, Ascessórios...)</div>
+                    <div class="col-md-12">
+                        <label>Tipo:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="tipoEletronicos" ng-model="anuncio.tipo" placeholder="Tipo" ng-blur="validarCampoObrigatorio('Tipo', '#tipoEletronicos')" required="">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Embalagem:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="embalagemEletronicos" ng-model="anuncio.embalagem" placeholder="Emabalagem (Caixa, Palete, Fardo, Sacola..." ng-blur="validarCampoObrigatorio('Embalagem', '#embalagemEletronicos')" required="">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Dimensões: </label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="eletronicosAltura" ng-model="anuncio.altura"  placeholder="Altura(m)" ng-blur="validarCampoObrigatorio('Altura', '#eletronicosAltura')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="eletronicosLargura" ng-model="anuncio.largura"  placeholder="Largura(m)" ng-blur="validarCampoObrigatorio('Largura', '#eletronicosLargura')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="eletronicosComprimento" ng-model="anuncio.comprimento" placeholder="Comprimento(m)" ng-blur="validarCampoObrigatorio('Comprimento', '#eletronicosComprimento')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="eletronicosPeso" ng-model="anuncio.peso" placeholder="Peso(kg)" ng-blur="validarCampoObrigatorio('Peso', '#eletronicosPeso')" required="">
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Observação:</label>
+                    </div>
+                    <div class="textoarea">
+                        <div class="col-md-12">
+							<textarea class="form-control" rows="2" placeholder="Observação ou instrução adicional (opcional)" ng-model="anuncio.observacao" >
+							</textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- IMAGEM -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-2" style="margin-top:20px;">
+                                    <button style="color: #155969;padding: 35px 0 35px 0;border: dotted;width: 137px;" class="btn-file">
+                                        <i class="glyphicon glyphicon-camera" style="width: 130px; font-size:37px; color: #155969;"></i>
+                                        <input type="file" name="imgUp" value="" id="imgUp">
+                                        Adicionar Imagem 
+                                    </button>
+                                </div>
+
+                                <div id="foto">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="domesticoEletrodomesticos" ng-show="subcategoria=='602e932b-4e89-4c75-ad79-2a847b102945'">
+                <div class="anuncioBox">
+                    <div class="tituloanuncio">Doméstico - Eletrodomésticos (Geladeira, Fogão, Freezer...)</div>
+                    <div class="col-md-12">
+                        <label>Tipo:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="tipoEltrodomesticos" ng-model="anuncio.tipo" placeholder="Tipo" ng-blur="validarCampoObrigatorio('Tipo', '#tipoEltrodomesticos')" required="">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Embalagem:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="embalagemEletrodomesticos" ng-model="anuncio.embalagem" placeholder="Emabalagem (Caixa, Palete, Fardo, Sacola..." ng-blur="validarCampoObrigatorio('Embalagem', '#embalagemEletrodomesticos')" required="">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Dimensões: </label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="eletrodomesticosAltura" ng-model="anuncio.altura"  placeholder="Altura(m)" ng-blur="validarCampoObrigatorio('Altura', '#eletrodomesticosAltura')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="eletrodomesticosLargura" ng-model="anuncio.largura"  placeholder="Largura(m)" ng-blur="validarCampoObrigatorio('Largura', '#eletrodomesticosLargura')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="eletrodomesticosComprimento" ng-model="anuncio.comprimento" placeholder="Comprimento(m)" ng-blur="validarCampoObrigatorio('Comprimento', '#eletrodomesticosComprimento')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="eletrodomesticosPeso" ng-model="anuncio.peso" placeholder="Peso(kg)" ng-blur="validarCampoObrigatorio('Peso', '#eletrodomesticosPeso')" required="">
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Observação:</label>
+                    </div>
+                    <div class="textoarea">
+                        <div class="col-md-12">
+							<textarea class="form-control" rows="2" placeholder="Observação ou instrução adicional (opcional)" ng-model="anuncio.observacao" >
+							</textarea>
+                        </div>
+                    </div>
+                    <div class="fotos">
+                        <div class="col-md-6">
+                            <label for="foto1">Fotos:
+                            </label>
+                            <input type="file" alt="Foto" class="img-responsive img-thumbnail" ng-model="anuncio.eletrodomesticosFoto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="domesticoEletroportateis" ng-show="subcategoria=='0a13f72e-1ee1-4e3d-9fcf-5cea66956410'">
+                <div class="anuncioBox">
+                    <div class="tituloanuncio">Doméstico - Eletroportáteis (Liquidificador, Ventilador, Ferro de Passar...)</div>
+                    <div class="col-md-12">
+                        <label>Tipo:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="tipoEletroportateis" ng-model="anuncio.tipo" placeholder="Tipo" ng-blur="validarCampoObrigatorio('Tipo', '#tipoEletroportateis')" required="" >
+                    </div>
+                    <div class="col-md-12">
+                        <label>Embalagem:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="embalagemEletroportateis" ng-model="anuncio.embalagem" placeholder="Emabalagem (Caixa, Palete, Fardo, Sacola..." ng-blur="validarCampoObrigatorio('Embalagem', '#embalagemEletroportateis')" required="">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Dimensões: </label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" id="eletroportateisAltura" ng-model="anuncio.altura"  placeholder="Altura(m)" ng-blur="validarCampoObrigatorio('Embalagem', '#embalagemEletroportateis')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" id="eletroportateisLargura" ng-model="anuncio.largura"  placeholder="Largura(m)" ng-blur="validarCampoObrigatorio('Embalagem', '#eletroportateisLargura')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" id="eletroportateisComprimento" ng-model="anuncio.comprimento" placeholder="Comprimento(m)" ng-blur="validarCampoObrigatorio('Embalagem', '#eletroportateisComprimento')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" id="eletroportateisPeso" ng-model="anuncio.peso" placeholder="Peso(kg)" ng-blur="validarCampoObrigatorio('Embalagem', '#eletroportateisPeso')" required="">
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Observação:</label>
+                    </div>
+                    <div class="textoarea">
+                        <div class="col-md-12">
+							<textarea class="form-control" rows="2" placeholder="Observação ou instrução adicional (opcional)" ng-model="anuncio.observacao" >
+							</textarea>
+                        </div>
+                    </div>
+                    <div class="fotos">
+                        <div class="col-md-6">
+                            <label for="foto1">Fotos:
+                            </label>
+                            <input type="file" alt="Foto" class="img-responsive img-thumbnail" ng-model="item.eletroportateisFoto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="domesticoMoveis" ng-show="subcategoria=='7c2036c1-686a-4989-9e40-ad55c962b26e'">
+                <div class="anuncioBox">
+                    <div class="tituloanuncio">Doméstico - Móveis (Guarda-roupas, Mesa de Jantar, Rack de Tv...)</div>
+                    <div class="col-md-12">
+                        <label>Tipo:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="tipoMoveis" ng-model="anuncio.tipo" placeholder="Tipo" ng-blur="validarCampoObrigatorio('Tipo', '#tipoMoveis')" required="" >
+                    </div>
+                    <div class="col-md-12">
+                        <label>Embalagem:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="embalagemMoveis" ng-model="anuncio.embalagem" placeholder="Emabalagem (Caixa, Palete, Fardo, Sacola..." ng-blur="validarCampoObrigatorio('Embalagem', '#embalagemMoveis')" required="">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Dimensões: </label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="moveisAltura" ng-model="anuncio.altura"  placeholder="Altura(m)" ng-blur="validarCampoObrigatorio('Altura', '#moveisAltura')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="moveisLargura" ng-model="anuncio.largura"  placeholder="Largura(m)" ng-blur="validarCampoObrigatorio('Largura', '#moveisLargura')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="moveisComprimento" ng-model="anuncio.comprimento" placeholder="Comprimento(m)" ng-blur="validarCampoObrigatorio('Comprimento', '#moveisComprimento')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="moveisPeso" ng-model="anuncio.peso" placeholder="Peso(kg)" ng-blur="validarCampoObrigatorio('Peso', '#moveisPeso')" required="">
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Observação:</label>
+                    </div>
+                    <div class="textoarea">
+                        <div class="col-md-12">
+							<textarea class="form-control" rows="2" placeholder="Observação ou instrução adicional (opcional)" ng-model="anuncio.observacao" >
+							</textarea>
+                        </div>
+                    </div>
+                    <div class="fotos">
+                        <div class="col-md-6">
+                            <label for="foto1">Fotos:
+                            </label>
+                            <input type="file" alt="Foto" class="img-responsive img-thumbnail" ng-model="anuncio.moveisFoto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="domesticoComputadores" ng-show="subcategoria=='e0b776d9-35fa-4337-98d2-660f61690ee2'">
+                <div class="anuncioBox">
+                    <div class="tituloanuncio">Doméstico - Computadores (Desktop, Notebook, Netbook...)</div>
+                    <div class="col-md-12">
+                        <label>Tipo:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="tipoComputadores" ng-model="anuncio.tipo" placeholder="Tipo" ng-blur="validarCampoObrigatorio('Tipo', '#tipoComputadores')" required="" >
+                    </div>
+                    <div class="col-md-12">
+                        <label>Embalagem:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="embalagemComputadores" ng-model="anuncio.embalagem" placeholder="Emabalagem (Caixa, Palete, Fardo, Sacola..." ng-blur="validarCampoObrigatorio('Embalagem', '#embalagemComputadores')" required="" >
+                    </div>
+                    <div class="col-md-12">
+                        <label>Dimensões: </label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="computadoresAltura" ng-model="anuncio.altura"  placeholder="Altura(m)" ng-blur="validarCampoObrigatorio('Altura', '#computadoresAltura')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="computadoresLargura" ng-model="anuncio.largura"  placeholder="Largura(m)" ng-blur="validarCampoObrigatorio('Largura', '#computadoresLargura')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="computadoresComprimento" ng-model="anuncio.comprimento" placeholder="Comprimento(m)" ng-blur="validarCampoObrigatorio('Comprimento', '#computadoresComprimento')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="computadoresPeso" ng-model="anuncio.peso" placeholder="Peso(kg)" ng-blur="validarCampoObrigatorio('Peso', '#computadoresPeso')" required="">
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Observação:</label>
+                    </div>
+                    <div class="textoarea">
+                        <div class="col-md-12">
+							<textarea class="form-control" rows="2" placeholder="Observação ou instrução adicional (opcional)" ng-model="anuncio.observacao" >
+							</textarea>
+                        </div>
+                    </div>
+                    <div class="fotos">
+                        <div class="col-md-6">
+                            <label for="foto1">Fotos:
+                            </label>
+                            <input type="file" alt="Foto" class="img-responsive img-thumbnail" ng-model="item.comptadoresFoto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="domesticoAcessorios" ng-show="subcategoria=='59f301c7-d743-4d5f-a164-200bebc8d6e2'">
+                <div class="anuncioBox">
+                    <div class="tituloanuncio">Doméstico - Acessórios (Automotivo, Moda, Beleza, Jóias...)</div>
+                    <div class="col-md-12">
+                        <label>Tipo:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="tipoAcessorios" ng-model="anuncio.tipo" placeholder="Tipo" ng-blur="validarCampoObrigatorio('Tipo', '#tipoAcessorios')" required="">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Embalagem:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="embalagemAcessorios" ng-model="anuncio.embalagem" placeholder="Embalagem (Caixa, Palete, Fardo, Sacola..." ng-blur="validarCampoObrigatorio('Embalagem', '#embalagemAcessorios')" required="">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Dimensões: </label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="acessoriosAltura" ng-model="anuncio.altura"  placeholder="Altura(m)" ng-blur="validarCampoObrigatorio('Altura', '#acessoriosAltura')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="acessoriosLargura" ng-model="anuncio.largura"  placeholder="Largura(m)" ng-blur="validarCampoObrigatorio('Largura', '#acessoriosLargura')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="acessoriosComprimento" ng-model="anuncio.comprimento" placeholder="Comprimento(m)" ng-blur="validarCampoObrigatorio('Comprimento', '#acessoriosComprimento')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="acessoriosPeso" ng-model="anuncio.peso" placeholder="Peso(kg)" ng-blur="validarCampoObrigatorio('Peso', '#acessoriosPeso')" required="">
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Observação:</label>
+                    </div>
+                    <div class="textoarea">
+                        <div class="col-md-12">
+							<textarea class="form-control" rows="2" placeholder="Observação ou instrução adicional (opcional)" ng-model="anuncio.observacao" >
+							</textarea>
+                        </div>
+                    </div>
+
+                <!-- IMAGEM -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-2" style="margin-top:20px;">
+                                    <button style="color: #155969;padding: 35px 0 35px 0;border: dotted;width: 137px;" class="btn-file">
+                                        <i class="glyphicon glyphicon-camera" style="width: 130px; font-size:37px; color: #155969;"></i>
+                                        <input type="file" name="imgUp" value="" id="imgUp">
+                                        Adicionar Imagem 
+                                    </button>
+                                </div>
+
+                                <div class="col-md-10" id="foto">
+                                    
+                                </div>
+                            </div>
+                        </div>    
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary pull-right">Próximo</button>
+        <a href="#/anuncio/criar-anuncio" class="btn btn-primary pull-left">Voltar</a>
+
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        idFoto = 'imgAnuncio';
+        count = 0;
+        styleButton = 301;
+    });
+
+    function inserirImagem() {
+        count++;
+
+        var idDiv = 'divImagem' + count;
+        var addDiv = $('<div class="col-md-2 mini-img"></div>');
+        addDiv.attr('id', idDiv);
+
+        var addImg = $('<div style="margin-top:20px;" id="imgAnuncio" required="" alt="Foto" class="img-thumbnail img-responsive" ng-model="itemDoAnuncio.fotos"> </div>');
+
+        var addButton = $('<button onclick="deleteImage(id)" class="btn btn btn-danger btn-sm ico-excluir" type="button"><span class="glyphicon glyphicon-trash"></span></button>');
+
+        addDiv.attr('id', 'divImagem' + count);
+        addImg.attr('id', 'imgAnuncio' + count);
+        addButton.attr('id', 'imgDelete' + count);
+        styleButton +=140;
+
+        addDiv.appendTo('#foto');
+        addImg.appendTo('#' + idDiv);
+        addButton.appendTo('#' + idDiv);   
+    }
+
+    $("#imgUp").change(function () {
+
+        inserirImagem();
+        readImage(this);
+  });
+
+  function verificaTamanhoImagem(img) {
+      $(img).one("load", function () {
+          if ((img.height > 1100) || (img.width > 1100)) {
+              mboxResizeImage(img);
+          } else {
+            console.log('#imgAnuncio' + count);
+              mudaPropriedade('#imgAnuncio' + count, 'src', img.src);
+              $('#base').val(img.src);
+          }
+      }).each(function () {
+          if (this.complete) $(this).load();
+      });
+  }
+  /*Funções js para carregar imagem*/
+  function readImage(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          var img = new Image();
+
+          reader.onload = function (e) {
+            console.log("readImage");
+              $(img).attr('src', e.target.result);
+              // $(img).prop('src', e.target.result);
+              verificaTamanhoImagem(img);
+          }
+
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+  function mboxResizeImage(img) {
+      resizeImage(img);
+  }
+  function resizeImage(img) {
+      var newDataUri = newImageToDataUrl(img, "500", "500");
+      console.log('#imgAnuncio' + count);
+      mudaPropriedade('#imgAnuncio' + count, 'img.src', newDataUri);
+      $('#base').val(newDataUri);
+  }
+  function newImageToDataUrl(img, width, height) {
+      var canvas = document.getElementById('meuCanvas'),
+      ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, width, height);
+      return canvas.toDataURL();
+  }
+  function deleteImage (item) {
+      var indice = item.substring(9, 10);
+      var divImagem = 'divImagem' + indice;
+
+      $('#' + divImagem).remove(); 
+  }
+  function mudaPropriedade(idComponente, prop, valor) {
+      fotos.push(valor);
+      $(idComponente).css('background-image', 'url(' + valor + ')');      
+  }
+  function base64ToDataUri(base64) {
+      return 'data:image/png;base64,' + base64;
+  }
+
+</script>

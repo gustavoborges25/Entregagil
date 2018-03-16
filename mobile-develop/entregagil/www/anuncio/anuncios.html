@@ -1,0 +1,12 @@
+<ion-view view-title="Anúncios">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-avatar item-icon-right" ng-repeat="anuncio in anuncios" type="item-text-wrap" href="#/tab/anuncio/{{anuncio.id}}">
+        <img ng-src="{{anuncio.face}}">
+        <h2>{{anuncio.contatoOrigem}}</h2>
+        <p>Prazo de entrega: {{anuncio.dataValidade | date : 'dd/MM/yyyy'}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

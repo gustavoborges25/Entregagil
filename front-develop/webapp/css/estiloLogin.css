@@ -1,0 +1,207 @@
+body{padding-bottom: 0;}
+.fundologin{
+	/*background: url(../img/fundo.jpg) top center no-repeat;*/
+    background-image: url(../img/fundo.jpg);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+}
+
+.form-signin{
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .form-signin-heading, .form-signin .checkbox{
+    margin-bottom: 10px;
+}
+.form-signin .checkbox{
+    font-weight: normal;
+}
+.form-signin .form-control{
+    position: relative;
+    font-size: 16px;
+}
+.form-signin .form-control:focus{
+    z-index: 2;
+}
+.form-signin input[type="text"]{
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"]{
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.account-wall{
+    /*margin-top: 65px;*/
+    padding: 30px 0px 50px 0px;
+    background-color: rgba(23,34,37, 0.47);
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.login-title{
+    color: #555;
+    font-size: 18px;
+    font-weight: 400;
+    display: block;
+}
+
+.logo {
+	max-width: 250px;
+	margin:0;
+	float: left;
+}
+.logo-img{
+    width: auto;
+    height: auto;
+    margin: 0 auto 10px;
+    display: block;
+
+}
+.need-help{
+    margin-top: 10px;
+}
+.new-account{
+    display: block;
+    margin-top: 10px;
+}
+
+#manterConectado{
+    margin-top: 25px;
+    color: #ffffff;
+		padding-left:2px!important;
+}
+.pull-right {
+    margin-top: 20px;
+    color: #ffffff;
+}
+
+.pull-left{
+    margin-top: -20px;
+    color: #ffffff;
+}
+#btn-entrar
+{
+   background: #f1be18;
+   border-color: #f1be18;
+   float: right;
+}
+#btn-entrar:hover{
+    background: #04191E !important;
+    border-color: #0a3943;
+    -webkit-transition: 0.3s ease-in;
+    -moz-transition: 0.3s ease-in;
+    -o-transition: 0.3s ease-in;
+    transition: 0.3s ease-in;
+}
+.btnEntrar:hover{
+    background-color: #04191E !important;
+    color: #fff;
+ }
+.btnEntrar{
+	background-color: #f1be18;
+   /*border-color: #f1be18;*/
+   float: right;
+   color: #fff;
+}
+.contotal{
+  padding: 83px 83px 0 0;
+}
+a.efeitohover:hover{
+	color: #F1BE18;
+}
+.conteudo{
+	text-align: center;
+	padding: 177px 0px;
+    color: #fff;
+}
+.conteudo .titulo{
+	font-weight: bold;
+	font-size: 50px;
+}
+.conteudo .social{
+	padding: 0px 40px;
+}
+.conteudo .social span{
+	color: #fff;
+	font-size: 17px;
+	margin-top: 15px;
+}
+.conteudo .social a{
+	text-decoration: none;
+    text-transform: none;
+}
+.conteudo .social a span.ico{}
+.conteudo .social a span.ico:hover{
+    color: #F1BE18;
+    -webkit-transition: 0.3s ease-in;
+    -moz-transition: 0.3s ease-in;
+    -o-transition: 0.3s ease-in;
+    transition: 0.3s ease-in;
+}
+.conteudo .social a span.ico:before{
+    font-size: 35px;
+}
+.no-padding{
+	padding: 0px !important;
+}
+.campLogin input{
+    border-radius: 0px;
+}
+.checkbox.cbox{
+	padding-left: 0px;
+}
+label.topManter{
+	margin-top: 7px;
+}
+/************************************************************/
+/**********************TRATAMENTO PARA LG********************/
+/************************************************************/
+@media (min-width: 1200px){}
+
+/************************************************************/
+/**********************TRATAMENTO PARA MD********************/
+/************************************************************/
+@media (min-width: 992px) and (max-width: 1199px){
+	/*.conteudo .titulo {font-size: 30px;}*/
+	.conteudo .social span {margin-top: 0px;}
+	.conteudo .social {padding: 0px;}
+	.conteudo .social span{margin-top: 0px;}
+	.conteudo .titulo{font-size: 40px;}
+}
+
+/************************************************************/
+/**********************TRATAMENTO PARA SM********************/
+/************************************************************/
+@media (min-width: 768px) and (max-width: 991px){
+	.conteudo .titulo {font-size: 30px;}
+	.conteudo .social {padding: 0px 15px;}
+	.conteudo .social span{margin-top: 0px;}
+}
+
+/************************************************************/
+/**********************TRATAMENTO PARA XS********************/
+/************************************************************/
+@media (max-width: 768px){
+	.conteudo .titulo {font-size: 30px;}
+	.conteudo{ padding: 0px;}
+	.conteudo .social{padding: 0px;}
+	.contotal{padding: 30px;}
+	.conteudo .social span{margin-top: 0px;}
+}
+
+/************************************************************/
+/*******LG OPTIMUS 4 / SAMSUNG GALAXY S4 / IPHONE 4/5********/
+/************************************************************/
+@media (max-width: 384px){
+	.conteudo .titulo {font-size: 25px;}
+	.conteudo .social{ padding: 0px;}
+
+}

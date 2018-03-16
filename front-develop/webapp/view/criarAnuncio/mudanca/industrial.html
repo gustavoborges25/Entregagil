@@ -1,0 +1,78 @@
+<link href="css/criarAnuncio/mudanca/industrial.css" rel="stylesheet">
+
+<div id="industrial" class="container" ng-init="init()">
+    <div class="title-pag">Criar Anúncio</div>
+    <div class="etapas">
+        <ul>
+            <li ng-class="{}"><b>1º | Categoria</b></li>
+            <li ng-class="{on : count==2}"><b>2º | Produto</b></li>
+            <li ng-class="{}"><b>3º | Entrega</b></li>
+        </ul>
+    </div>
+    <div class="titulocategorias">
+        <label>Preencha as informações do produto que será transportado.</label>
+    </div>
+    <form ng-submit="salvarItem()">
+        <div id="criarAnuncio">
+            <div class="mudancaIndustrial">
+                <div class="anuncioBox">
+                    <div class="tituloanuncio">Mudança - Indústria</div>
+                    <div class="col-md-12">
+                        <label>Tamanho da indústria:</label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" required onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" placeholder="Tamanho(m²)" ng-model="anuncio.tamanho" >
+                    </div>
+
+                    <div class="col-md-12">
+                        <label>Restrição de horário:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <div class="input-group-addon">Início</div>
+                            <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" ng-model="anuncio.restricaoHorarioInicial" placeholder="Ex: 8:00">
+                            <div class="input-group-addon">Fim</div>
+                            <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" ng-model="anuncio.restricaoHorarioFinal" placeholder="Ex: 18:00">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Quantidade de itens:</label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="number" min="0" required onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" placeholder="Quantidade Itens" ng-model="anuncio.qtdeItens" >
+                    </div>
+                    <div class="col-md-12">
+                        <label>Itens:</label>
+                    </div>
+                    <div class="textoarea">
+                        <div class="col-md-12">
+							<textarea class="form-control" required rows="3" placeholder="Escreva quais itens que deseja transportar" ng-model="anuncio.itens" >
+							</textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Observação:</label>
+                    </div>
+                    <div class="textoarea">
+                        <div class="col-md-12">
+							<textarea class="form-control" rows="2" placeholder="Observação ou instrução adicional (opcional)" ng-model="anuncio.observacao" >
+							</textarea>
+                        </div>
+                    </div>
+                    <div class="fotos">
+                        <div class="col-md-6">
+                            <label for="foto1">Fotos:</label>
+                            <input type="file"  alt="Foto" class="img-responsive img-thumbnail" ng-model="item.industriaFoto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary pull-right">Próximo</button>
+        <a href="#/anuncio/criar-anuncio" class="btn btn-primary pull-left">Voltar</a>
+
+    </form>
+
+
+</div>

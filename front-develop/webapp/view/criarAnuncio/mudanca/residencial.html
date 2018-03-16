@@ -1,0 +1,839 @@
+<link href="css/criarAnuncio/mudanca/residencial.css" rel="stylesheet">
+
+<style type="text/css">
+  .mini-img {
+    display: inline-block;
+    width: 150px;
+    height: 135px;
+    padding: 0!important;
+    margin-right: 5px;
+  }
+  .mini-img div {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center; 
+  }
+  .ico-excluir {
+    position: absolute!important;
+    right: 0;
+    margin: 0;
+  }
+
+</style>
+
+<div id="residencial" class="container" ng-init="init()">
+    <div class="title-pag">Criar Anúncio</div>
+    <div class="etapas">
+        <ul>
+            <li ng-class="{}"><b>1º | Categoria</b></li>
+            <li ng-class="{on : count==2}"><b>2º | Produto</b></li>
+            <li ng-class="{}"><b>3º | Entrega</b></li>
+        </ul>
+    </div>
+    <div class="titulocategorias">
+        <label>Preencha as informações do produto que será transportado.</label>
+    </div>
+    <form ng-submit="salvarItem()">
+        <div id="criarAnuncio">
+            <div class="mudancaResidencial">
+                <div class="anuncioBox">
+                    <div class="formularioMudancaCasa">
+                        <div class="tituloanuncio">Mudança - Casa</div>
+                        <div class="col-md-3">
+                            <label >Número de dormitórios:</label>
+                        </div>
+                        <div class="col-md-1">
+                            <button type="button" ng-click="menosDormitorio()" >-</button>
+                        </div>
+                        <div class="col-md-1">
+                           <pre>{{anuncio.qtdeDormitorios}}</pre>
+                        </div>
+                        <div class="col-md-1">
+                           <button type="button" ng-click="maisDormitorio()" >+</button>
+                        </div>
+                        <div class="col-md-9"></div>
+                        <div class="col-md-12"></div>
+                        <div class="col-md-3">
+                            <label>Restrição de horário:</label>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <div class="input-group-addon">Início</div>
+                                <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" ng-model="anuncio.restricaoHoraInicial" placeholder="Ex: 8:00">
+                                <div class="input-group-addon">Fim</div>
+                                <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" ng-model="anuncio.casaHorarioFim" placeholder="Ex: 18:00">
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                        </div>
+                        <div class="invetarioItens">
+                            <div class="col-md-12">
+                                <label>Informe a quantidade de itens abaixo: </label>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>Abajur:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosAbajur()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeAbajur}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisAbajur()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Armário arquivo:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosArmarioArquivo()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeArmarioArquivo}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisArmarioArquivo()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Armário comum:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosArmarioComum()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeArmarioComum}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisArmarioComum()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Aparelho de som:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosAparelhoSom()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeAparelhoSom}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisAparelhoSom()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Aspirador de pó:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosAspiradorPo()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeAspiradorPo}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisAspiradorPo()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Ar condicionado:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosArCondicionado()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeArCondicionado}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisArCondicionado()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Aquário:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosAquario()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeAquario}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisAquario()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Banco alto:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosBancoAlto()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeBancoAlto}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisBancoAlto()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Banco de varanda:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosBancoVaranda()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeBancoVaranda}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisBancoVaranda()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Barzinho:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosBarzinho()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeBarzinho}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisBarzinho()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Baú:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosBau()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeBau}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisBau()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Berço:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosBerco()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeBerco}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisBerco()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Bicicleta:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosBicicleta()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeBicicleta}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisBicicleta()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Cadeira:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosCadeira()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeCadeira}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisCadeira()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Cama Solteiro:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosCamaSolteiro()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeCamaSolteiro}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisCamaSolteiro()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Cama casal:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosCamaCasal()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeCamaCasal}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisCamaCasal()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Cama beliche:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosCamaBeliche()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeCamaBeliche}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisCamaBeliche()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Cômoda:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosComoda()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeComoda}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisComoda()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Carrinho de mão:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosCarrinhoMao()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeCarrinhoMao}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisCarrinhoMao()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Churrasqueira:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosChurrasqueira()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeChurrasqueira}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisChurrasqueira()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Caixa de roupas:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosCaixaRoupas()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeCaixaRoupas}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisCaixaRoupas()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Caixas pequenas:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosCaixasPequenas()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeCaixasPequenas}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisCaixasPequenas()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Caixas médias:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosCaixasMedias()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeCaixasMedias}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisCaixasMedias()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Caixas grandes:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosCaixasGrandes()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeCaixasGrandes}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisCaixasGrandes()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Cristaleira:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosCristaleira()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeCristaleira}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisCristaleira()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Estante:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosEstante()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeEstante}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisEstante()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Escrivaninha:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosEscrivaninha()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeEscrivaninha}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisEscrivaninha()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Espelho:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosEspelho()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeEspelho}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisEspelho()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Fogão:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosFogao()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeFogao}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisFogao()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Frigobar:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosFrigobar()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeFrigobar}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisFrigobar()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Freezer:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosFreezer()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeFreezer}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisFreezer()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Guarda-roupa:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosGuardaRoupa()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeGuardaRoupa}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisGuardaRoupa()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Guarda-sol:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosGuardaSol()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeGuardaSol}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisGuardaSol()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Instrumento:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosInstrumentoMusical()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeInstrumentoMusical}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisInstrumentoMusical()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Luminária:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosLuminaria()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeLuminaria}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisLuminaria()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Lixeira:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosLixeira()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeLixeira}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisLixeira()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Lava-louças:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosLavaLoucas()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeLavaLoucas}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisLavaLoucas()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Lava-roupas:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosLavaRoupas()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeLavaRoupas}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisLavaRoupas()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Mesa madeira:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosMesaMadeira()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeMesaMadeira}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisMesaMadeira()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Mesa vidro:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosMesaVidro()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeMesaVidro}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisMesaVidro()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Mesa de centro:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosMesaCentro()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeMesaCentro}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisMesaCentro()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Microondas:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosMicroondas()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeMicroondas}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisMicroondas()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Piano:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosPiano()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdePiano}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisPiano()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Poltrona:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosPoltrona()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdePoltrona}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisPoltrona()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Prateleira:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosPrateleira()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdePrateleira}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisPrateleira()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Penteadeira:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosPenteadeira()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdePenteadeira}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisPenteadeira()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Rack:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosRack()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeRack}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisRack()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Refrigerador:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosRefrigerador()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeRefrigerador}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisRefrigerador()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Sofá:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosSofa()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeSofa}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisSofa()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Secadora de roupas:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosSecadoraRoupas()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeSecadoraRoupas}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisSecadoraRoupas()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Televisão:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosTelevisao()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeTelevisao}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisTelevisao()" >+</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Tábua de passar:</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="menosTabuaPassar()" >-</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <pre>{{anuncio.qtdeTabuaPassar}}</pre>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" ng-click="maisTabuaPassar()" >+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label>Outros Itens:</label>
+                        </div>
+                        <div class="textoarea">
+                            <div class="col-md-12">
+								<textarea class="form-control" rows="3" placeholder="Escreva outros itens que deseja transportar (opcional)" ng-model="anuncio.outrosItens" >
+								</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label>Observação:</label>
+                        </div>
+                        <div class="textoarea">
+                            <div class="col-md-12">
+								<textarea class="form-control" rows="2" placeholder="Observação ou instrução adicional (opcional)" ng-model="anuncio.observacao" >
+								</textarea>
+                            </div>
+                        </div>
+
+                        <!-- IMAGEM -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-2" style="margin-top:20px;">
+                                    <button style="color: #155969;padding: 35px 0 35px 0;border: dotted;width: 137px;" class="btn-file">
+                                        <i class="glyphicon glyphicon-camera" style="width: 130px; font-size:37px; color: #155969;"></i>
+                                        <input type="file" name="imgUp" value="" id="imgUp">
+                                        Adicionar Imagem 
+                                    </button>
+                                </div>
+
+                                <div id="foto">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary pull-right">Próximo</button>
+        <a href="#/anuncio/criar-anuncio" class="btn btn-primary pull-left">Voltar</a>
+
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        idFoto = 'imgAnuncio';
+        count = 0;
+        styleButton = 301;
+    });
+
+    function inserirImagem() {
+        count++;
+
+        var idDiv = 'divImagem' + count;
+        var addDiv = $('<div class="col-md-2 mini-img"></div>');
+        addDiv.attr('id', idDiv);
+
+        var addImg = $('<div style="margin-top:20px;" id="imgAnuncio" required="" alt="Foto" class="img-thumbnail img-responsive" ng-model="itemDoAnuncio.fotos"> </div>');
+
+        var addButton = $('<button onclick="deleteImage(id)" class="btn btn btn-danger btn-sm ico-excluir" type="button"><span class="glyphicon glyphicon-trash"></span></button>');
+
+        addDiv.attr('id', 'divImagem' + count);
+        addImg.attr('id', 'imgAnuncio' + count);
+        addButton.attr('id', 'imgDelete' + count);
+        styleButton +=140;
+
+        addDiv.appendTo('#foto');
+        addImg.appendTo('#' + idDiv);
+        addButton.appendTo('#' + idDiv);   
+    }
+
+    $("#imgUp").change(function () {
+
+        inserirImagem();
+        readImage(this);
+  });
+
+  function verificaTamanhoImagem(img) {
+      $(img).one("load", function () {
+          if ((img.height > 1100) || (img.width > 1100)) {
+              mboxResizeImage(img);
+          } else {
+            console.log('#imgAnuncio' + count);
+              mudaPropriedade('#imgAnuncio' + count, 'src', img.src);
+              $('#base').val(img.src);
+          }
+      }).each(function () {
+          if (this.complete) $(this).load();
+      });
+  }
+  /*Funções js para carregar imagem*/
+  function readImage(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          var img = new Image();
+
+          reader.onload = function (e) {
+            console.log("readImage");
+              $(img).attr('src', e.target.result);
+              // $(img).prop('src', e.target.result);
+              verificaTamanhoImagem(img);
+          }
+
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+  function mboxResizeImage(img) {
+      resizeImage(img);
+  }
+  function resizeImage(img) {
+      var newDataUri = newImageToDataUrl(img, "500", "500");
+      console.log('#imgAnuncio' + count);
+      mudaPropriedade('#imgAnuncio' + count, 'img.src', newDataUri);
+      $('#base').val(newDataUri);
+  }
+  function newImageToDataUrl(img, width, height) {
+      var canvas = document.getElementById('meuCanvas'),
+      ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, width, height);
+      return canvas.toDataURL();
+  }
+  function deleteImage (item) {
+      var indice = item.substring(9, 10);
+      var divImagem = 'divImagem' + indice;
+
+      $('#' + divImagem).remove(); 
+  }
+  function mudaPropriedade(idComponente, prop, valor) {
+      fotos.push(valor);
+      $(idComponente).css('background-image', 'url(' + valor + ')');
+  }
+  function base64ToDataUri(base64) {
+      return 'data:image/png;base64,' + base64;
+  }
+
+</script>

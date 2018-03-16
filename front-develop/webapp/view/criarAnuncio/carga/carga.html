@@ -1,0 +1,280 @@
+<link href="css/criarAnuncio/carga/carga.css" rel="stylesheet">
+<style type="text/css">
+  .mini-img {
+    display: inline-block;
+    width: 150px;
+    height: 135px;
+    padding: 0!important;
+    margin-right: 5px;
+  }
+  .mini-img div {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center; 
+  }
+  .ico-excluir {
+    position: absolute!important;
+    right: 0;
+    margin: 0;
+  }
+
+</style>
+
+<div id="carga" class="container" ng-init="init()">
+    <div class="title-pag">Criar Anúncio</div>
+    <div class="etapas">
+        <ul>
+            <li ng-class="{}"><b>1º | Categoria</b></li>
+            <li ng-class="{on : count==2}"><b>2º | Produto</b></li>
+            <li ng-class="{}"><b>3º | Entrega</b></li>
+        </ul>
+    </div>
+    <div class="titulocategorias">
+        <label>Preencha as informações do produto que será transportado.</label>
+    </div>
+    <form ng-submit="salvarItem()">
+        <div id="criarAnuncio">
+            <div class="cargaAgricola" ng-show="subcategoria=='10faf400-7103-48c8-9ef4-bb844632beb0'">
+                <div class="anuncioBox">
+                    <div class="tituloanuncio">Carga - Agrícola </div>
+                    <div class="col-md-12">
+                        <label>Tipo da carga:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="tipoCargaAgricola" ng-model="anuncio.tipo" placeholder="Soja, Milho..." ng-blur="validarCampoObrigatorio('Tipo', '#tipoCargaAgricola')" required="" >
+                    </div>
+                    <div class="col-md-12">
+                        <label>Peso total da carga: </label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="cargaAgricolaPesoCarga" ng-model="anuncio.peso"  placeholder="Peso(Ton)" ng-blur="validarCampoObrigatorio('Tipo', '#cargaAgricolaPesoCarga')" required="">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Observação:</label>
+                    </div>
+                    <div class="textoarea">
+                        <div class="col-md-12">
+							<textarea class="form-control" rows="2" placeholder="Observação ou instrução adicional (opcional)" ng-model="anuncio.observacao" >
+							</textarea>
+                        </div>
+                    </div>
+                    <div class="fotos">
+                        <div class="col-md-6">
+                            <label for="foto1">Fotos:
+                            </label>
+                            <input type="file"  alt="Foto" class="img-responsive img-thumbnail" ng-model="anuncio.cargaAgricolaFoto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cargaPerecível" ng-show="subcategoria=='6b22f07c-8806-4f94-9ed1-e624d1ac0ad9'">
+                <div class="anuncioBox">
+                    <div class="tituloanuncio">Carga - Perecível </div>
+                    <div class="col-md-12">
+                        <label>Tipo da carga:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="tipoRefrigerada" ng-model="anuncio.tipo" ng-blur="validarCampoObrigatorio('Tipo', '#tipoRefrigerada')" required=""  placeholder="Refrigerada, congelada..."  >
+                    </div>
+                    <div class="col-md-12">
+                        <label>Peso total da carga: </label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" placeholder="Peso(Ton)" id="pesoRefrigerada" ng-model="anuncio.peso" ng-blur="validarCampoObrigatorio('Peso', '#pesoRefrigerada')" required="" >
+                    </div>
+                    <div class="col-md-12">
+                        <label>Observação:</label>
+                    </div>
+                    <div class="textoarea">
+                        <div class="col-md-12">
+							<textarea class="form-control" rows="2" placeholder="Observação ou instrução adicional (opcional)" ng-model="anuncio.observacao" >
+							</textarea>
+                        </div>
+                    </div>
+                    <div class="fotos">
+                        <div class="col-md-6">
+                            <label for="foto1">Fotos:
+                            </label>
+                            <input type="file" alt="Foto" class="img-responsive img-thumbnail" ng-model="item.refrigeradaFoto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cargaViva" ng-show="subcategoria=='54cd3d61-ff9a-43d7-bbd0-8c905ddd2993'">
+                <div class="anuncioBox">
+                    <div class="tituloanuncio">Carga - Viva </div>
+                    <div class="col-md-12">
+                        <label>Tipo da carga:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" placeholder="Boi, Porco..." id="tipoViva" ng-model="anuncio.tipo" ng-blur="validarCampoObrigatorio('Tipo', '#tipoViva')" required=""  >
+                    </div>
+                    <div class="col-md-12">
+                        <label>Peso total da carga: </label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" placeholder="Peso(Ton)" id="pesoViva" ng-model="anuncio.peso" ng-blur="validarCampoObrigatorio('Peso', '#pesoViva')" required="">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Observação:</label>
+                    </div>
+                    <div class="textoarea">
+                        <div class="col-md-12">
+							<textarea class="form-control" rows="2" placeholder="Observação ou instrução adicional (opcional)" ng-model="anuncio.observacao" >
+							</textarea>
+                        </div>
+                    </div>
+                    <div class="fotos">
+                        <div class="col-md-6">
+                            <label for="foto1">Fotos:
+                            </label>
+                            <input type="file" alt="Foto" class="img-responsive img-thumbnail" ng-model="item.vivaFoto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cargaPerigosa" ng-show="subcategoria=='ab173fd6-4b11-46ee-a256-99c407f4700f'">
+                <div class="anuncioBox">
+                    <div class="tituloanuncio">Carga - Perigosa </div>
+                    <div class="col-md-12">
+                        <label>Tipo da carga:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" placeholder="Liquido inflamável, Explosivos, Oxidantes..." id="tipoPerigosa" ng-model="anuncio.tipo" ng-blur="validarCampoObrigatorio('Tipo', '#tipoPerigosa')" required="" >
+                    </div>
+                    <div class="col-md-12">
+                        <label>Peso total da carga: </label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" placeholder="Peso(Ton)" id="cargaPerigosa" ng-model="anuncio.peso" ng-blur="validarCampoObrigatorio('Peso', '#tipoPerigosa')" required="" >
+                    </div>
+                    <div class="col-md-12">
+                        <label>Observação:</label>
+                    </div>
+                    <div class="textoarea">
+                        <div class="col-md-12">
+							<textarea class="form-control" rows="2" placeholder="Observação ou instrução adicional (opcional)" ng-model="anuncio.observacao" >
+							</textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- IMAGEM -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-2" style="margin-top:20px;">
+                                    <button style="color: #155969;padding: 35px 0 35px 0;border: dotted;width: 137px;" class="btn-file">
+                                        <i class="glyphicon glyphicon-camera" style="width: 130px; font-size:37px; color: #155969;"></i>
+                                        <input type="file" name="imgUp" value="" id="imgUp">
+                                        Adicionar Imagem 
+                                    </button>
+                                </div>
+
+                                <div class="col-md-10" id="foto">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary pull-right">Próximo</button>
+        <a href="#/anuncio/criar-anuncio" class="btn btn-primary pull-left">Voltar</a>
+
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        idFoto = 'imgAnuncio';
+        count = 0;
+        styleButton = 301;
+    });
+
+    function inserirImagem() {
+        count++;
+
+        var idDiv = 'divImagem' + count;
+        var addDiv = $('<div class="col-md-2 mini-img"></div>');
+        addDiv.attr('id', idDiv);
+
+        var addImg = $('<div style="margin-top:20px;" id="imgAnuncio" required="" alt="Foto" class="img-thumbnail img-responsive" ng-model="itemDoAnuncio.fotos"> </div>');
+
+        var addButton = $('<button onclick="deleteImage(id)" class="btn btn btn-danger btn-sm ico-excluir" type="button"><span class="glyphicon glyphicon-trash"></span></button>');
+
+        addDiv.attr('id', 'divImagem' + count);
+        addImg.attr('id', 'imgAnuncio' + count);
+        addButton.attr('id', 'imgDelete' + count);
+        styleButton +=140;
+
+        addDiv.appendTo('#foto');
+        addImg.appendTo('#' + idDiv);
+        addButton.appendTo('#' + idDiv);   
+    }
+
+    $("#imgUp").change(function () {
+
+        inserirImagem();
+        readImage(this);
+  });
+
+  function verificaTamanhoImagem(img) {
+      $(img).one("load", function () {
+          if ((img.height > 1100) || (img.width > 1100)) {
+              mboxResizeImage(img);
+          } else {
+            console.log('#imgAnuncio' + count);
+              mudaPropriedade('#imgAnuncio' + count, 'src', img.src);
+              $('#base').val(img.src);
+          }
+      }).each(function () {
+          if (this.complete) $(this).load();
+      });
+  }
+  /*Funções js para carregar imagem*/
+  function readImage(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          var img = new Image();
+
+          reader.onload = function (e) {
+            console.log("readImage");
+              $(img).attr('src', e.target.result);
+              // $(img).prop('src', e.target.result);
+              verificaTamanhoImagem(img);
+          }
+
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+  function mboxResizeImage(img) {
+      resizeImage(img);
+  }
+  function resizeImage(img) {
+      var newDataUri = newImageToDataUrl(img, "500", "500");
+      console.log('#imgAnuncio' + count);
+      mudaPropriedade('#imgAnuncio' + count, 'img.src', newDataUri);
+      $('#base').val(newDataUri);
+  }
+  function newImageToDataUrl(img, width, height) {
+      var canvas = document.getElementById('meuCanvas'),
+      ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, width, height);
+      return canvas.toDataURL();
+  }
+  function deleteImage (item) {
+      var indice = item.substring(9, 10);
+      var divImagem = 'divImagem' + indice;
+
+      $('#' + divImagem).remove(); 
+  }
+  function mudaPropriedade(idComponente, prop, valor) {
+      fotos.push(valor);
+      $(idComponente).css('background-image', 'url(' + valor + ')');
+  }
+  function base64ToDataUri(base64) {
+      return 'data:image/png;base64,' + base64;
+  }
+
+</script>

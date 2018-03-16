@@ -1,0 +1,33 @@
+<ion-view view-title="Sign-In" hide-nav-bar="true">
+  <ion-content id="login" ng-init="init()">
+
+    <div class="padding">
+      <img src="img/logoMobile.png" class="center espacamento-top-bottom" width="200pt">
+    </div>
+
+      <div class="padding">
+        <div class="list">
+          <label class="item item-input">
+            <!-- <i class="icon ion-person"></i> -->
+            <span class="icoM flaticon-avatar"></span>
+            <input type="text" placeholder="E-MAIL" ng-model="user.email">
+          </label>
+          <label class="item item-input pass">
+            <!-- <i class="icon ion-locked"></i> -->
+            <span class="icoM flaticon-padlock"></span>
+            <input type="password" placeholder="SENHA" ng-model="user.senha">
+          </label>
+        </div>
+      </div>
+
+      <div class="padding">
+        <button class="button button-block login" ng-click="signIn(user)">
+          Entrar
+        </button>
+        <p class="text-center">
+          <a href="#/esqueci-minha-senha" class="forget">Esqueci a senha</a>
+        </p>
+      </div>
+
+  </ion-content>
+</ion-view>

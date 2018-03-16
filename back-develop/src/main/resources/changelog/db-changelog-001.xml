@@ -1,0 +1,785 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-1">
+        <createTable tableName="anuncio">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_cadastro" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="categoria" type="VARCHAR(255)"/>
+            <column name="contato_destino" type="VARCHAR(255)"/>
+            <column name="contato_origem" type="VARCHAR(255)"/>
+            <column name="data_validade" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="situacao" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="subcategoria" type="VARCHAR(255)"/>
+            <column name="telefone_destino" type="VARCHAR(255)"/>
+            <column name="telefone_origem" type="VARCHAR(255)"/>
+            <column name="titulo" type="VARCHAR(255)"/>
+            <column name="id_pessoa" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_endereco_destino" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_endereco_origem" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_item" type="VARCHAR(255)"/>
+            <column name="id_pessoa_transportador" type="VARCHAR(255)"/>
+            <column name="b_contato_origem" type="TSVECTOR"/>
+            <column name="b_contato_destino" type="TSVECTOR"/>
+            <column name="b_titulo" type="TSVECTOR"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-2">
+        <createTable tableName="anuncio_item">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_cadastro" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="observacao" type="VARCHAR(255)"/>
+            <column name="id_anuncio" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="b_observacao" type="TSVECTOR"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-3">
+        <createTable tableName="anuncio_item_agricola">
+            <column name="especificacao_veiculo" type="VARCHAR(255)"/>
+            <column name="marca" type="VARCHAR(255)"/>
+            <column name="modelo" type="VARCHAR(255)"/>
+            <column name="no_reboque" type="BOOLEAN"/>
+            <column name="tipo_agricola" type="VARCHAR(255)"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-4">
+        <createTable tableName="anuncio_item_animal">
+            <column name="altura" type="FLOAT8"/>
+            <column name="nome" type="VARCHAR(255)"/>
+            <column name="peso" type="FLOAT8"/>
+            <column name="possui_todos_registros" type="BOOLEAN"/>
+            <column name="raca" type="VARCHAR(255)"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+            <column name="vacinacao_em_dia" type="BOOLEAN"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-5">
+        <createTable tableName="anuncio_item_barco">
+            <column name="altura" type="FLOAT8"/>
+            <column name="comprimento" type="FLOAT8"/>
+            <column name="largura" type="FLOAT8"/>
+            <column name="no_reboque" type="BOOLEAN"/>
+            <column name="peso" type="FLOAT8"/>
+            <column name="tipo_barco" type="VARCHAR(255)"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-6">
+        <createTable tableName="anuncio_item_caminhao">
+            <column name="marca" type="VARCHAR(255)"/>
+            <column name="modelo" type="VARCHAR(255)"/>
+            <column name="no_reboque" type="BOOLEAN"/>
+            <column name="tipo_caminhao" type="VARCHAR(255)"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-7">
+        <createTable tableName="anuncio_item_carga">
+            <column name="peso" type="FLOAT8"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-8">
+        <createTable tableName="anuncio_item_carga_completa">
+            <column name="embalagem" type="VARCHAR(255)"/>
+            <column name="precisa_pagar_descarga" type="BOOLEAN"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-9">
+        <createTable tableName="anuncio_item_carga_container">
+            <column name="altura" type="FLOAT8"/>
+            <column name="comprimento" type="FLOAT8"/>
+            <column name="largura" type="FLOAT8"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-10">
+        <createTable tableName="anuncio_item_carga_fracionada">
+            <column name="altura" type="FLOAT8"/>
+            <column name="comprimento" type="FLOAT8"/>
+            <column name="embalagem" type="VARCHAR(255)"/>
+            <column name="largura" type="FLOAT8"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-11">
+        <createTable tableName="anuncio_item_carga_fragil">
+            <column name="embalagem" type="VARCHAR(255)"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-12">
+        <createTable tableName="anuncio_item_carro">
+            <column name="marca" type="VARCHAR(255)"/>
+            <column name="modelo" type="VARCHAR(255)"/>
+            <column name="tipo_transporte" type="VARCHAR(255)"/>
+            <column name="tipo_transporte_guincho_cegonha" type="VARCHAR(255)"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-13">
+        <createTable tableName="anuncio_item_domestico_geral">
+            <column name="altura" type="FLOAT8"/>
+            <column name="comprimento" type="FLOAT8"/>
+            <column name="embalagem" type="VARCHAR(255)"/>
+            <column name="largura" type="FLOAT8"/>
+            <column name="peso" type="FLOAT8"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-14">
+        <createTable tableName="anuncio_item_esporte">
+            <column name="altura" type="FLOAT8"/>
+            <column name="comprimento" type="FLOAT8"/>
+            <column name="largura" type="FLOAT8"/>
+            <column name="peso" type="FLOAT8"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-15">
+        <createTable tableName="anuncio_item_foto">
+            <column name="anuncio_item_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="foto" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-16">
+        <createTable tableName="anuncio_item_moto">
+            <column name="marca" type="VARCHAR(255)"/>
+            <column name="modelo" type="VARCHAR(255)"/>
+            <column name="tipo_moto" type="VARCHAR(255)"/>
+            <column name="tipo_transporte" type="VARCHAR(255)"/>
+            <column name="tipo_transporte_guincho_cegonha" type="VARCHAR(255)"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-17">
+        <createTable tableName="anuncio_item_mudanca_comercial">
+            <column name="itens" type="VARCHAR(255)"/>
+            <column name="qtde_itens" type="INT"/>
+            <column name="restricao_horario_final" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="restricao_horario_inicial" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-18">
+        <createTable tableName="anuncio_item_mudanca_comercial_escritorio">
+            <column name="terreo_predio" type="VARCHAR(255)"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-19">
+        <createTable tableName="anuncio_item_mudanca_comercial_industrial">
+            <column name="tamanho" type="FLOAT8"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-20">
+        <createTable tableName="anuncio_item_mudanca_residencial">
+            <column name="outros_itens" type="VARCHAR(255)"/>
+            <column name="qtde_abajur" type="INT"/>
+            <column name="qtde_aparelho_som" type="INT"/>
+            <column name="qtde_aquario" type="INT"/>
+            <column name="qtde_ar_condicionado" type="INT"/>
+            <column name="qtde_armario_arquivo" type="INT"/>
+            <column name="qtde_armario_comum" type="INT"/>
+            <column name="qtde_aspirador_po" type="INT"/>
+            <column name="qtde_banco_alto" type="INT"/>
+            <column name="qtde_banco_varanda" type="INT"/>
+            <column name="qtde_barzinho" type="INT"/>
+            <column name="qtde_bau" type="INT"/>
+            <column name="qtde_berco" type="INT"/>
+            <column name="qtde_bicicleta" type="INT"/>
+            <column name="qtde_vadeira" type="INT"/>
+            <column name="qtde_caixa_roupas" type="INT"/>
+            <column name="qtde_caixas_grandes" type="INT"/>
+            <column name="qtde_caixas_medias" type="INT"/>
+            <column name="qtde_caixas_pequenas" type="INT"/>
+            <column name="qtde_cama_beliche" type="INT"/>
+            <column name="qtde_cama_casal" type="INT"/>
+            <column name="qtde_cama_solteiro" type="INT"/>
+            <column name="qtde_carrinho_mao" type="INT"/>
+            <column name="qtde_churrasqueira" type="INT"/>
+            <column name="qtde_comoda" type="INT"/>
+            <column name="qtde_cristaleira" type="INT"/>
+            <column name="qtde_dormitorios" type="INT"/>
+            <column name="qtde_escrivaninha" type="INT"/>
+            <column name="qtde_espelho" type="INT"/>
+            <column name="qtde_estante" type="INT"/>
+            <column name="qtde_fogao" type="INT"/>
+            <column name="qtde_freezer" type="INT"/>
+            <column name="qtde_frigobar" type="INT"/>
+            <column name="qtde_guarda_roupa" type="INT"/>
+            <column name="qtde_guarda_sol" type="INT"/>
+            <column name="qtde_instrumento_musical" type="INT"/>
+            <column name="qtde_lava_loucas" type="INT"/>
+            <column name="qtde_lava_roupas" type="INT"/>
+            <column name="qtde_lixeira" type="INT"/>
+            <column name="qtde_luminaria" type="INT"/>
+            <column name="qtde_mesa_centro" type="INT"/>
+            <column name="qtde_mesa_madeira" type="INT"/>
+            <column name="qtde_mesa_vidro" type="INT"/>
+            <column name="qtde_microondas" type="INT"/>
+            <column name="qtde_penteadeira" type="INT"/>
+            <column name="qtde_piano" type="INT"/>
+            <column name="qtde_poltrona" type="INT"/>
+            <column name="qtde_prateleira" type="INT"/>
+            <column name="qtde_rack" type="INT"/>
+            <column name="qtde_refrigerador" type="INT"/>
+            <column name="qtde_secadora_roupas" type="INT"/>
+            <column name="qtde_sofa" type="INT"/>
+            <column name="qtde_tabua_passar" type="INT"/>
+            <column name="qtde_televisao" type="INT"/>
+            <column name="restricao_hora_final" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="restricao_hora_inicial" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-21">
+        <createTable tableName="anuncio_item_mudanca_residencial_apartamento">
+            <column name="numero_do_andar" type="INT"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-22">
+        <createTable tableName="anuncio_item_mudanca_residencial_sobrado">
+            <column name="qtde_andares" type="INT"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-23">
+        <createTable tableName="anuncio_item_outro">
+            <column name="altura" type="FLOAT8"/>
+            <column name="comprimento" type="FLOAT8"/>
+            <column name="largura" type="FLOAT8"/>
+            <column name="nome_item" type="VARCHAR(255)"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-24">
+        <createTable tableName="anuncio_item_peca">
+            <column name="altura" type="FLOAT8"/>
+            <column name="comprimento" type="FLOAT8"/>
+            <column name="embalagem" type="VARCHAR(255)"/>
+            <column name="largura" type="FLOAT8"/>
+            <column name="peso" type="FLOAT8"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-25">
+        <createTable tableName="anuncio_item_telefonia">
+            <column name="altura" type="FLOAT8"/>
+            <column name="comprimento" type="FLOAT8"/>
+            <column name="embalagem" type="VARCHAR(255)"/>
+            <column name="largura" type="FLOAT8"/>
+            <column name="marca" type="VARCHAR(255)"/>
+            <column name="modelo" type="VARCHAR(255)"/>
+            <column name="peso" type="FLOAT8"/>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-26">
+        <createTable tableName="anuncio_lance">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_cadastro" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="bo_carga_fracionada" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="estimativa" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="observacoes" type="VARCHAR(255)"/>
+            <column name="tp_status" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="valor" type="numeric(19, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_anuncio" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_pessoa_transportador" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-27">
+        <createTable tableName="anuncio_log">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_cadastro" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="data" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="descricao" type="VARCHAR(255)"/>
+            <column name="local" type="VARCHAR(255)"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="id_anuncio" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-28">
+        <createTable tableName="anuncio_pergunta">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_cadastro" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="conteudo" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_anuncio" type="VARCHAR(255)"/>
+            <column name="id_pergunta" type="VARCHAR(255)"/>
+            <column name="id_pessoa" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-29">
+        <createTable tableName="certificacao_documento">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_cadastro" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="arquivo" type="BYTEA"/>
+            <column name="nome" type="VARCHAR(255)"/>
+            <column name="id_usuario_certificacao" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-30">
+        <createTable tableName="certificacao_usuario">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_cadastro" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="bo_pagamento_efetuado" type="BOOLEAN"/>
+            <column name="bo_proprietario_veiculo" type="BOOLEAN"/>
+            <column name="usuario_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-31">
+        <createTable tableName="endereco">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_cadastro" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="bairro" type="VARCHAR(255)"/>
+            <column name="cep" type="VARCHAR(255)"/>
+            <column name="cidade" type="VARCHAR(255)"/>
+            <column name="complemento" type="VARCHAR(255)"/>
+            <column name="endereco" type="VARCHAR(255)"/>
+            <column name="estado" type="VARCHAR(255)"/>
+            <column name="numero" type="VARCHAR(255)"/>
+            <column name="tipo_endereco" type="VARCHAR(255)"/>
+            <column name="b_cidade" type="TSVECTOR"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-32">
+        <createTable tableName="pessoa">
+            <column name="dtype" type="VARCHAR(31)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_cadastro" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="celular" type="VARCHAR(255)"/>
+            <column name="foto" type="VARCHAR(255)"/>
+            <column name="telefone" type="VARCHAR(255)"/>
+            <column name="tipo_pessoa" type="VARCHAR(255)"/>
+            <column name="cnpj" type="VARCHAR(255)"/>
+            <column name="fantasia" type="VARCHAR(255)"/>
+            <column name="inscricao_estadual" type="VARCHAR(255)"/>
+            <column name="razao_social" type="VARCHAR(255)"/>
+            <column name="cpf" type="VARCHAR(255)"/>
+            <column name="nome" type="VARCHAR(255)"/>
+            <column name="rg" type="VARCHAR(255)"/>
+            <column name="sobrenome" type="VARCHAR(255)"/>
+            <column name="endereco_id" type="VARCHAR(255)"/>
+            <column name="b_nome" type="TSVECTOR"/>
+            <column name="b_sobrenome" type="TSVECTOR"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-33">
+        <createTable tableName="pessoa_avaliacao">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_cadastro" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="avaliacao_geral" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="avaliado_avaliado_como" type="VARCHAR(255)"/>
+            <column name="ds_comentario" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="integridade_mercadoria" type="INT"/>
+            <column name="bo_recomenda" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tempo_entrega" type="INT"/>
+            <column name="id_pessoa_avaliado" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_pessoa_avaliador" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-34">
+        <createTable tableName="token">
+            <column name="token" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="usuario_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-35">
+        <createTable tableName="token_alterar_email">
+            <column name="token" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="usuario_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-36">
+        <createTable tableName="token_redefinicao_senha">
+            <column name="token" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="usuario_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-37">
+        <createTable tableName="usuario">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_cadastro" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="ativo" type="BOOLEAN"/>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email_confirmado" type="BOOLEAN"/>
+            <column name="senha" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="usuario_certificado" type="BOOLEAN"/>
+            <column name="pessoa_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-38">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_agricola_pkey" tableName="anuncio_item_agricola"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-39">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_animal_pkey" tableName="anuncio_item_animal"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-40">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_barco_pkey" tableName="anuncio_item_barco"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-41">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_caminhao_pkey" tableName="anuncio_item_caminhao"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-42">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_carga_completa_pkey" tableName="anuncio_item_carga_completa"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-43">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_carga_container_pkey" tableName="anuncio_item_carga_container"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-44">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_carga_fracionada_pkey" tableName="anuncio_item_carga_fracionada"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-45">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_carga_fragil_pkey" tableName="anuncio_item_carga_fragil"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-46">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_carga_pkey" tableName="anuncio_item_carga"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-47">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_carro_pkey" tableName="anuncio_item_carro"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-48">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_domestico_geral_pkey" tableName="anuncio_item_domestico_geral"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-49">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_esporte_pkey" tableName="anuncio_item_esporte"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-50">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_moto_pkey" tableName="anuncio_item_moto"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-51">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_mudanca_comercial_escritorio_pkey" tableName="anuncio_item_mudanca_comercial_escritorio"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-52">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_mudanca_comercial_industrial_pkey" tableName="anuncio_item_mudanca_comercial_industrial"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-53">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_mudanca_comercial_pkey" tableName="anuncio_item_mudanca_comercial"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-54">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_mudanca_residencial_apartamento_pkey" tableName="anuncio_item_mudanca_residencial_apartamento"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-55">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_mudanca_residencial_pkey" tableName="anuncio_item_mudanca_residencial"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-56">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_mudanca_residencial_sobrado_pkey" tableName="anuncio_item_mudanca_residencial_sobrado"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-57">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_outro_pkey" tableName="anuncio_item_outro"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-58">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_peca_pkey" tableName="anuncio_item_peca"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-59">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_pkey" tableName="anuncio_item"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-60">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_item_telefonia_pkey" tableName="anuncio_item_telefonia"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-61">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_lance_pkey" tableName="anuncio_lance"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-62">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_log_pkey" tableName="anuncio_log"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-63">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_pergunta_pkey" tableName="anuncio_pergunta"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-64">
+        <addPrimaryKey columnNames="id" constraintName="anuncio_pkey" tableName="anuncio"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-65">
+        <addPrimaryKey columnNames="id" constraintName="certificacao_documento_pkey" tableName="certificacao_documento"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-66">
+        <addPrimaryKey columnNames="id" constraintName="certificacao_usuario_pkey" tableName="certificacao_usuario"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-67">
+        <addPrimaryKey columnNames="id" constraintName="endereco_pkey" tableName="endereco"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-68">
+        <addPrimaryKey columnNames="id" constraintName="pessoa_avaliacao_pkey" tableName="pessoa_avaliacao"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-69">
+        <addPrimaryKey columnNames="id" constraintName="pessoa_pkey" tableName="pessoa"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-70">
+        <addPrimaryKey columnNames="token" constraintName="token_alterar_email_pkey" tableName="token_alterar_email"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-71">
+        <addPrimaryKey columnNames="token" constraintName="token_pkey" tableName="token"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-72">
+        <addPrimaryKey columnNames="token" constraintName="token_redefinicao_senha_pkey" tableName="token_redefinicao_senha"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-73">
+        <addPrimaryKey columnNames="id" constraintName="usuario_pkey" tableName="usuario"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-74">
+        <addForeignKeyConstraint baseColumnNames="id_pergunta" baseTableName="anuncio_pergunta" constraintName="fk_15pik2d3qq6n7aiviwn6r9k68" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_pergunta"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-75">
+        <addForeignKeyConstraint baseColumnNames="anuncio_item_id" baseTableName="anuncio_item_foto" constraintName="fk_19tammin4yhr5vty5pf0aw90o" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-76">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_moto" constraintName="fk_1e536n6lxdobonj76ewjlfxjn" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-77">
+        <addForeignKeyConstraint baseColumnNames="id_usuario_certificacao" baseTableName="certificacao_documento" constraintName="fk_2r9ap3wxusnyeekh89s252o6j" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="certificacao_usuario"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-78">
+        <addForeignKeyConstraint baseColumnNames="id_pessoa_avaliado" baseTableName="pessoa_avaliacao" constraintName="fk_2wq0bpess4eq2md5o4pxvntoa" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="pessoa"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-79">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_carga_fragil" constraintName="fk_488b9sy0abak4xcmty9dpqeq0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item_carga"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-80">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_mudanca_residencial_apartamento" constraintName="fk_4b6ayyokyitwqfbodlms7892u" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item_mudanca_residencial"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-81">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_telefonia" constraintName="fk_4cbbixq0tj7xcqm77xmtd1qmb" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-82">
+        <addForeignKeyConstraint baseColumnNames="id_pessoa_transportador" baseTableName="anuncio_lance" constraintName="fk_4ypjtrss6ceulawwti73bv46c" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="pessoa"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-83">
+        <addForeignKeyConstraint baseColumnNames="id_pessoa" baseTableName="anuncio" constraintName="fk_56ok13x4vmxepn8a8ch8m3c9x" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="pessoa"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-84">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_mudanca_residencial" constraintName="fk_5swfj9vtd45dtwaa6jrfvwlrh" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-85">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_domestico_geral" constraintName="fk_663bhvuuus5943rqgx77sg8e2" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-86">
+        <addForeignKeyConstraint baseColumnNames="id_pessoa_transportador" baseTableName="anuncio" constraintName="fk_6i7vuhcbfqygpn6e1y6pbo97r" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="pessoa"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-87">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_mudanca_comercial_industrial" constraintName="fk_8u1gle26t29orw8eyq9quw3lr" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item_mudanca_comercial"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-88">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_peca" constraintName="fk_9dlgjfowe5e05j4c7y06esav4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-89">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_mudanca_comercial_escritorio" constraintName="fk_9js8qsdbpwel62432vlptjuhj" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item_mudanca_comercial"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-90">
+        <addForeignKeyConstraint baseColumnNames="usuario_id" baseTableName="token" constraintName="fk_9k4m2cghvqnkxf0xak4u6f84g" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="usuario"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-91">
+        <addForeignKeyConstraint baseColumnNames="id_anuncio" baseTableName="anuncio_pergunta" constraintName="fk_9n2s543xvtvh0uiay5fywws5x" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-92">
+        <addForeignKeyConstraint baseColumnNames="id_endereco_destino" baseTableName="anuncio" constraintName="fk_a5hmj3jhbjrclk9wq00sevfjq" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="endereco"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-93">
+        <addForeignKeyConstraint baseColumnNames="id_pessoa_avaliador" baseTableName="pessoa_avaliacao" constraintName="fk_b792jwsd5apvyh9na9g2mk8l" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="pessoa"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-94">
+        <addForeignKeyConstraint baseColumnNames="id_pessoa" baseTableName="anuncio_pergunta" constraintName="fk_bfpacglo7y17lophrm7a31yt3" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="pessoa"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-95">
+        <addForeignKeyConstraint baseColumnNames="id_item" baseTableName="anuncio" constraintName="fk_bnradld4ap1ll92m0g6vtjhkk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-96">
+        <addForeignKeyConstraint baseColumnNames="id_endereco_origem" baseTableName="anuncio" constraintName="fk_bow6c2gs754qo5n0yh0mlcod0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="endereco"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-97">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_animal" constraintName="fk_c2wtbn3ba1jx1o8dh19dk36ru" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-98">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_barco" constraintName="fk_cf5kgtgivxlx08nlmwwh8tvlb" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-99">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_mudanca_comercial" constraintName="fk_ckv8ylo9on4x1sweh8eqess9e" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-100">
+        <addForeignKeyConstraint baseColumnNames="usuario_id" baseTableName="token_alterar_email" constraintName="fk_grh55qrqrvlwfsihiyvcbs87d" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="usuario"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-101">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_agricola" constraintName="fk_h5g6m02u6w67wsht879n699jg" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-102">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_carga_completa" constraintName="fk_i785jp2smli857fd6itcq00fy" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item_carga"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-103">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_caminhao" constraintName="fk_ip63phl8ibtw5vgdxhxk0r4be" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-104">
+        <addForeignKeyConstraint baseColumnNames="usuario_id" baseTableName="certificacao_usuario" constraintName="fk_ks5dsll6fvs06b1k65lghot13" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="usuario"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-105">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_carga_container" constraintName="fk_ksd9coro83je4klxg6q01dbbb" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item_carga"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-106">
+        <addForeignKeyConstraint baseColumnNames="id_anuncio" baseTableName="anuncio_item" constraintName="fk_lk2lk6entbvkbq012wt33n5iq" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-107">
+        <addForeignKeyConstraint baseColumnNames="usuario_id" baseTableName="token_redefinicao_senha" constraintName="fk_loek8h13e0bt2aasplgpn8ur4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="usuario"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-108">
+        <addForeignKeyConstraint baseColumnNames="id_anuncio" baseTableName="anuncio_lance" constraintName="fk_m6cg0vtri1418hjocj67wy0bb" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-109">
+        <addForeignKeyConstraint baseColumnNames="endereco_id" baseTableName="pessoa" constraintName="fk_maf0qcpkgi78dxmw8a3eo3js9" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="endereco"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-110">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_mudanca_residencial_sobrado" constraintName="fk_mmhkmrp0b142euhiulmvu9qeo" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item_mudanca_residencial"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-111">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_carro" constraintName="fk_odobquu1v019cafdnwgba35ry" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-112">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_esporte" constraintName="fk_pbts9g17ouset4kjndybdbp2f" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-113">
+        <addForeignKeyConstraint baseColumnNames="id_anuncio" baseTableName="anuncio_log" constraintName="fk_ps72gkcxwdtjtiwt3cf5qbj62" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-114">
+        <addForeignKeyConstraint baseColumnNames="pessoa_id" baseTableName="usuario" constraintName="fk_r3paqktjbbb5iuok1mvu0s8xg" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="pessoa"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-115">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_carga" constraintName="fk_r61xoeoa5ajh6kf7p2bl9dwh8" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-116">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_outro" constraintName="fk_thr8wh0t75dmgafshcaa9fq6t" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item"/>
+    </changeSet>
+    <changeSet author="marcosatanaka (generated)" id="1477775549413-117">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="anuncio_item_carga_fracionada" constraintName="fk_tq6fy1ffaay2gt7f0klyabfq4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="anuncio_item_carga"/>
+    </changeSet>
+</databaseChangeLog>

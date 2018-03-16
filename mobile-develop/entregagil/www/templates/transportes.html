@@ -1,0 +1,26 @@
+<ion-view view-title="Meus Transportes" ng-init="tab=1">
+  <link rel="stylesheet" type="text/css" href="css/lances.css">
+  <ion-content>
+    <div id="todosTransportes" ng-show="tab==1">
+      <div class="card">
+        <a class="item item-thumbnail-left" ng-click="fazerCheckin()">
+          <img src="img/img1.jpg">
+          <h2>Mesa com cadeiras</h2>
+          <br>
+          <p><i class="icon ion-android-calendar"></i> Em transporte</p>
+          <p><i class="icon ion-ios-plus-outline"></i> Detalhes</p>
+        </a>
+      </div>
+      <div class="card">
+        <a class="item item-thumbnail-left" ng-click="fazerCheckin()">
+          <img src="img/img1.jpg">
+          <h2>Mesa com cadeiras</h2>
+          <br>
+          <p><i class="icon ion-android-calendar"></i> Saiu para entrega</p>
+          <p><i class="icon ion-ios-plus-outline"></i> Detalhes</p>
+        </a>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>

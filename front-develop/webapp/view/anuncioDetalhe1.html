@@ -1,0 +1,22 @@
+<link href="css/anuncioDetalhe.css" rel="stylesheet">
+
+
+<div class="container" ng-init="init()" id="anuncio-detalhe">
+	<div class="title-pag" id="titulo">DETALHES DO ANÚNCIO</div>
+		<form name="anuncioDetalhe">
+            <div class="anuncio-detalhe">
+
+            	<div class="col-md-4">
+            		<div class="row">
+            			<!-- <div class="col-md-12"> -->
+            				<h4>{{anuncio.titulo}}</h4>
+            			<!-- </div> -->
+            			<div class="row">
+            				<span>Termina em: {{anuncio.dataValidade | date:'dd/MM/yyyy'}}</span>
+            			</div>
+            		</div>
+            	</div>
+
+            </div>
+        </form>
+</div>

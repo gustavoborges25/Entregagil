@@ -1,0 +1,190 @@
+/*Anuncios*/
+.etapas {
+	float: left;
+	width: 100%;
+	margin-top: 70px;
+	text-align: center;
+}
+.etapas ul  {
+	border-top: 3px solid #CCC;
+	width: 650px;
+	margin: 0 auto;
+	padding: 0;
+}
+.etapas li {
+	width: 32%;
+    list-style: none;
+    display: inline-block;
+    margin: 30px 0;
+}
+.etapas li.on:before {
+	content: url(../../img/box.png) ;
+    float: left;
+    width: 100%;
+    margin-top: -65px;
+    height: 80px;
+}
+#criarAnuncio .categorias {
+	position: relative;
+	clear: both;
+	height: 430px;
+}
+#criarAnuncio .categorias ul li {
+	border: 0!important;
+	width: 170px;
+}
+#criarAnuncio .categorias ul li:hover
+{
+	border: 0!important;
+}
+#criarAnuncio .categoria {
+	border:2px solid #155969;
+	height: 120px;
+}
+#criarAnuncio .categoria i:before {
+	font-size: 50px;
+}
+#criarAnuncio .categoria:hover {
+	border-color:#f1be18;
+}
+#criarAnuncio .categoria i {
+	color: #155969;
+}
+#criarAnuncio .categoria:hover i {
+	color:#f1be18;
+}
+#criarAnuncio .categoria span {
+	color:#155969;
+	font-size: 15px;
+}
+#criarAnuncio .categoria:hover span {
+	color:#f1be18;
+}
+#criarAnuncio .options {
+	position: absolute;
+	margin-top: 25px;
+	text-align: left;
+}
+#criarAnuncio .options input {
+	white-space: nowrap;
+}
+#criarAnuncio .options {
+	display: none;
+}
+#criarAnuncio .options.on {
+	display: block;
+}
+#criarAnuncio .btn {
+	margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.title-pag {
+    font-weight: bolder;
+    color: #707171;
+    text-transform: uppercase;
+    margin-top: 35px;
+    font-size: 20px;
+    border-bottom: 2px solid #707171;
+}
+#criarAnuncio .checkbox {
+	padding-left: 0px!important;
+}
+#criarAnuncio .checkbox label {
+	color: #707171;
+	font-weight: normal;
+}
+.tituloanuncio span {
+	float: right;
+	font-size: 34px;
+	margin-top: -18px;
+	margin-right: 7px;
+	color: #155969;
+	cursor: pointer;
+}
+#criarAnuncio b {
+	color:#d19925!important;
+}
+
+
+#criarAnuncio .anuncioBox {
+	background-color: white;
+	max-width: 1200px;
+	margin: 0 auto;
+	top: 20px;
+	margin-bottom: 40px;
+	height: 375px;
+	box-shadow: 0 5px 30px rgba(0,0,0,0.15);
+	position: relative;
+	clear: both;
+}
+#criarAnuncio .anuncioBox .tituloanuncio {
+	font-weight: bolder;
+    color: #707171;
+    text-transform: uppercase;
+    font-size: 15px;
+    border-bottom: 2px solid #707171;
+    padding-left: 30px;
+    padding-top: 10px;
+}
+#criarAnuncio .anuncioBox .radio-inline{
+	margin-top: 0px;
+}
+#criarAnuncio .checkboxveiculos {
+	clear: both;
+}
+#criarAnuncio .checkboxveiculos label{
+	font-weight: normal;
+	margin-top: 5px;
+}
+#criarAnuncio .anuncioBox label {
+	margin-top: 8px;
+}
+#criarAnuncio .anuncioBox .fotos input {
+	margin-bottom: 6px;
+}
+#criarAnuncio .anuncioBox .fotos .btn{
+	margin-top: 55px;
+}
+#criarAnuncio .col-md-8{
+	width: 76%;
+}
+#criarAnuncio .anuncioBox .title {
+    padding: 10px;
+    float: left;
+    background: #155969;
+    width: 100%;
+    margin: 0;
+    border-radius: 2px;
+    color: #FFF;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+#criarAnuncio .anuncioBox .title span {
+	float: right;
+	cursor: pointer;
+}
+#criarAnuncio .titulocategorias {
+	text-align: center;
+}
+#criarAnuncio .titulocategorias h5 {
+	margin-top: 0px;
+}
+#criarAnuncio .anuncioBox .dimensoesBarcos label {
+    margin-top: 0px;
+}
+#criarAnuncio .dimensoesBarcos .form-control {
+    width: 10%;
+}
+#criarAnuncio .dadosEntrega .anuncioBox {
+	height: 120px;
+}
+#criarAnuncio .enderecoOrigem .anuncioBox {
+	height: 415px;
+}
+#criarAnuncio .enderecoDestino .anuncioBox {
+	height: 415px;
+}
+#criarAnuncio #naoSeiMeuCep {
+  margin-top: 33px;
+}

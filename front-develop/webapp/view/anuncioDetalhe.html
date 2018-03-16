@@ -1,0 +1,325 @@
+<link href="css/anuncioDetalhe.css" rel="stylesheet">
+
+
+<div class="container" ng-init="init()" id="anuncio-detalhe">
+	<div class="title-pag" id="titulo">DETALHES DO ANÚNCIO</div>
+		<form name="anuncioDetalhe">
+            <div class="anuncio-detalhe">
+                <div class="col-md-4 no-padding">
+                    <div class="col-md-12 no-padding">
+                        <div class="row">
+                            <div class="form-group">
+                                <h4>{{anuncio.titulo}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 no-padding">
+                        <div class="row">
+                            <div class="form-group">
+                                <span>Termina em: {{anuncio.dataValidade | date:'dd/MM/yyyy'}}</span>
+                            </div>
+                       </div>
+                    </div>
+                    <div class="col-md-12 no-padding">
+                        <div class="row">
+                            <div class="form-group">
+                                <span>Status do Anúncio: Ativo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="descricao">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><img class="icon" src="img/ico-anun.png" style="margin-right: 15px;"/></td>
+                                    <td>Anunciante: {{anuncio.anunciante.nome}}</td>
+                                </tr>
+                                <tr>
+                                    <td><li><img class="icon" src="img/ico-orig.png"/></td>
+                                    <td>Origem: {{anuncio.enderecoOrigem.cidade}}</td>
+                                </tr>
+                                <tr>
+                                    <td><img class="icon" src="img/ico-desti.png"/></td>
+                                    <td>Destino: {{anuncio.enderecoDestino.cidade}}</td>
+                                </tr>
+                                <tr>
+                                    <td><img class="icon" src="img/ico-aprox.png"/></td>
+                                    <td>Aproximadamente: {{distancia}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="row">
+                        <div class="form-group">
+                            <button type="button" id="btn-link" class="btn btn-primary" data-toggle="modal" data-target="#modalDarLance">
+                                            Efetuar Lance
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+
+                    <!-- <div class="fotos"> -->
+                                <div class="col-md-5" style="margin-left: -30px";>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="preview" >
+                                                <img name="preview" 
+                                                src="{{fotoSelecionada}}"
+                                                ng-src="{{imagemSelecionada.src}}" alt="" class="img-responsive img-thumbnail" id="imagem-selecionada" width="488" height="326" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- </div> -->
+
+                            <div class="col-md-3" style="margin-left: -50px;">
+                                <div class="form-group">
+                                    <div class="gallery" ng-repeat="foto in anuncioFotosItensCommand">
+                                        <ul>
+                                            <li class="thumbnails">
+                                                <div class="box-image">
+                                                    <img name="img1" class="img-responsive img-thumbnail" ng-src="{{foto}}" alt="Foto" ng-click="imagemSelecionada.src = foto" alt="Embedded Image" width="300" height="150" />
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <div id="map" style="height:300px;width:400px;" data-tap-disabled="true"></div>
+                                </div>
+                            </div>
+                </div>
+
+                <div class="col-md-12 no-padding" id="informacoes-adicionais" >
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <div class="form-group" ng-repeat="item in itemAnuncio">
+                                <span>{{replaceItem(item)}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 no-padding">
+                    <div id="meusAnuncios" class="container table-responsive tabela" ng-show="listaDeLances.length > 0">
+                        <div class="row">
+                            <form class="form-inline">
+                                <div class="form-group col-md-3 no-padding">
+                                    <label>Procurar</label>
+                                    <input type="text" ng-model="procurar" class="form-control" placeholder="Procurar...">
+                                </div>
+                            </form>
+                        </div>
+                        <br>
+                        <table id="myTable" class="table table-bordered display" >
+                            <thead >
+                                <tr>
+                                    <td ng-click="ordenar('dataCadastro')" width="30px" align="center">Data</td>
+                                    <td ng-click="ordenar('transportador.nome')" width="50px" align="center">Transportador</td>
+                                    <td ng-click="ordenar('valor')" width="30px" align="center">Valor</td>
+                                    <td ng-click="ordenar('cargaFracionada')" width="40px" align="center">Carga Fracionada</td>
+                                    <td align="center" width="15%">Ações</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="linha" align="center" dir-paginate="lance in listaDeLances|filter:procurar|orderBy:sortKey:reverse|itemsPerPage:5" pagination-id="paginationTransporte"">
+                                    <td class="sorting_1">{{lance.dataCadastro | date:'dd/MM/yyyy'}}</td>
+                                    <td><a ng-href="#/usuario/acessar-perfil/{{lance.transportador.id}}">{{lance.transportador.nome}}</a></td>
+                                    <td>{{lance.valor | currency:'R$'}}</td>
+                                    <td>{{lance.cargaFracionada == true ? 'Sim' : 'Não'}}</td>
+                                    <td>
+                                        <a ng-show="usuario.pessoa.id == anuncio.anunciante.id" ng-click="aceitarLance(lance, index)" href="" data-toggle="modal" data-target="#modalAviso"><img src="../img/accept.png" title="Aceitar lance"></a>
+                                        &nbsp;&nbsp;
+                                            <a ng-show="usuario.pessoa.id == lance.transportador.id" ng-click="cancelarLance(lance, index)" href="" data-toggle="modal" data-target="#modalAviso"><img title="Cancelar lance" src="../img/cancel.png"></a>
+                                        &nbsp;&nbsp;
+                                        <a href="" data-toggle="modal" data-target="#modalDarLance" ng-click="abrirFormLance(lance)"><img title="Visualizar" src="../img/search.png"></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <dir-pagination-controls pagination-id="paginationTransporte" max-size="5" auto-hide="false" direction-links="true" boundary-links="true" template-url="js/plugins/dirPagination.tpl.html"></dir-pagination-controls>
+                    </div>
+                </div>
+                <!-- <div class="card-perguntas"> -->
+                    <div class="perguntas">
+                        <div class="col-md-12 no-padding">
+                            <div class="row">
+                                <!-- <div class="form-group"> -->
+                                    <label>Perguntas ao Anunciante</label>
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                        <div class="col-md-12 no-padding">
+                            <div class="row">
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Escreva uma pergunta..." ng-model="pergunta.conteudo" rows="2" id="comment"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 no-padding">
+                            <div class="form-group">
+                                <span>Restam 2000 caracteres</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 no-padding">
+                            <div class="row">
+                                <div class="form-group">
+                                    <button id="perguntar" class="btn btn-primary" ng-click="perguntar()">Perguntar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 no-padding">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div ng-show="listaDePerguntas.length > 0" class="card-perguntas">
+                                            <div class="perguntas" ng-repeat="pergunta in listaDePerguntas" style="padding: 10px;">
+                                            <table >
+                                                <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="linha-pergunta">
+                                                        <td><img class="icon" src="img/chat.png" style="margin-right: 15px;"/></td>
+                                                        <td>{{pergunta.conteudo}}</td>
+                                                        <td ng-show="usuario.pessoa.id == anuncio.anunciante.id" style="margin-left: 15px;"> - 
+                                                        <a ng-href="#/usuario/acessar-perfil/{{pergunta.pessoa.id}}">  {{pergunta.pessoa.nome}}</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div ng-show="usuario.pessoa.id == anuncio.anunciante.id"><span>Responder</span></div>
+                                            <div style="margin-top: 10px;border: 1px dotted #ccc;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- </div> -->
+                <!-- Modal -->
+                <div id="modalDarLance" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                    <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Efetuar Lance</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="valor">Valor:</label>
+                                        <span class="asterisk">*</span>
+                                        <input type="number" required="" class="form-control" id="valor" placeholder="R$" ng-model="lance.valor" ng-class="{'error' : errorEmail == true}"  ng-blur="validaEmail()" required="" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="estimativa">Estimativa:</label>
+                                        <span class="asterisk">*</span>
+                                        <input type="number" required="" class="form-control" id="estimativa" placeholder="Dias" ng-model="lance.estimativa" ng-class="{'error' : errorEmail == true}"  ng-blur="validaEmail()" required="" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Carga Fracionada:</label>
+                                        <span class="asterisk"></span>
+                                        <div class="col-md-4 checkbox">
+                                        <input id="cargaFracionada" type="checkbox"  ng-model="lance.cargaFracionada">Sim
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Observação:</label>
+                                            <span class="asterisk"></span>
+                                            <textarea id="observacoes" class="form-control" required="" placeholder="Observações" ng-model="lance.observacoes" rows="5" id="observacao"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 col-md-offset-10">
+                                        <div class="form-group">
+                                            <button id="efetuarLance" class="btn btn-primary btn-right" ng-click="efetuarLance()">Efetuar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div id="modalAviso" class="modal fade" role="dialog" >
+                    <div class="modal-dialog">
+                    <!-- Modal content-->
+                        <div class="modal-content" style="width: 440px;">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Aviso</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p style="margin:0 0 20px 20px">{{mensagem}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-6 ">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <button id="efetuarLance" class="btn btn-primary btn-right" ng-click="cancelar()">Cancelar</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6" >
+                                        <div class="form-group">
+                                            <button style="width:82px;" id="efetuarLance" class="btn btn-primary btn-right" ng-click="ok()">Ok</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+</div>
+<script type="text/javascript">
+
+    imagemSelecionada = {};
+
+    mapOptions = {
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+    map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    directionsService = new google.maps.DirectionsService();
+
+    enderecoOrigem = "enderecoOrigem";
+    enderecoDestino = "enderecoDestino";
+</script>
+
+

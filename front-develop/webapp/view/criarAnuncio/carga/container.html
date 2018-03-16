@@ -1,0 +1,73 @@
+<link href="css/criarAnuncio/carga/container.css" rel="stylesheet">
+
+<div id="container" class="container" ng-init="init()">
+    <div class="title-pag">Criar Anúncio</div>
+    <div class="etapas">
+        <ul>
+            <li ng-class="{}"><b>1º | Categoria</b></li>
+            <li ng-class="{on : count==2}"><b>2º | Produto</b></li>
+            <li ng-class="{}"><b>3º | Entrega</b></li>
+        </ul>
+    </div>
+    <div class="titulocategorias">
+        <label>Preencha as informações do produto que será transportado.</label>
+    </div>
+    <form ng-submit="salvarItem()">
+        <div id="criarAnuncio">
+            <div class="cargaContainer">
+                <div class="anuncioBox">
+                    <div class="tituloanuncio">Carga - Container </div>
+                    <div class="col-md-12">
+                        <label>Tipo:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" placeholder="Tipo" id="tipoContainer" ng-model="anuncio.tipo" ng-blur="validarCampoObrigatorio('Tipo', '#tipoContainer')" required="" >
+                    </div>
+                    <div class="col-md-12">
+                        <label>Peso total da carga:</label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" placeholder="Peso (Ton)" id="pesoContainer" ng-model="anuncio.peso" ng-blur="validarCampoObrigatorio('Peso', '#pesoContainer')" required="" >
+                    </div>
+                    <div class="col-md-12">
+                        <label>Dimensões: </label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" placeholder="Altura(m)" id="alturaContainer" ng-model="anuncio.altura" ng-blur="validarCampoObrigatorio('Altura', '#alturaContainer')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" placeholder="Largura(m)" id="larguraContainer" ng-model="anuncio.largura" ng-blur="validarCampoObrigatorio('Largura', '#larguraContainer')" required="">
+                    </div>
+                    <div class="col-md-2">
+                    <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" placeholder="Comprimento(m)" id="comprimentoContainer" ng-model="anuncio.comprimento" ng-blur="validarCampoObrigatorio('Comprimento', '#comprimentoContainer')" required="">
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Observação:</label>
+                    </div>
+                    <div class="textoarea">
+                        <div class="col-md-12">
+							<textarea class="form-control" rows="2" placeholder="Observação ou instrução adicional (opcional)" ng-model="anuncio.observacao">
+							</textarea>
+                        </div>
+                    </div>
+                    <div class="fotos">
+                        <div class="col-md-6">
+                            <label for="foto1">Fotos:
+                            </label>
+                            <input type="file" alt="Foto" class="img-responsive img-thumbnail" ng-model="anuncio.perigosaFoto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary pull-right">Próximo</button>
+        <a href="#/anuncio/criar-anuncio" class="btn btn-primary pull-left">Voltar</a>
+
+
+    </form>
+
+
+</div>

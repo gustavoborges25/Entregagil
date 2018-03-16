@@ -1,0 +1,312 @@
+<link href="css/cadastroUsuario.css" rel="stylesheet">
+<div class="container" ng-init="init()">
+   	<div class="title-pag">Editar Perfil</div>
+	
+	<form name="myForm" ng-submit="salvar()">
+		
+		<!-- IMAGEM -->
+		<div class="col-md-2" >
+			<div>
+				<div class="row" style="padding-top:40px;">
+					<div class="col-md-12">
+						<div class="col-md-12" style="text-align:center">
+							<canvas id="meuCanvas" width="1100" height="1100" class="hidden"></canvas>
+							<img ng-model="foto" id="imgUsuario" class="img-responsive img-thumbnail" alt="Embedded Image" ng-src="{{pessoa.foto}}" width="120" height="120" />
+						</div>
+					</div>
+				</div>
+				<div class="row" style="text-align:center; padding-top:10px;">
+					<button class="btn btn-primary btn-sm btn-file">
+						<span class="glyphicon glyphicon-folder-open"></span>
+						<input type="file" name="imgUp" value="" id="imgUp" accept=".png">
+					</button>
+					<button class="btn btn btn-danger btn-sm" type="button" id="imgDelete">
+					<span class="glyphicon glyphicon-trash"></span></button>
+				</div>
+			</div>
+         </div>
+         <div class="col-md-10 primeiroTitulo">
+				<div class="title-pag">{{tipoForm=='fisica' ? 'Dados Pessoais' : 'Dados Empresariais'}}</div>
+			<div class="row espacoTitulo">
+				<div class="col-md-6" ng-show="tipoForm=='fisica'">
+				  <div class="form-group">
+				    <label for="nome">Nome</label>
+				    <span class="asterisk">*</span>
+				    <input type="text" class="form-control" id="nome" placeholder="" ng-model="pessoa.nome" 
+				    ng-required="tipoForm=='fisica'" ng-blur="validarCampo('nome', 'Nome')" disabled="">
+
+				  </div>
+				</div>
+				<div class="col-md-6" ng-show="tipoForm=='fisica'">
+				  <div class="form-group">
+				    <label for="sobrenome">Sobrenome</label>
+				    <span class="asterisk">*</span>
+				    <input type="text" class="form-control" id="sobrenome" placeholder="" ng-model="pessoa.sobrenome" ng-blur="validarCampo('sobrenome', 'Sobrenome')" ng-required="tipoForm=='fisica'" disabled="">
+				  </div>
+				</div>
+				<div class="col-md-6" ng-show="tipoForm=='juridica'">
+				  <div class="form-group">
+				    <label for="razaoSocial">Razao Social</label>
+				    <span class="asterisk">*</span>
+				    <input type="text" class="form-control" id="razaoSocial" placeholder="" ng-model="pessoa.razaoSocial" ng-required="tipoForm=='juridica'" disabled="">
+				  </div>
+				</div>
+				<div class="col-md-6" ng-show="tipoForm=='juridica'">
+				  <div class="form-group">
+				    <label for="fantasia">Fantasia</label>
+				    <span class="asterisk">*</span>
+				    <input type="text" class="form-control" id="fantasia" placeholder="" ng-model="pessoa.fantasia"
+				    ng-required="tipoForm=='juridica'" disabled="">
+				  </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6" ng-show="tipoForm=='fisica'">
+				  <div class="form-group">
+				    <label for="cpf">CPF</label>
+				    <span class="asterisk">*</span>
+				    <input type="text" class="form-control" id="cpf" placeholder="000.000.000-00" ng-model="pessoa.cpf" ng-required="tipoForm=='fisica'" disabled="">
+				  </div>
+				</div>
+				<div class="col-md-6" ng-show="tipoForm=='fisica'">
+				  <div class="form-group">
+				    <label for="rg">RG:</label>
+				    <span class="asterisk">*</span>
+				    <input type="text" class="form-control" id="rg" ng-model="pessoa.rg"
+				    ng-required="tipoForm=='fisica'" disabled="">
+				  </div>
+				</div>
+				<div class="col-md-6" ng-show="tipoForm=='juridica'">
+				  <div class="form-group">
+				    <label for="cnpj">CNPJ</label>
+				    <span class="asterisk">*</span>
+				    <input type="text" id="cnpj" placeholder="00.000.000/0000-00" ng-model="pessoa.cnpj" ng-required="tipoForm=='juridica'" disabled="" class="form-control">
+				  </div>
+				</div>
+				<div class="col-md-6" ng-show="tipoForm=='juridica'">
+				  <div class="form-group">
+				    <label for="inscricaoEstadual">Inscrição Estadual</label>
+				    <span class="asterisk">*</span>
+				    <input type="text" class="form-control" id="InscricaoEstadual" ng-model="pessoa.InscricaoEstadual" ng-required="tipoForm=='juridica'" disabled="">
+				  </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+				  <div class="form-group">
+				    <label for="telefone">Telefone</label>
+				    <input type="text" class="form-control phone" id="telefone" placeholder="(00) 0000-0000" ng-model="pessoa.telefone" ng-required="pessoa.celular ==''" >
+				  </div>
+				</div>
+				<div class="col-md-6">
+				  <div class="form-group">
+				    <label for="celular">Celular</label>
+				    <span class="asterisk">*</span>
+				    <input type="text" class="form-control phone" id="celular" placeholder="(00) 0000-00000" ng-model="pessoa.celular" ng-required="pessoa.telefone ==''"
+				    ng-blur="validarCampoObrigatorio('Celular', '#celular')" >
+				  </div>
+				</div>
+			</div>
+			<div class="title-pag">Endereço</div>
+			<div class="row espacoTitulo">
+				<div class="col-md-3 col-xs-6">
+					<div class="form-group">
+						<label for="cep">CEP:</label>
+						<span class="asterisk">*</span>
+			    		<input type="text" class="form-control" id="cep" placeholder="00.000-000" ng-model="pessoa.endereco.cep" ng-blur="buscaCep(pessoa.endereco.cep)" required=""
+			    		ng-blur="validarCampoObrigatorio('CEP', '#cep')" >
+	   				</div>
+	   			</div>
+	   			<div class="col-md-6" id="naoSeiMeuCep">
+	   				<div class="form-group">
+		   				<a target="_blank" href="http://m.correios.com.br/movel/buscaCepConfirma.do" >Não sei meu cep<span id="tooltipTrocarEmail" class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom"
+						   title="Você será redirecionado para o site dos correios para buscar seu cep."></span></a>
+					</div>
+				</div>
+			</div>
+   			<div class="row">
+				<div class="col-md-8">
+				  	<div class="form-group">
+				   	 	<label for="endereco">Endereço</label>
+				   	 	<span class="asterisk">*</span>
+				    	<input type="text" class="form-control" id="endereco" placeholder="" ng-model="pessoa.endereco.endereco" required=""
+				    	ng-blur="validarCampoObrigatorio('Endereço', '#endereco')">
+				  	</div>
+				</div>
+				<div class="col-md-4">
+				  	<div class="form-group">
+				    	<label for="numero">Número</label>
+				    	<span class="asterisk">*</span>
+				    	<input type="text" class="form-control" id="numero" placeholder="" ng-model="pessoa.endereco.numero" required=""
+				    	ng-blur="validarCampoObrigatorio('Número', '#numero')">
+				  	</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+				    	<label for="complemento">Complemento</label>
+				    	<input type="text" class="form-control" id="complemento" ng-model="pessoa.endereco.complemento" placeholder="">
+				  	</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+				    	<label for="bairro">Bairro</label>
+				    	<span class="asterisk">*</span>
+				    	<input type="text" class="form-control" id="bairro" placeholder="" ng-model="pessoa.endereco.bairro" ng-blur="validarCampoObrigatorio('Bairro', '#bairro')"
+				    	required="">
+				  	</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class='col-md-4'>
+					<label for="lista">Tipo Endereço</label>
+					<span class="asterisk">*</span>
+  						<select class="form-control" id="tipoEndereco" ng-model="pessoa.endereco.tipoEndereco" ng-required="pessoa.endereco.tipoEndereco == 'Selecione' || pessoa.endereco.tipoEndereco == undefined" ng-blur="validarCampoObrigatorio('Tipo Endereço', '#tipoEndereco')">
+  							<option value="">Selecione</option>
+						    <option>Apartamento</option>
+						    <option>Comercial</option>
+						    <option>Condomínio</option>
+						    <option>Chácara</option>
+						    <option>Residencial</option>
+						</select>
+				</div>	
+				<div class="col-md-2">
+					<div class="form-group">
+					<label for="uf">Estado</label>
+					<span class="asterisk">*</span>
+						<input id="estado" name="estado" class="form-control" ng-model="pessoa.endereco.estado" disabled="" ng-blur="validarCampoObrigatorio('Estado', '#estado')" >
+					</div>
+
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+					  	<label for="cidade">Cidade</label>
+					  	<span class="asterisk">*</span>
+						<input id="cidade" name="cidade" class="form-control" ng-model="pessoa.endereco.cidade" disabled="" ng-blur="validarCampoObrigatorio('Cidade', '#cidade')">
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+	     		<div class="col-md-12">
+		    		<button  type="submit" id="btn-alterar-usuario" class="pull-right btn btn-primary buttonEnviar" ng-disabled="userForm.$invalid" ng-click="salvar">Salvar</button>
+		 		</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+<script type="text/javascript" src="js/mask/jquery.mask.min.js"></script>
+<script type="text/javascript">
+	/*BOTAO FISICO/JURIDICO*/
+	$('.btn.btn-primary').click(function(){
+		$('.btn.btn-primary').removeClass('active');
+		$(this).addClass('active');
+	});
+</script>
+
+<script type="text/javascript"> 
+
+$(function($){
+   $("#data").mask("99/99/9999");
+   $("#telefone").mask("(00) 0000-00009");
+   $("#celular").mask("(00) 0000-00009");
+   $("#cpf").mask("999.999.999-99");
+   $("#cep").mask("99999-999"); 
+   $("#cnpj").mask("99.999.999/9999-99");
+   $("#rg").mask("00.000.000-0"); 
+   $("#numero").mask("000000"); 
+
+   var maskBehavior = function (val) {
+      return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+    },
+    options = {onKeyPress: function(val, e, field, options) {
+            field.mask(maskBehavior.apply({}, arguments), options);
+        }
+    };
+
+    $('.phone').mask(maskBehavior, options);
+
+});
+</script> 
+
+<script type="text/javascript">
+	
+
+    $("#imgUp").change(function () {
+    	console.log('imgUp change')
+        readImage(this)
+    });
+
+    function verificaTamanhoImagem(img) {
+    		console.log('verificaTamanhoImagem')
+        $(img).one("load", function () {
+            if ((img.height > 1100) || (img.width > 1100)) {
+                mboxResizeImage(img);
+            } else {
+                mudaPropriedade('#imgUsuario', 'src', img.src);
+                $('#base').val(img.src);
+            }
+        }).each(function () {
+            if (this.complete) $(this).load();
+        });
+    }
+
+
+    /*Funções js para carregar imagem*/
+    function readImage(input) {
+    	console.log('readImage')
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            var img = new Image();
+
+            reader.onload = function (e) {
+                $(img).attr('src', e.target.result);
+                $(img).prop('src', e.target.result);
+                verificaTamanhoImagem(img);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function mboxResizeImage(img) {
+        resizeImage(img);
+    }
+
+    function resizeImage(img) {
+        var newDataUri = newImageToDataUrl(img, "1100", "1100");
+
+        mudaPropriedade('#imgUsuario', 'src', newDataUri);
+        $('#base').val(newDataUri);
+    }
+
+    function newImageToDataUrl(img, width, height) {
+        var canvas = document.getElementById('meuCanvas'),
+        ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+        return canvas.toDataURL();
+    }
+
+    $("#imgDelete").click(function () {
+        var imagemVazia = base64ToDataUri("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");
+
+        mudaPropriedade('#imgUsuario', 'src', imagemVazia);
+        $('#base').val(imagemVazia);
+
+    });
+
+    function mudaPropriedade(idComponente, prop, valor) {
+        $(idComponente).attr(prop, valor);
+        $(idComponente).prop(prop, valor);
+    }
+
+    function base64ToDataUri(base64) {
+        return 'data:image/png;base64,' + base64;
+    }
+
+</script> 
+
+
+

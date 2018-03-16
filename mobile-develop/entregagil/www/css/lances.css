@@ -1,0 +1,144 @@
+.fundoLance{
+  background-color: #181818 !important;
+}
+.txtMenu{
+  color: #e3b519 !important;
+}
+.tabs-background-positive .tabs, .tabs-background-positive > .tabs .txtMenu {
+  border-color: #181818;
+}
+.tabs-top.tabs-striped .tab-item.tab-item-active, .tabs-top.tabs-striped .tab-item.active, .tabs-top.tabs-striped .tab-item.activated .txtMenu.active{
+  margin-top: 2px !important;
+  border-width: 0px 0px 6px 0px !important;
+  border-style: solid;
+  border-color: #e3b519 !important;
+}
+.cardlance{
+  margin: 0px !important;
+}
+.cardlance i {
+  color: #515353;
+}
+.cardlance .titulo{
+  font-size: 18px;
+  color: #04262e;
+}
+.cardlance span{
+  font-size: 16px;
+  margin-left: 5px;
+}
+.cardlance .icon:before{
+  font-size: 16px !important;
+}
+.boxImagem img{
+  max-width: 95px !important;
+  max-height: 95px !important;
+}
+.lances{
+  margin-top: 40px;
+}
+.slider-anuncio {
+  height: 205px;
+}
+#lance {
+  margin-top: 50px;
+}
+.titulo-anuncio {
+  font-size: 20px;
+  padding: 10px;
+}
+.detalhes i{
+  font-size: 16px!important;
+}
+.title.title-left.header-item {
+  color: #e3b519;
+}
+.bar-stable .button.button-clear {
+  color: #c49d1a;
+}
+<<<<<<< HEAD
+.efetuar {
+  background: #FFF;
+  display: block;
+  position: relative;
+  z-index: 999999;
+  top: 30px
+}
+.inline-input {
+  display: inline-block;
+  margin-left: 10px;
+  width: 46%;
+}
+.inline-input input {
+  border-bottom: 1px solid #CCC;
+  padding: 0!important;
+  margin: 0!important;
+  width: 100%;
+}
+.input-label {
+  width: 100%;
+}
+.input-label.flaticon-price-tag:before,.input-label.flaticon-calendar:before{
+  margin-left: 0!important;
+}
+.label-observacoes {
+  padding: 10px;
+  display: block;
+}
+.observacoes-lance {
+  width: 100%!important;
+  height: 80px!important;
+  border:1px solid #ccc!important;
+}
+#lances-anuncio {
+  margin-top: 305px;
+}
+.title.title-center.header-item {
+    text-align: left!important;
+    color: #e3b519!important;
+}
+.back-button span {
+    display: none!important;
+}
+.item-select {
+  border:0!important;
+}
+#checkin input[type="date"]{
+  border-bottom: 2px solid #ccc!important;
+}
+.scroll {
+    height: 100%;
+}
+#map {
+    width: 100%;
+    height: 100%;
+    margin-top: 175px;
+}
+.button.checkin {
+  position: absolute;
+  top: auto;
+  left: 50%;
+  width: 150px;
+  margin-left: -75px;
+  z-index: 99999;
+  bottom: 200px;
+}
+=======
+
+.cardesLances .cardlances a.itemcheck{
+  padding-top: 16px;
+  padding-left: 100px;
+}
+.cardesLances .cardlances .itemcheck div span{
+  font-size: 15px;
+  color: #6b6868;
+}
+
+.lances .card a.item h2{
+  margin-bottom: 6px;
+}
+.lances .card a.item div span{
+  font-size: 15px;
+  color: #6b6868;
+}
+>>>>>>> feature/issue#8766

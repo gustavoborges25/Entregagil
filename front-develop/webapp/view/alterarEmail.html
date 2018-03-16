@@ -1,0 +1,29 @@
+<div class="container" ng-init="init()">
+	<div class="title-pag" id="titulo">Alterar e-mail</div>
+<div class="box-alterar-email">
+		<form name="alterarEmail" ng-submit="salvar()">
+			<div class="row">				
+				<div class="col-xs-6 .col-md-4">
+					  <div class="form-group">
+					  	<label for="email">Novo e-mail</label>
+					    <input type="text" ng-class="{'error' : errorEmail == true}" class="form-control" id="novoEmail" ng-model="updateEmailUsuarioCommand.novoEmail" placeholder="Digite seu novo email"
+					     ng-blur="validaEmail('novoEmail')">
+					</div>
+				</div>
+			</div>
+			<div class="row">				
+				<div class="col-xs-6 .col-md-4">
+					  <div class="form-group">
+					  	<label for="email">Confirme seu e-mail</label>
+					    <input type="text" ng-class="{'error' : errorEmail == true}" ng-blur="validaEmailIguais()" class="form-control" id="confirmarEmail" ng-model="updateEmailUsuarioCommand.confirmarEmail" placeholder="Confirme seu novo email">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6" >
+					<button type="submit" ng-click="salvar()" class="btn btn-primary pull-right">Salvar</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

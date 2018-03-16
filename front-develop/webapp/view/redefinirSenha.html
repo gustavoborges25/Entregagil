@@ -1,0 +1,40 @@
+<div class="container" ng-init="init()">
+<div class="title-pag" id="titulo">Redefinir senha</div>
+    <div>
+        <form name="redefinirSenha" name="NovaSenha" ng-submit="testeSenha()">
+            <div class="row">
+                <div class="col-xs-6 .col-md-4">
+                  <div class="form-group">
+                    <label for="senha">Senha:</label>
+                    <span class="asterisk">*</span>
+                    <input type="password" ng-class="{'error' : errorSenha == true}" class="form-control" minlength="6" required="" ng-blur="validarTamanhoSenha(usuario.novaSenha)" maxlength="12" id="novasenha" ng-model="usuario.novaSenha" placeholder="Digite sua nova senha">
+                  </div>
+                </div>
+                <div class="col-xs-6 .col-md-4">
+                  <div class="form-group">
+                    <label for="confirmacaoSenha">Confirmação Senha:</label>
+                    <span class="asterisk">*</span>
+                    <input type="password" ng-class="{'error' : errorSenha == true}" ng-blur="validaSenha()" class="form-control"  minlength="6" required="" id="confirmarsenha" ng-model="usuario.confirmarSenha" placeholder="Confirme sua nova senha">
+                  </div>
+                </div>        
+            </div>
+            <div class="row">
+                <div class="col-md-1 btnRedefinirS" >
+                   <button  type="submit" class="btn btn-primary pull-right topEnviar" 
+                    ng-disabled="userForm.$invalid" id="btn-redefinir-senha-usuario">Salvar</button> 
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+ <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+    $('#novasenha').tooltip({ /*or use any other selector, class, ID*/
+    placement: "bottom",
+    trigger: "focus",
+    title: "Senha deve conter de 6 à 12 caracteres."
+});
+
+</script>

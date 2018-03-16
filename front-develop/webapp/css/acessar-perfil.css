@@ -1,0 +1,243 @@
+#perfilUsuario {
+	font-weight: 600;
+}
+#perfilUsuario #transportador .box, #anunciante .box {
+	margin: 5px;
+	border: 1px solid #000;
+}
+#anunciante {
+	margin-bottom: 40px;
+}
+#perfilUsuario .avaliacoes img {
+	max-width: 25px;
+}
+#perfilUsuario #perfil {
+	padding:20px 0;
+}
+#perfilUsuario .box {
+	padding: 0!important;
+}
+#perfilUsuario .avaliacoes {
+	text-align: center;
+	padding: 10px 0!important;
+	border-right: 1px solid ;
+}
+#perfilUsuario .avaliacoes span {
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-weight: 600;
+}
+#perfilUsuario .transportes, .anuncioQtd {
+	border-right: 1px solid;
+	height: 88px;
+	text-align: center;
+}
+#perfilUsuario .anuncioQtd span{
+	font-weight: 600;
+	font-size: 18px;
+	margin-top: 30px;
+	display: inline-block;
+}
+#perfilUsuario .info .desc {
+    margin-top: 5px;
+    border-top: 1px solid;
+    padding-top: 5px;
+}
+#perfilUsuario .transportes span {
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-weight: 600;
+}
+#perfilUsuario .transportes .qtd {
+	font-size: 35px;
+	margin-top: 7px;
+}
+#perfilUsuario .recomendacoes span {
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-weight: 600;
+	padding-top: 15px;
+}
+#perfilUsuario .selo {
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    top: -15px;
+    right: -10px;
+}#perfilUsuario
+
+.usuarioNome {
+    margin-top: -13px;
+    	color:#000;
+    font-size: 36px;
+}#perfilUsuario
+
+.negative {
+    width: 22px;
+    height: 22px;
+    top: 126px;
+    right: 321px;
+    float: left;
+}
+#perfilUsuario .denunciarPerfil a{
+	color:#000;
+	font-size: 16px;
+	float: left;
+	margin-left: 10px;
+	font-weight: 600;
+}
+#perfilUsuario .usuarioData {
+   color:#000;
+   font-size: 25px;
+	 margin-bottom: 20px;
+}#perfilUsuario
+
+.star {
+    width: 22px;
+    height: 22px;
+		display: inline-block;
+		margin: 3px 0;
+}
+#perfilUsuario ul.grafic {
+    padding: 0;
+    display: inline-block;
+    margin: 0 50px 0 20px;
+}
+#perfilUsuario ul.grafic li {
+	list-style: none;
+	display: inline-block;
+	height: 10px;
+	width: 25px;
+	padding: 0;
+	margin: -2px;
+}
+#perfilUsuario ul.grafic li:first-child {
+	background: red;
+}
+#perfilUsuario ul.grafic li:nth-child(2) {
+	background: orange;
+}
+#perfilUsuario ul.grafic li:nth-child(3) {
+	background: yellow;
+}
+#perfilUsuario ul.grafic li:nth-child(4) {
+	background: blue;
+}
+#perfilUsuario ul.grafic li:nth-child(5) {
+	background: green;
+}
+#perfilUsuario ul.grafic li.on {
+	border: 3px solid #000;
+  z-index: 99999;
+  height: 14px;
+  margin-top: 2px;
+  position: relative;
+  top: 2px;
+}
+#perfilUsuario .geral {
+	margin-top: 25px;
+	padding: 0;
+}
+#perfilUsuario .geral .pull-right {
+	margin-top: 0;
+}
+#perfilUsuario .geral span {
+	color:#000!important;
+}
+#perfilUsuario .geral .grafic {
+	float: right;
+}
+#perfilUsuario .info {
+	display: inline-block;
+	margin-top: 20px;
+	padding: 5px 0;
+}
+#perfilUsuario .info img {
+	display: inline-block;
+	max-width: 18px;
+	margin-right: 5px;
+}
+#perfilUsuario .info .stars {
+	display: inline-block;
+    margin: 0 10px;
+
+}
+#perfilUsuario .info .stars img {
+	width: 15px;
+    height: 15px;
+    float: none;
+    display: inline-block;
+    vertical-align: bottom;
+}
+#perfilUsuario .info .data {
+	display: inline-block;
+	float: right;
+}
+#perfilUsuario .pontuacao {
+	border:1px solid #232222;
+    background:#ccc6c6;
+    border-radius: 5px;
+    margin-top: 12px;
+    padding: 10px 0;
+}
+#perfilUsuario .pontuacao label {
+    float: left;
+    width: 100%;
+    margin-bottom: -14px;
+    font-weight: normal;
+    padding-left: 15px;
+    color:#000;
+}
+#perfilUsuario .slider.slider-horizontal .slider-selection {
+    background: transparent!important;
+    display: none!important;
+}
+#perfilUsuario .slider.slider-horizontal {
+	background: transparent;!important;
+	display: block;
+}
+#perfilUsuario .slider-track {
+	background: url(../img/bg-barra.png) center center no-repeat!important;
+	height: 20px;
+	box-shadow: none;
+}
+#perfilUsuario .range span {
+	margin-top: 20px;
+	display: block;
+}
+#perfilUsuario .tooltip-inner {
+	display: none;
+}
+#perfilUsuario .slider-handle {
+	display: none;
+}
+#perfilUsuario .tooltip.top .tooltip-arrow {
+	top: 44px!important;
+	border-width: 7px 7px 0!important;
+}
+#perfilUsuario a.closer {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+#perfilUsuario .checkbox {
+	padding-left: 0;
+}
+#perfilUsuario .modal-title {
+	font-weight: 600;
+}
+body {
+	padding:0!important;
+}
+.transportador.desc {
+	margin-top:10px!important;
+	padding-top:10px!important;
+}

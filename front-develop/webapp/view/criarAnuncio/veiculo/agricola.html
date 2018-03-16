@@ -1,0 +1,212 @@
+<link href="css/criarAnuncio/veiculo/carro.css" rel="stylesheet">
+<style type="text/css">
+  .mini-img {
+    display: inline-block;
+    width: 150px;
+    height: 135px;
+    padding: 0!important;
+    margin-right: 5px;
+  }
+  .mini-img div {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center; 
+  }
+  .ico-excluir {
+    position: absolute!important;
+    right: 0;
+    margin: 0;
+  }
+
+</style>
+
+<link href="css/criarAnuncio/veiculo/agricola.css" rel="stylesheet">
+
+<div id="agricola" class="container" ng-init="init()">
+    <div class="title-pag">Criar Anúncio</div>
+    <div class="etapas">
+        <ul>
+            <li ng-class="{}"><b>1º | Categoria</b></li>
+            <li ng-class="{on : count==2}"><b>2º | Produto</b></li>
+            <li ng-class="{}"><b>3º | Entrega</b></li>
+        </ul>
+    </div>
+    <div class="titulocategorias">
+        <label>Preencha as informações do produto que será transportado.</label>
+    </div>
+    <form ng-submit="salvarItem()">
+        <div id="criarAnuncio">
+            <div class="veiculoAgricola">
+                <div class="anuncioBox">
+                    <div class="tituloanuncio">Veículos - Agrícolas ou Construções</div>
+                    <div class="radiobuttonveiculos">
+                        <div class="col-md-12">
+                            <label>Tipo do Veículo:</label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.tipoAgricola" value="AGRICOLA" name="tipoAgricola" required>Agrícola
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.tipoAgricola" value="CONSTRUCAO" name="tipoAgricola" required>Construção
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Especificação:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="agricolaEspecificacao" placeholder="Trator, Colhedeira, Pulverizador, Pivot, Escavadeira, Niveladora..." ng-model="anuncio.especificacaoVeiculo" ng-blur="validarCampoObrigatorio('Especificação', '#agricolaEspecificacao')" required="">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Marca e modelo:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="agricolaMarca" placeholder="Marca" ng-model="anuncio.marca" ng-blur="validarCampoObrigatorio('Especificação', '#agricolaMarca')" required="">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="agricolaModelo" placeholder="Modelo" ng-model="anuncio.modelo" ng-blur="validarCampoObrigatorio('Especificação', '#agricolaModelo')" required="">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Está no reboque?</label>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="anuncio.noReboque" ng-value="true" name="noReboque" required>Sim
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="anuncio.noReboque" ng-value="false" name="noReboque" required>Não
+                        </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Observação:</label>
+                    </div>
+                    <div class="textoarea">
+                        <div class="col-md-12">
+                            <textarea class="form-control" rows="2" id="obs" ng-model="anuncio.observacao" placeholder="Observação ou instrução adicional (opcional)" ></textarea>
+                        </div>
+                    </div>
+
+                    <!-- IMAGEM -->
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="col-md-2" style="margin-top:20px;">
+                            <button style="color: #155969;padding: 35px 0 35px 0;border: dotted;width: 137px;" class="btn-file">
+                                <i class="glyphicon glyphicon-camera" style="width: 130px; font-size:37px; color: #155969;"></i>
+                                <input type="file" name="imgUp" value="" id="imgUp">
+                                Adicionar Imagem 
+                            </button>
+                        </div>
+
+                        <div class="col-md-10"" id="foto">
+                            
+                        </div>  
+                      </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary pull-right">Próximo</button>
+        <a href="#/anuncio/criar-anuncio" class="btn btn-primary pull-left">Voltar</a>
+
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        idFoto = 'imgAnuncio';
+        count = 0;
+        styleButton = 301;
+    });
+
+    function inserirImagem() {
+        count++;
+
+        var idDiv = 'divImagem' + count;
+        var addDiv = $('<div class="col-md-2 mini-img"></div>');
+        addDiv.attr('id', idDiv);
+
+        var addImg = $('<div style="margin-top:20px;" id="imgAnuncio" required="" alt="Foto" class="img-thumbnail img-responsive" ng-model="itemDoAnuncio.fotos"> </div>');
+
+        var addButton = $('<button onclick="deleteImage(id)" class="btn btn btn-danger btn-sm ico-excluir" type="button"><span class="glyphicon glyphicon-trash"></span></button>');
+
+        addDiv.attr('id', 'divImagem' + count);
+        addImg.attr('id', 'imgAnuncio' + count);
+        addButton.attr('id', 'imgDelete' + count);
+        styleButton +=140;
+
+        addDiv.appendTo('#foto');
+        addImg.appendTo('#' + idDiv);
+        addButton.appendTo('#' + idDiv);   
+    }
+
+    $("#imgUp").change(function () {
+
+        inserirImagem();
+        readImage(this);
+  });
+
+  function verificaTamanhoImagem(img) {
+      $(img).one("load", function () {
+          if ((img.height > 1100) || (img.width > 1100)) {
+              mboxResizeImage(img);
+          } else {
+            console.log('#imgAnuncio' + count);
+              mudaPropriedade('#imgAnuncio' + count, 'src', img.src);
+              $('#base').val(img.src);
+          }
+      }).each(function () {
+          if (this.complete) $(this).load();
+      });
+  }
+  /*Funções js para carregar imagem*/
+  function readImage(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          var img = new Image();
+
+          reader.onload = function (e) {
+            console.log("readImage");
+              $(img).attr('src', e.target.result);
+
+              verificaTamanhoImagem(img);
+          }
+
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+  function mboxResizeImage(img) {
+      resizeImage(img);
+  }
+  function resizeImage(img) {
+      var newDataUri = newImageToDataUrl(img, "500", "500");
+      console.log('#imgAnuncio' + count);
+      mudaPropriedade('#imgAnuncio' + count, 'img.src', newDataUri);
+      $('#base').val(newDataUri);
+  }
+  function newImageToDataUrl(img, width, height) {
+      var canvas = document.getElementById('meuCanvas'),
+      ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, width, height);
+      return canvas.toDataURL();
+  }
+  function deleteImage (item) {
+      var indice = item.substring(9, 10);
+      var divImagem = 'divImagem' + indice;
+
+      $('#' + divImagem).remove(); 
+  }
+  function mudaPropriedade(idComponente, prop, valor) {
+      fotos.push(valor);
+      $(idComponente).css('background-image', 'url(' + valor + ')');
+  }
+  function base64ToDataUri(base64) {
+      return 'data:image/png;base64,' + base64;
+  }
+
+</script>

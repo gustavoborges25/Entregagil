@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="anuncios">
+        <div class="title">
+            <span>Anúncios</span>
+            <a class="right carousel-control hidden-xs hidden-sm " href="#myCar" role="button" data-slide="next"></a>
+            <a class="left carousel-control hidden-xs hidden-sm" href="#myCar" role="button" data-slide="prev"></a>
+        </div>
+        <div id="myCar" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+
+                    <div class="col-md-3 box-anuncio" ng-repeat="anuncio in anuncios">
+                        <div class="img" style="background: url({{ anuncio.fotos[0]}}) center center no-repeat">
+                            <div class="data">Expira em {{calculaValidadeAnuncio(anuncio)}} dias</div>
+                        </div>
+                        <div class="nome">{{anuncio.titulo}}</div>
+                        <div class="origem">{{anuncio.enderecoOrigem.cidade}}</div>
+                        <div class="destino">{{anuncio.enderecoDestino.cidade}}</div>
+                        <div class="detalhes"><a ng-href="#/anuncio-detalhe/{{anuncio.id}}">Detalhes</a></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div ng-show="anuncios.length == 0"><p>Nenhum anúncio encontrado!</p></div>
+    </div>
+</div>

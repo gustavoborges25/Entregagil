@@ -1,0 +1,77 @@
+<link href="css/criarAnuncio/carga/completa.css" rel="stylesheet">
+
+<div id="completa" class="container" ng-init="init()">
+    <div class="title-pag">Criar Anúncio</div>
+    <div class="etapas">
+        <ul>
+            <li ng-class="{}"><b>1º | Categoria</b></li>
+            <li ng-class="{on : count==2}"><b>2º | Produto</b></li>
+            <li ng-class="{}"><b>3º | Entrega</b></li>
+        </ul>
+    </div>
+    <div class="titulocategorias">
+        <label>Preencha as informações do produto que será transportado.</label>
+    </div>
+    <form ng-submit="salvarItem()">
+        <div id="criarAnuncio">
+            <div class="cargaCompleta">
+                <div class="anuncioBox">
+                    <div class="tituloanuncio">Carga - Completa </div>
+                    <div class="col-md-12">
+                        <label>Tipo da carga:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="tipoCompleta" ng-model="anuncio.tipo" ng-blur="validarCampoObrigatorio('Tipo', '#tipoCompleta')" required="" placeholder="Batida, Paletizada..."  >
+                    </div>
+                    <div class="col-md-12">
+                        <label>Nescessário pagar descarga:</label>
+                    </div>
+                    <div class="col-md-1">
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="anuncio.precisaPagarDescarga" ng-value="true" name="precisaPagarDescarga" required>Sim
+                        </label>
+                    </div>
+                    <div class="col-md-1">
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="anuncio.precisaPagarDescarga" ng-value="false" name="precisaPagarDescarga" required>Não
+                        </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Embalagem:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="embalagemCompleta" ng-model="anuncio.embalagem" placeholder="Embalagem (Caixa, Palete, Fardo, Sacola..." ng-blur="validarCampoObrigatorio('Tipo', '#embalagemCompleta')" required="" >
+                    </div>
+                    <div class="col-md-12">
+                        <label>Peso total da carga: </label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="completaPesoCarga" ng-model="anuncio.peso"  placeholder="Peso(Ton)" ng-blur="validarCampoObrigatorio('Tipo', '#completaPesoCarga')" required="">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Observação:</label>
+                    </div>
+                    <div class="textoarea">
+                        <div class="col-md-12">
+							<textarea class="form-control" rows="2" placeholder="Observação ou instrução adicional (opcional)" ng-model="anuncio.observacao" >
+							</textarea>
+                        </div>
+                    </div>
+                    <div class="fotos">
+                        <div class="col-md-6">
+                            <label for="foto1">Fotos:
+                            </label>
+                            <input type="file" alt="Foto" class="img-responsive img-thumbnail" ng-model="item.completaFoto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary pull-right">Próximo</button>
+        <a href="#/anuncio/criar-anuncio" class="btn btn-primary pull-left">Voltar</a>
+
+    </form>
+
+
+</div>

@@ -1,0 +1,531 @@
+<!--CSS PÁGINA  E JS -->
+<link href="css/criarAnuncio/criarAnuncio.css" rel="stylesheet">
+<link href="icones/flaticon.css" rel="stylesheet">
+<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/mask/maskedinput.js"></script>
+<script type="text/javascript" src="js/mask/jquery.mask.min.js"></script>
+<!--CSS PÁGINA  E JS -->
+
+<div id="criarAnuncio" class="container" ng-init="init()">
+	<div class="title-pag">Criar Anúncio</div>
+	<div class="etapas">
+		<ul>
+			<li ng-class="{on : count==1}"><b>1º | Categoria</b></li>
+			<li ng-class="{}"><b>2º | Produto</b></li>
+			<li ng-class="{on : count==3}"><b>3º | Entrega</b></li>
+		</ul>
+	</div>
+	<form ng-submit="salvar()">
+		<div class="etapa" ng-show="count==1">
+			<div class="categorias">
+				<div class="titulocategorias">
+						<label>Escolha a categoria do produto que será transportado e também a sub-categoria.</label>
+				</div>
+			   <ul>
+			    	<li>
+			      	<div class="categoria">
+				      	<i class="flaticon-vehicle-steering-wheel"></i>
+				        <span>Veículo</span>
+			         </div>
+			         <div class="options">
+			         		<div class="checkbox">
+							   <label>
+							   		<input type="checkbox" id="0c533cbc-e223-4612-a307-eb5a7093a86d" ng-click="addSubcategoria('0c533cbc-e223-4612-a307-eb5a7093a86d', '/anuncio/veiculo/carro/carro')" > Carros e Caminhonetes
+							   </label>
+						  	</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="f29bce58-ba64-4cb0-81e6-7441448e5c93" ng-click="addSubcategoria('f29bce58-ba64-4cb0-81e6-7441448e5c93', '/anuncio/veiculo/moto/moto')"> Motos
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="a1c0a1ad-4076-4851-b50c-5bc4b751670d" ng-click="addSubcategoria('a1c0a1ad-4076-4851-b50c-5bc4b751670d', '/anuncio/veiculo/barco/barco')"> Barcos
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="e68357cf-70b3-4260-bbcc-05177e6d67a1" ng-click="addSubcategoria('e68357cf-70b3-4260-bbcc-05177e6d67a1', '/anuncio/veiculo/caminhao/caminhao')"> Caminhões
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="20d6902a-4469-4b90-bcae-9baff31c952a" ng-click="addSubcategoria('20d6902a-4469-4b90-bcae-9baff31c952a', '/anuncio/veiculo/agricola/agricola')"> Agrícolas e Construções
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="f6d9525a-16f8-4f26-8ef6-f13962605901" ng-click="addSubcategoria('f6d9525a-16f8-4f26-8ef6-f13962605901', '/anuncio/veiculo/esporte/esporte')"> Esportes (Bike, Skate...)
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="8f79a960-bf08-4508-8daa-2fbda4af2e85" ng-click="addSubcategoria('8f79a960-bf08-4508-8daa-2fbda4af2e85', '/anuncio/veiculo/peca/peca')"> Peças
+								</label>
+							</div>
+					 </div>
+			     	</li>
+		        	<li>
+		        		<div class="categoria">
+			            <i class="flaticon-pc-computer-with-monitor"></i>
+			            <span>Doméstico</span>
+		            </div>
+			            <div class="options">
+			            	<div class="checkbox">
+							   	<label>
+							      	<input type="checkbox" id="737cb317-2640-44ba-9dca-193136b67246" ng-click="addSubcategoria('737cb317-2640-44ba-9dca-193136b67246', '/anuncio/domestico/eletronico')"> Eletrônicos
+							    </label>
+					  		</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="602e932b-4e89-4c75-ad79-2a847b102945" ng-click="addSubcategoria('602e932b-4e89-4c75-ad79-2a847b102945', '/anuncio/domestico/eletronico')"> Eletrodomésticos
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="0a13f72e-1ee1-4e3d-9fcf-5cea66956410" ng-click="addSubcategoria('0a13f72e-1ee1-4e3d-9fcf-5cea66956410', '/anuncio/domestico/eletronico')"> Eletroportáteis
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="7c2036c1-686a-4989-9e40-ad55c962b26e" ng-click="addSubcategoria('7c2036c1-686a-4989-9e40-ad55c962b26e', '/anuncio/domestico/eletronico')"> Móveis
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="cc67371e-6ded-4b68-9a45-115ba21e11b0" ng-click="addSubcategoria('cc67371e-6ded-4b68-9a45-115ba21e11b0', '/anuncio/telefonia/telefonia')"> Telefonia e Celular
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="e0b776d9-35fa-4337-98d2-660f61690ee2" ng-click="addSubcategoria('e0b776d9-35fa-4337-98d2-660f61690ee2', '/anuncio/domestico/eletronico')"> Computadores
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="59f301c7-d743-4d5f-a164-200bebc8d6e2" ng-click="addSubcategoria('59f301c7-d743-4d5f-a164-200bebc8d6e2', '/anuncio/domestico/eletronico')"> Acessórios
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+										<input type="checkbox" id="be7fe57d-6941-43c5-b4f9-1a49ca60f9b2" ng-click="addSubcategoria('be7fe57d-6941-43c5-b4f9-1a49ca60f9b2', '/anuncio/animal/animal')"> Animais
+								</label>
+							</div>
+						</div>
+		      	</li>
+			      <li>
+		        		<div class="categoria">
+			         	<i class="flaticon-refrigerator"></i>
+			         	<span>Mudança</span>
+		          	</div>
+		          	<div class="options">
+		            	<div class="checkbox">
+						   	<label>
+						    		<input type="checkbox" id="315ca285-235d-4cef-9aa4-07fec2d939df" ng-click="addSubcategoria('315ca285-235d-4cef-9aa4-07fec2d939df' , '/anuncio/mudanca/residencial/casa')"> Casa
+						    	</label>
+					  		</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="63a3a05f-dee3-498d-85af-327b874dd56d" ng-click="addSubcategoria('63a3a05f-dee3-498d-85af-327b874dd56d', '/anuncio/mudanca/sobrado/sobrado')"> Sobrado
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="5d5315e1-ebd6-42f0-b8d9-d786a7aca29b" ng-click="addSubcategoria('5d5315e1-ebd6-42f0-b8d9-d786a7aca29b', '/anuncio/mudanca/apartamento/apartamento')"> Apartamento
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="7e1442da-2db7-4e4b-a86b-77d74700d73d" ng-click="addSubcategoria('7e1442da-2db7-4e4b-a86b-77d74700d73d' , '/anuncio/mudanca/apartamento/apartamento')"> Kitnet
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="e7150f86-846a-4fb1-ba80-1a67879cb172" ng-click="addSubcategoria('e7150f86-846a-4fb1-ba80-1a67879cb172', '/anuncio/mudanca/escritorio/escritorio')"> Escritório
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="bf802eed-9804-4996-aecb-1c740582374b" ng-click="addSubcategoria('bf802eed-9804-4996-aecb-1c740582374b', '/anuncio/mudanca/industrial/industria')"> Indústria
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="315311de-a017-4277-8326-21d9bf929b32" ng-click="addSubcategoria('315311de-a017-4277-8326-21d9bf929b32', '/anuncio/mudanca/comercial/comercio')"> Comércio
+								</label>
+							</div>
+						</div>
+			      </li>
+			      <li>
+			        	<div class="categoria">
+				          <i class="flaticon-sofa"></i>
+				        	<span>Carga</span>
+			         </div>
+			         <div class="options">
+			           	<div class="checkbox">
+							  	<label>
+							    	<input type="checkbox" id="e8d11b33-5523-4379-aea1-472af73fc5a9" ng-click="addSubcategoria('e8d11b33-5523-4379-aea1-472af73fc5a9', '/anuncio/carga/fracionada/carga_fracionada')"> Fracionada
+							   </label>
+						  	</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="1b810244-a5e5-433b-b4e6-8e5af2372edd" ng-click="addSubcategoria('1b810244-a5e5-433b-b4e6-8e5af2372edd', '/anuncio/carga/completa/carga_completa')"> Completa
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="10faf400-7103-48c8-9ef4-bb844632beb0" ng-click="addSubcategoria('10faf400-7103-48c8-9ef4-bb844632beb0' , '/anuncio/carga/carga_agricola')"> Agrícola (Graneleiro)
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="6b22f07c-8806-4f94-9ed1-e624d1ac0ad9" ng-click="addSubcategoria('6b22f07c-8806-4f94-9ed1-e624d1ac0ad9', '/anuncio/carga/carga_agricola')"> Perecível
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="54cd3d61-ff9a-43d7-bbd0-8c905ddd2993" ng-click="addSubcategoria('54cd3d61-ff9a-43d7-bbd0-8c905ddd2993', '/anuncio/carga/carga_agricola')"> Viva
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="5b1626de-d933-46ba-bd34-45a8e33cd8f9" ng-click="addSubcategoria('5b1626de-d933-46ba-bd34-45a8e33cd8f9', '/anuncio/carga/fragil/carga_fragil')"> Frágil
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+										<input type="checkbox" id="ab173fd6-4b11-46ee-a256-99c407f4700f" ng-click="addSubcategoria('ab173fd6-4b11-46ee-a256-99c407f4700f', '/anuncio/carga/carga_agricola')"> Perigosa (Gás, Combustível...)
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="05c6cc0f-3cf0-49a2-8f32-269e8aa1dd02" ng-click="addSubcategoria('05c6cc0f-3cf0-49a2-8f32-269e8aa1dd02', '/anuncio/carga/container/container')"> Contêiner
+								</label>
+							</div>
+						</div>
+			      </li>
+			      <li>
+			      	<div class="categoria">
+				      	<i class="flaticon-cube"></i>
+				      	<span>Outros</span>
+			      	</div>
+			      	<div class="options">
+			         	<div class="checkbox">
+							   <label>
+							   	<input type="checkbox" id="201d0a52-fca0-43a5-9193-03a86513d08f" ng-click="addSubcategoria('201d0a52-fca0-43a5-9193-03a86513d08f', '/anuncio/outro' )"> Outros
+							   </label>
+						  	</div>
+						</div>
+			      </li>
+			   </ul>
+			</div>
+		</div>
+		<div class="etapa" ng-show="count==3">
+			<div class="titulocategorias">
+					<label>Preencha as informações referentes à entrega.</label>
+			</div>
+			<div class="dadosEntrega">
+				<div class="anuncioBox">
+					<div class="tituloanuncio">Dados de Entrega</div>
+					<div class="col-md-5">
+						<div class="form-group">
+					  		<label for="nomeAnuncio">
+					  			Título do Anúncio:
+					  		</label>
+							<input id="nomeAnuncio" name="nomeAnuncio" class="form-control" ng-model="anuncio.titulo" ng-blur="validarCampoObrigatorio('Nome do Anuncio', '#nomeAnuncio')">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-2">
+							<div class="form-group">
+							  	<label for="dataValidade">
+							  		Data Validade:
+						  		</label>
+								<input id="dataValidade" type="date" name="dataValidade" class="form-control" ng-model="anuncio.dataValidade" ng-blur="validarCampoObrigatorio('Data de Validade', '#dataValidade')">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="enderecoOrigem">
+				<div class="anuncioBox">	
+					<div class="tituloanuncio">Endereço de Origem</div>
+					<div class="row">
+						<div class="col-md-5">
+							<div class="form-group">
+							  	<label for="contatoOrigem">
+							  		Contato Origem:
+							  	</label>
+								<input id="contatoOrigem" name="contatoOrigem" class="form-control" ng-model="anuncio.contatoOrigem" ng-blur="validarCampoObrigatorio('Contato no Endereço de Origem', '#contatoOrigem')">
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="form-group">
+							  	<label for="telefoneOrigem">
+							  		Telefone Origem:
+							  	</label>
+								<input id="telefoneOrigem" name="telefoneOrigem" class="form-control" ng-model="anuncio.telefoneOrigem" placeholder="(00) 0000-0000" ng-blur="validarCampoObrigatorio('Telefone do Contato no Endereço de Origem', '#telefoneOrigem')">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<div class="checkbox">
+								<label>
+									<input ng-disabled="checkEnderecoDestino" type="checkbox" class="checkbox" ng-model="checkEnderecoOrigem" ng-change="adicionaProprioEndereco('origem', '#cepOrigem')"> Usar próprio endereço
+								</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-2">
+							<div class="form-group">
+								<label for="cepOrigem">
+									CEP:
+								</label>
+					    		<input type="text" class="form-control" ng-model="anuncio.enderecoOrigem.cep" placeholder="00.000-000" id="cepOrigem" ng-blur="buscaCep(anuncio.enderecoOrigem.cep, 'origem', '#cepOrigem')" required="">
+			   				</div>
+			   			</div>
+							<div class="col-md-6" id="naoSeiMeuCep">
+			   				<div class="form-group">
+				   				<a target="_blank" href="http://m.correios.com.br/movel/buscaCepConfirma.do">Não sei meu cep<span id="tooltipTrocarEmail" class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Você será redirecionado para o site dos correios para buscar seu cep."></span></a>
+							</div>
+						</div>
+		   		</div>
+		   		<div class="row">
+						<div class="col-md-5">
+						  	<div class="form-group">
+						   	 	<label for="endereco">
+						   	 		Endereço:
+						   	 	</label>
+						    	<input type="text" class="form-control" ng-model="anuncio.enderecoOrigem.endereco" placeholder="" name="enderecoOrigem" id="enderecoOrigem" ng-blur="validarCampoObrigatorio('Endereço de Origem', '#enderecoOrigem')">
+						  	</div>
+						</div>
+						<div class="col-md-2">
+						  	<div class="form-group">
+						    	<label for="numero">
+						    		Número:
+						    	</label>
+						    	<input type="text" class="form-control" name="numeroOrigem" ng-model="anuncio.enderecoOrigem.numero" id="numeroOrigem" placeholder="" ng-blur="validarCampoObrigatorio('Numero do Endereçoo', '#numeroOrigem')" >
+						  	</div>
+						</div>
+						<div class="col-md-5">
+							<div class="form-group">
+						    	<label for="complemento">
+						    		Complemento:
+						    	</label>
+						    	<input type="text" class="form-control" ng-model="anuncio.enderecoOrigem.complemento" placeholder="">
+						  	</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<div class="form-group">
+						    	<label for="bairro">
+						    		Bairro:
+						    	</label>
+						    	<input type="text" class="form-control" id="bairroOrigem" name="bairroOrigem" ng-model="anuncio.enderecoOrigem.bairro" placeholder=""  ng-blur="validarCampoObrigatorio('Bairro do Endereço', '#bairroOrigem')">
+						  	</div>
+						</div>
+						<div class='col-md-2'>
+							<label for="lista">Tipo Endereço</label>
+							<span class="asterisk">*</span>
+		  						<select class="form-control" id="tipoEndereco" ng-model="anuncio.enderecoOrigem.tipoEndereco" ng-required="usuario.tipoEndereco == 'Selecione' || usuario.tipoEndereco == undefined" ng-blur="validarCampoObrigatorio('Tipo Endereço', '#tipoEndereco')">
+		  							<option value="">Selecione</option>
+								    <option>Apartamento</option>
+								    <option>Comercial</option>
+								    <option>Condomínio</option>
+								    <option>Chácara</option>
+								    <option>Residencial</option>
+								</select>
+						</div>
+						<div class="col-md-1">
+							<div class="form-group">
+							  	<label for="uf">	
+							  		UF:
+							  	</label>
+								<input disabled="" id="estadoOrigem" name="estadoOrigem" class="form-control" ng-model="anuncio.enderecoOrigem.estado" ng-blur="validarCampoObrigatorio('Estado de Origem', '#estadoOrigem')" >
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+							  	<label for="cidade">
+							  		Cidade:
+							  	</label>
+								<input disabled="" name="cidadeOrigem" id="cidadeOrigem" class="form-control" ng-model="anuncio.enderecoOrigem.cidade" ng-blur="validarCampoObrigatorio('Cidade de Origem', '#cidadeOrigem')" >
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+			</div>
+			<div class="enderecoDestino">
+				<div class="anuncioBox">
+						<div class="tituloanuncio">Endereço de Destino</div>
+						<div class=row>
+						<div class="col-md-3">
+							<div class="form-group">
+							  	<label for="contatoDestino">
+							  		Contato Destino:
+							  	</label>
+								<input id="contatoDestino" name="contatoDestino" class="form-control" ng-model="anuncio.contatoDestino" ng-blur="validarCampoObrigatorio('Contato de Destino', '#contatoDestino')" >
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+							  	<label for="telefoneDestino">
+							  		Telefone Destino:
+							  	</label>
+								<input id="telefoneDestino" name="telefoneDestino" class="form-control" ng-model="anuncio.telefoneDestino" placeholder="(00) 0000-0000" ng-blur="validarCampoObrigatorio('Telefone do Contato no Endereço de Destino', '#telefoneDestino')">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<div class="checkbox">
+								<label>
+									<input ng-disabled="checkEnderecoOrigem" type="checkbox" class="checkbox" ng-model="checkEnderecoDestino" ng-change="adicionaProprioEndereco('destino', '#cepDestino')"> Usar próprio endereço
+								</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+					<div class="col-md-2">
+						<div class="form-group">
+							<label for="cepDestino">
+								CEP:
+							</label>
+							<input type="text" class="form-control" ng-model="anuncio.enderecoDestino.cep" placeholder="00.000-000" id="cepDestino" ng-blur="buscaCep(anuncio.enderecoDestino.cep, 'destino', '#cepDestino')" required="">
+			   				</div>
+
+			   			</div>
+							<div class="col-md-6" id="naoSeiMeuCep">
+			   				<div class="form-group">
+				   				<a target="_blank" href="http://m.correios.com.br/movel/buscaCepConfirma.do">Não sei meu cep<span id="tooltipTrocarEmail" class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Você será redirecionado para o site dos correios para buscar seu cep."></span></a>
+							</div>
+						</div>
+		   			</div>
+		   			<div class="row">
+						<div class="col-md-5">
+						  	<div class="form-group">
+						   	 	<label for="endereco">
+						   	 		Endereço:
+						   	 	</label>
+						    	<input type="text" id="enderecoDestino" name="enderecoDestino" class="form-control" ng-model="anuncio.enderecoDestino.endereco" placeholder="" ng-blur="validarCampoObrigatorio('Endereco de Destino', '#enderecoDestino')" >
+						  	</div>
+						</div>
+						<div class="col-md-2">
+						  	<div class="form-group">
+						    	<label for="numero">
+						    		Número:
+						    	</label>
+						    	<input type="text" class="form-control" id="numeroDestino" name="numeroDestino" ng-model="anuncio.enderecoDestino.numero" placeholder="" ng-blur="validarCampoObrigatorio('Numero do Endereco', '#numeroDestino')" >
+						  	</div>
+						</div>
+						<div class="col-md-5">
+							<div class="form-group">
+									<label for="complemento">
+										Complemento:
+									</label>
+									<input type="text" class="form-control" ng-model="anuncio.enderecoDestino.complemento" placeholder="">
+								</div>
+						</div>
+					</div>
+					<div class="row">
+
+						<div class="col-md-5">
+							<div class="form-group">
+						    	<label for="bairro">
+						    		Bairro:
+						    	</label>
+						    	<input type="text" class="form-control" id="bairroDestino" name="bairroDestino" ng-model="anuncio.enderecoDestino.bairro" placeholder=""  ng-blur="validarCampoObrigatorio('Bairro Destino', '#bairroDestino')">
+						  	</div>
+						</div>
+						<div class='col-md-2'>
+							<label for="lista">Tipo Endereço</label>
+							<span class="asterisk">*</span>
+		  						<select class="form-control" id="tipoEndereco" ng-model="anuncio.enderecoDestino.tipoEndereco" ng-required="usuario.tipoEndereco == 'Selecione' || usuario.tipoEndereco == undefined" ng-blur="validarCampoObrigatorio('Tipo Endereço', '#tipoEndereco')">
+		  							<option value="">Selecione</option>
+								    <option>Apartamento</option>
+								    <option>Comercial</option>
+								    <option>Condomínio</option>
+								    <option>Chácara</option>
+								    <option>Residencial</option>
+								</select>
+						</div>
+						<div class="col-md-1">
+							<div class="form-group">
+							  	<label for="uf">
+							  		UF:
+							  	</label>
+								<input disabled="" id="estadoDestino" name="estadoDestino" class="form-control" ng-model="anuncio.enderecoDestino.estado" ng-blur="validarCampoObrigatorio('Estado Destino', '#estadoDestino')">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+							  	<label for="cidade">
+							  		Cidade:
+							  	</label>
+								<input disabled="" id="cidadeDestino" name="cidadeDestino" class="form-control" ng-model="anuncio.enderecoDestino.cidade" ng-blur="validarCampoObrigatorio('Cidade Destino', '#cidadeDestino')">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+
+			</div>
+		</div>
+    	
+		<div class="col-md12">
+			<div ng-show="count==1">
+				<button type="button" ng-click="validaSeTemSubcategoriaEscolhida()" class="btn btn-primary pull-right">Próximo</button>
+			</div>
+			<div ng-show="count==3">
+				<button type="button" ng-click="salvar()" class="btn btn-primary pull-right">Finalizar</button>
+				<button type="button" ng-click="voltar()" class="btn btn-primary pull-left">Voltar</button>
+			</div>
+		</div>
+	</form>
+	
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		$('.categoria').click(function(){
+			$(this).parent().find('.options').toggleClass('on');
+		});
+	});
+</script>
+
+<script type="text/javascript">
+	$(function(){
+		$('.formItem').click(function(){
+			$(this).parent().find('.mudancaItens').toggleClass('on');
+		});
+	});
+</script>
+
+<script>
+	$(function(){
+	   $("#telefoneOrigem").mask("(00) 0000-00009");
+	   $("#telefoneDestino").mask("(00) 0000-00009");
+
+	    var maskBehavior = function (val) {
+	      return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+	    },
+	    options = {onKeyPress: function(val, e, field, options) {
+	            field.mask(maskBehavior.apply({}, arguments), options);
+	        }
+	    };
+		$('.phone').mask(maskBehavior, options);
+
+		$(document).ready(function(){
+		    $('[data-toggle="tooltip"]').tooltip();
+		});
+
+	});
+</script>

@@ -1,0 +1,86 @@
+<ion-view view-title="Notificação" ng-init="tab=1">
+  <link rel="stylesheet" type="text/css" href="css/lances.css">
+  <link rel="stylesheet" type="text/css" href="css/notificacoes.css">
+
+  <ion-nav-bar class="bar-stable menuLances">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon icoMenu" menu-toggle="left"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <div class="button button-icon button-clear flaticon-alarm-bell icoMenu">
+        <span class="num badge badge-assertive badgeNot">4</span>          
+      </div>
+    </ion-nav-buttons>
+</ion-nav-bar>
+
+  <ion-content>
+    <div class="checkin">
+      <div class="checkincard">
+        <div class="card">
+          <a class="item item-thumbnail-left" href="#/app/lance">
+            <img class="item-image" src="img/img1.jpg">
+            <h2 class="tituloPadrao">Mesa com Cadeiras</h2>
+            <div>
+              <i class="icoPadrao flaticon-time"></i>
+              <span>Expira em 03 dias</span>
+            </div>
+            <div>
+              <i class="icoPadrao flaticon-add-circular-button"></i>
+              <span>Detalhes</span>
+            </div>
+          </a>
+        </div> 
+        <div class="card status">
+          <a class="itemcheck item item-thumbnail-left" href="#/app/lance">
+            <div class="imgStatusTransporte">
+              <i class="item-image icoStatus flaticon-route-1"></i>
+            </div>
+            <h2 class="tituloPadrao">Status: Em Transporte</h2>
+            <div class="left conteudonotf">
+              <i class="icoPadrao flaticon-time"></i> 
+              <span>25/02/2016</span>
+            </div>
+            <div class="right">
+              <i class="icoPadrao flaticon-time-1"></i>
+              <span>18:30</span>
+            </div>
+          </a>
+        </div>
+        <div class="card status">
+          <a class="itemcheck item item-thumbnail-left" href="#/app/lance">
+            <div class="imgStatusSaiu">
+              <i class="item-image icoStatus flaticon-route-2"></i>
+            </div>
+            <h2 class="tituloPadrao">Status: Saiu para Entrega</h2>
+            <div class="left conteudonotf">
+              <i class="icoPadrao flaticon-time"></i> 
+              <span>25/02/2016</span>
+            </div>
+            <div class="right">
+              <i class="icoPadrao flaticon-time-1"></i>
+              <span>18:30</span>
+            </div>
+          </a>
+        </div>
+        <div class="card status">
+          <a class="itemcheck item item-thumbnail-left" href="#/app/lance">
+            <div class="imgStatusEntregue">
+              <i class="item-image icoStatus flaticon-placeholder"></i>
+            </div>
+            <h2 class="tituloPadrao">Status: Entregue em São Paulo</h2>
+            <div class="left conteudonotf">
+              <i class="icoPadrao flaticon-time"></i> 
+                <span>26/02/2016</span>
+              </div>
+            <div class="right">
+              <i class="icoPadrao flaticon-time-1"></i>
+              <span>18:30</span>
+            </div>            
+          </a>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+
+

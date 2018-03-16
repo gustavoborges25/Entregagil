@@ -1,0 +1,57 @@
+/*CSS:REDEFINIR  SENHA  E IDENTIFICAR USUARIO*/
+
+.data-original-title {
+	text-align: justify;
+}
+.topEnviar{ margin-top: 23px;}
+
+/*PADRÃO ESTILO*/
+.glyphicon-info-sign:before {
+    color:#38b !important;
+    padding-left: 2px !important;
+}
+.btn-primary{
+	background-color: #155969;
+    border-color: #09404d;
+}
+.btn-primary:hover{
+	background-color: #0e4451;
+	border-color: #0e4451;
+	-webkit-transition: 0.5s ease-in;
+    -moz-transition: 0.5s ease-in;
+    -o-transition: 0.5s ease-in;
+    transition: 0.5s ease-in;
+}
+.close:focus, .close:hover{
+	color: #286090;
+	opacity: 1.5;
+}
+.modal-content{
+	border: 1px solid #155969;
+}
+.modal-header{
+	border-bottom: 1px solid #155969;
+}
+.form-control{
+    color: #155969;
+}
+.btnRedefinirS{
+	float: right;
+}
+
+.box-redefinir-senha {
+	margin-left: 300px !important;;
+  	margin-bottom: 207px;
+}
+
+#btn-redefinir-senha {
+	margin-top: 25px;
+}
+
+#btn-redefinir-senha-usuario {
+	margin-bottom: 150px;
+}
+/*FIM DE CSS REDEFINIR SENHA E IDENTIFICAR USUARIO*/
+
+
+

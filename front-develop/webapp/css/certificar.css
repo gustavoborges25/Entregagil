@@ -1,0 +1,28 @@
+#certificar .texto{
+	color: #000;
+	width: 800px;
+	border:1px solid #ccc;
+	margin: 35px auto;
+	padding:20px;	
+}
+#certificar .btn {
+	width: 	300px;
+	display: 	inline-block;
+	margin:0 auto;		
+}
+#certificar .acoes {
+	width: 	800px;
+	display: 	block;	
+	margin:0 auto!important;
+	margin-bottom:50px!important;
+}
+#certificar .first-list li{
+	list-style: disc;
+}
+#certificar .second-list {
+	margin-top: -10px;
+}
+#certificar .second-list li {
+	list-style: circle;
+	margin-left: 	20px;
+}

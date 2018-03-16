@@ -1,0 +1,40 @@
+<ion-view view-title="Configurações" ng-init="tab=1">
+  <link rel="stylesheet" type="text/css" href="css/lances.css">
+  <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light ">
+    <ion-nav-bar class=" menuLances">
+      <ion-nav-buttons side="left" >
+        <button class="button button-icon button-clear ion-navicon icoMenu" menu-toggle="left"></button>
+      </ion-nav-buttons>
+
+      <ion-nav-buttons side="right">
+        <a href="#/app/pesquisa" class="button button-icon button-clear ion-ios-search icoMenu"></a>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+  <ion-content>
+    <div class="list configuracao">
+    <a class="item item-icon-left" href="#/app/configuracaoprivacidade">
+      <i class="icon ion-gear-b"></i>
+      Configurações de Privacidade
+    </a>
+    <a class="item item-icon-left" href="#/app/idioma">
+      <i class="icon ion-flag"></i>
+        Idioma
+    </a>
+    <a class="item item-icon-left" href="#/app/sobre">
+      <i class="icon ion-help-circled"></i>
+      Sobre
+    </a>
+    </div>
+  </ion-content>
+</ion-view>
+
+<style type="text/css">
+  .configuracao{}
+  .configuracao a{}
+  .configuracao a i{
+    color: #12333c;
+  }
+</style>
+
+

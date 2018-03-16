@@ -1,0 +1,36 @@
+<div class="container" ng-init="init()">
+<div class="title-pag" id="titulo">Redefinir Senha</div>
+    <div class="box-redefinir-senha">
+        <form class="redefinirSenhaIdentificarUsuario" name="IdentificarUsuario" ng-submit="testeEmail()">
+            <div class="row">
+                <div class="col-xs-6 .col-md-4">
+                      <div class="form-group">
+                        <label for="email">Informe seu Email </label>
+                            <input type="email" ng-class="{'error' : errorEmail == true}" ng-blur="validaEmail()" class="form-control" id="confirmarEmail" ng-model="usuario.email" placeholder="Digite seu e-mail" required="">
+                      </div>
+                </div>
+                <div class="col-md-1" >
+                        <button  type="submit" class="btn btn-primary pull-right topEnviar" id="btn-redefinir-senha" 
+                        ng-disabled="userForm.$invalid" >Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Informe seu Email</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Informe o seu e-mail para receber link para redefinição da senha.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

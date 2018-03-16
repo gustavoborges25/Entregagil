@@ -1,0 +1,127 @@
+#avaliarUsuario .nomeAvalia{
+	color: #000;
+	font-weight: bold;
+	text-transform: capitalize;
+	font-size: 30px;
+}
+
+#avaliarUsuario h4{
+	color: #000;
+}
+
+#avaliarUsuario .checkAvaliar{
+	color: #000;
+}
+#avaliarUsuario label {
+	color:#000;
+	margin-right: 5px;
+}
+#avaliarUsuario .form-group {
+	color:#000;
+	margin-top: 10px;
+}
+
+#avaliarUsuario .avaliaSpan{
+	color: #000;
+	font-weight: bold;
+	text-transform: capitalize;
+	font-size: 15px;
+	margin-left: -14px;
+	margin-top: -20px;
+}
+
+#avaliarUsuario .avaliaComentarioSpan{
+	color: #000;
+	font-weight: bold;
+	text-transform: capitalize;
+	font-size: 15px;
+	margin-top: 30px
+
+}
+#avaliarUsuario .avaliaComentarioSpan2{
+	color: #000;
+	font-weight: bold;
+	text-transform: capitalize;
+	font-size: 15px;
+	margin-top: 10px
+}
+
+#avaliarUsuario .avaliaComentarioSpan textarea, #avaliarUsuario .avaliaComentarioSpan2 textarea{
+	resize: none;
+}
+
+#avaliarUsuario .pontuacao label {
+    float: left;
+    width: 100%;
+    margin-bottom: -14px;
+    font-weight: normal;
+    padding-left: 15px;	
+    color:#000;
+}
+#avaliarUsuario .slider.slider-horizontal .slider-selection {
+    background: transparent!important;
+    display: none!important;
+}
+#avaliarUsuario .slider.slider-horizontal {
+	background: transparent;!important;
+	display: block;
+}
+#avaliarUsuario .slider-track {
+	background: url(../img/bg-barra.png) center center no-repeat!important;
+	height: 20px;
+	box-shadow: none;
+}
+#avaliarUsuario .range span {
+	margin-top: 20px;
+	display: block;
+}
+#avaliarUsuario .tooltip-inner {
+	display: none;
+}
+#avaliarUsuario .slider-handle {
+	display: none;
+}
+#avaliarUsuario .tooltip.top .tooltip-arrow {
+	top: 44px!important;
+	border-width: 7px 7px 0!important;
+}
+#avaliarUsuario a.closer {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+
+
+#AvaliarUsuario .BotaoAvaliar{
+	margin-top: 50px;
+	margin-right: 100px;
+
+}
+
+ul.star-avaliation {
+    margin: 0;
+    padding:0;
+}
+ul.star-avaliation li {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    list-style: none;
+    background: url('../img/star11.png') center center no-repeat;
+    background-size: contain;
+    /*transition:all 1s;*/
+    cursor: pointer;
+}
+ul.star-avaliation li.on {
+    background: url('../img/starHover12.png') center center no-repeat;
+    background-size: contain;
+}
+ul.star-avaliation li.fixed {
+    background: url('../img/starHover12.png') center center no-repeat;
+    background-size: contain;
+}

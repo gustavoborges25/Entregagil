@@ -1,0 +1,75 @@
+<link href="css/criarAnuncio/veiculo/peca.css" rel="stylesheet">
+
+<div id="peca" class="container" ng-init="init()">
+    <div class="title-pag">Criar Anúncio</div>
+    <div class="etapas">
+        <ul>
+            <li ng-class="{}"><b>1º | Categoria</b></li>
+            <li ng-class="{on : count==2}"><b>2º | Produto</b></li>
+            <li ng-class="{}"><b>3º | Entrega</b></li>
+        </ul>
+    </div>
+    <div class="titulocategorias">
+        <label>Preencha as informações do produto que será transportado.</label>
+    </div>
+    <form ng-submit="salvarItem()">
+        <div id="criarAnuncio">
+            <div class="veiculosPeca">
+                <div class="anuncioBox">
+                    <div class="tituloanuncio">Veículos - Peças (Automotivas, Náuticas, Agrícolas...)</div>
+                    <div class="col-md-12">
+                        <label>Tipo:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="tipoPecas" ng-model="anuncio.tipo" placeholder="Tipo" ng-blur="validarCampoObrigatorio('Tipo', '#tipoPecas')" required="">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Embalagem:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="embalagemPecas" ng-model="anuncio.embalagem" placeholder="Caixa, Palete, Fardo, Sacola, Tambor..." ng-blur="validarCampoObrigatorio('Embalagem', '#embalagemPecas')" required="">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Dimensões: </label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="pecasAltura" ng-model="anuncio.altura"  placeholder="Altura(m)" ng-blur="validarCampoObrigatorio('Altura', '#pecasAltura')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="pecasLargura" ng-model="anuncio.largura"  placeholder="Largura(m)" ng-blur="validarCampoObrigatorio('Largura', '#pecasLargura')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="pecasComprimento" ng-model="anuncio.comprimento" placeholder="Comprimento(m)" ng-blur="validarCampoObrigatorio('Comprimento', '#pecasComprimento')" required="">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.keyCode == 46' class="form-control" id="pecasPeso" ng-model="anuncio.peso" placeholder="Peso(kg)" ng-blur="validarCampoObrigatorio('Peso', '#pecasPeso')" required="">
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Observação:</label>
+                    </div>
+                    <div class="textoarea">
+                        <div class="col-md-12">
+							<textarea class="form-control" rows="2" placeholder="Observação ou instrução adicional (opcional)" ng-model="anuncio.observacao" >
+							</textarea>
+                        </div>
+                    </div>
+                    <div class="fotos">
+                        <div class="col-md-6">
+                            <label for="foto1">Fotos:
+                            </label>
+                            <input type="file" alt="Foto" class="img-responsive img-thumbnail" ng-model="item.pecasFoto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary pull-right">Próximo</button>
+        <a href="#/anuncio/criar-anuncio" class="btn btn-primary pull-left">Voltar</a>
+
+    </form>
+
+
+</div>

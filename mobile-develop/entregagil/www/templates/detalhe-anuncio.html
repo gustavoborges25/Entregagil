@@ -1,0 +1,37 @@
+<ion-view view-title="Detalhes do Anúncio">
+  <link rel="stylesheet" type="text/css" href="css/lances.css">
+  <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light ">
+  <ion-content>
+    <div class="detalhes">
+      <div class="cardlance">
+        <ion-slide-box class="slider-anuncio">
+            <ion-slide>
+              <div class="item-image">
+                <img src="img/img-anuncio.jpg">
+              </div>
+            </ion-slide>
+            <ion-slide>
+              <div class="item-image">
+                <img src="img/img-anuncio.jpg">
+              </div>
+            </ion-slide>
+        </ion-slide-box>
+        <div class="card cardlance">
+          <div class="item-text-wrap">
+            <div class="card">
+              <div class="titulo-anuncio">Mesa de Jantar</div>
+              <div class="list">
+                <a class="item item-icon-right">
+                  <i class="icon ion-android-calendar">12/02/2017</i>
+                  Validade Anúncio
+                </a>
+              </div>
+            </div>
+          </div>
+          <a ng-href="#/app/lance" class="button button-block button-balanced" ng-show="{{!concluido}}">Dar Lance</a>
+          <a ng-href="#/app/checkin" class="button button-block button-energized" ng-show="{{concluido}}">Fazer Checkin</a>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

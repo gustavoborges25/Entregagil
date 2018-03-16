@@ -1,0 +1,121 @@
+<link href="css/criarAnuncio/veiculo/moto.css" rel="stylesheet">
+
+<div id="moto" class="container" ng-init="init()">
+    <div class="title-pag">Criar Anúncio</div>
+    <div class="etapas">
+        <ul>
+            <li ng-class="{}"><b>1º | Categoria</b></li>
+            <li ng-class="{on : count==2}"><b>2º | Produto</b></li>
+            <li ng-class="{}"><b>3º | Entrega</b></li>
+        </ul>
+    </div>
+    <div class="titulocategorias">
+        <label>Preencha as informações do produto que será transportado.</label>
+    </div>
+    <form ng-submit="salvarItem()">
+        <div id="criarAnuncio">
+            <div class="veiculoMoto">
+                <div class="anuncioBox">
+                    <div class="tituloanuncio">Veículos - Motos
+                    </div>
+                    <div class="col-md-12">
+                        <label>Tipo da Moto:</label>
+                    </div>
+                    <div class="radiobuttonveiculos">
+                        <div class="col-md-3">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.tipoMoto" value="MOTO" name="tipoMoto" required>Moto
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.tipoMoto" value="TRICICULO" name="tipoMoto" required>Tricículo
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.tipoMoto" value="QUADRICICULO" name="tipoMoto" required>Quadricículo
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.tipoMoto" value="MOTONETA" name="tipoMoto" required>Motoneta
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Marca e modelo:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="motoMarca" placeholder="Marca" ng-model="anuncio.marca" ng-blur="validarCampoObrigatorio('Marca', '#motoMarca')" required="">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="motoModelo" placeholder="Modelo" ng-model="anuncio.modelo" ng-blur="validarCampoObrigatorio('Modelo', '#motoMarca')" required="" >
+                    </div>
+                    <div class="col-md-12">
+                        <label>Guincho ou Cegonha:</label>
+                    </div>
+                    <div class="radiobuttontipomotorista">
+                        <div class="col-md-4">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.guinchoCegonha" value="GUINCHO" name="guinchoCegonha" required>Guincho (Sem utilização de motorista)
+                            </label>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.guinchoCegonha" value="CEGONHA" name="guinchoCegonha" required>Cegonha (Com utilização de Motorista)
+                            </label>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.guinchoCegonha" value="SEM_PREFERENCIA" name="guinchoCegonha" required>Não tenho preferência
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Transporte aberto ou fechado:</label>
+                    </div>
+                    <div class="radiobuttontipocaminhao">
+                        <div class="col-md-4">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.transporteAbertoFechado" value="CAMINHAO_CARROCERIA_ABERTA" name="transporteAbertoFechado" required>Somente caminhão com carroceria aberta
+                            </label>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.transporteAbertoFechado" value="CAMINHAO_CARROCERIA_ABERTA" name="transporteAbertoFechado" required >Somente caminhão com carroceria fechada
+                            </label>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.transporteAbertoFechado" value="SEM_PREFERENCIA" name="transporteAbertoFechado" required >Não tenho preferência
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Observação:</label>
+                    </div>
+                    <div class="textoarea">
+                        <div class="col-md-12">
+							<textarea class="form-control" rows="2" placeholder="Observação ou instrução adicional (opcional)" ng-model="anuncio.observacao" >
+							</textarea>
+                        </div>
+                    </div>
+                    <div class="fotos">
+                        <div class="col-md-6">
+                            <label for="foto1">Fotos:
+                            </label>
+                            <input type="file" alt="Foto" class="img-responsive img-thumbnail" ng-model="item.motoFoto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary pull-right">Próximo</button>
+        <a href="#/anuncio/criar-anuncio" class="btn btn-primary pull-left">Voltar</a>
+
+    </form>
+
+
+</div>

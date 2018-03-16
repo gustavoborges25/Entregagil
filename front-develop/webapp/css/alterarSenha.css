@@ -1,0 +1,90 @@
+#trocarEmail {
+	margin-top: 25px;
+}
+
+#btn-link {
+	outline: none;
+}
+
+.tooltip-inner {
+	background-color: #ffffff !important;
+  	color: #807171 !important;
+  	border: 2px solid #ccc;	
+  	border-radius: 3px; 
+  	max-width: 270px;
+    padding: 15px 10px;
+}
+
+.tooltip.in {
+	opacity: 1 !important;
+}
+
+.tooltip.bottom {
+    padding: 6px 0 !important;
+ }
+
+.tooltip.fade.bottom.in {
+ 	left: -50px !important;
+ }
+
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #b5a0a0 !important;
+}
+
+.data-original-title {
+	text-align: justify;
+}
+
+.modal-content {
+    margin-top: 150px;
+}
+   
+.modal-header {
+    padding: 10px;
+}
+
+.box-alterar-usuario {
+	width: 900px;
+  margin: 0 auto;
+}
+   
+#btn-alterar-senha {
+  margin-bottom: 59px;
+}
+
+
+.box-alterar-email {
+  margin-left: 300px !important;;
+  margin-bottom: 79px;
+}
+#container-alterar-senha h3{
+ /* color: #000;*/
+    font-weight: bolder;
+    color: #707171;
+    text-transform: uppercase;
+  
+    font-size: 15px;
+  
+}
+
+.permissoes{
+  color: #000;
+  margin-left: 2px;
+}
+.permissoes input {
+    margin-right: 10px;
+}
+
+
+
+.title-priv{
+    color: #555;
+    font-size: 18px;
+    font-weight: 400;
+    display: block;
+}
+
+
+#container-alterar-senha label{
+  color: #000;
+}

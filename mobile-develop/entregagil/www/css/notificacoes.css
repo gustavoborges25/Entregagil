@@ -1,0 +1,64 @@
+.num{
+  position: absolute;
+  font-size: 13px;
+  top: 0px;
+}
+.icoMenu span.num{
+  text-align: center;
+  margin-left: 13px;
+  margin-top: -10px;
+}
+
+h2.tituloPadrao{
+  margin-bottom: 10px;
+}
+.icopadrao{}
+.icopadrao:before{
+  margin-right: 5px;
+  font-size: 20px;
+}
+
+.checkin{}
+.checkin .checkincard.topcard{
+  margin-top: 65px;
+}
+.checkin .checkincard .status{}
+.checkin .checkincard .status .icoNot{
+  margin-right: 5px;
+}
+.checkin .checkincard .status .icoStatus{
+  top: 40px;
+}
+.checkin .checkincard .status .icoStatus:before{
+  font-size: 60px;
+}
+.imgStatusTransporte .icoStatus:before{
+  color:#111b2f;
+}
+.imgStatusEntregue .icoStatus:before{
+  color: #e3b519;
+}
+.imgStatusSaiu .icoStatus:before{
+  color: #1d1e20;
+}
+.left{
+  float: left; 
+}
+.right {
+  float: right; 
+}
+h2.tituloPadrao{
+  margin-bottom: 10px;
+}
+.checkincard .status a.itemcheck{
+  padding-top: 16px;
+  padding-left: 90px;
+}
+
+.checkin .checkincard .card a.item span{
+  color: #6b6868;
+}
+.checkin .checkincard .status span{
+  font-size: 15px;
+  color: #6b6868;
+}

@@ -1,0 +1,43 @@
+<ion-view view-title="Cadastrado por">
+  <ion-content class="padding">
+
+    <form name="enderecoForm" novalidate="">
+
+      <div class="list">
+
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">{{autor.tipoPessoa == 'fisica' ? 'Nome' : 'Razão Social'}}</span>
+          <input type="text" value="{{autor.tipoPessoa == 'fisica' ? autor.nome : autor.razaoSocial}}" disabled>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">{{autor.tipoPessoa == 'fisica' ? 'Sobrenome' : 'Nome Fantasia'}}</span>
+          <input type="text" value="{{autor.tipoPessoa == 'fisica' ? autor.sobrenome : autor.nomeFantasia}}" disabled>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">{{autor.tipoPessoa == 'fisica' ? 'CPF' : 'CNPJ'}}</span>
+          <input type="text" value="{{autor.tipoPessoa == 'fisica' ? autor.cpf : autor.cnpj}}" disabled>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">{{autor.tipoPessoa == 'fisica' ? 'RG' : 'Inscrição Estadual'}}</span>
+          <input type="text" value="{{autor.tipoPessoa == 'fisica' ? autor.rg : autor.inscricaoEstadual}}" disabled>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Telefone</span>
+          <input type="text" value="{{autor.telefone}}" disabled>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Celular</span>
+          <input type="text" value="{{autor.celular}}" disabled>
+        </label>
+
+      </div>
+
+    </form>
+
+  </ion-content>
+</ion-view>

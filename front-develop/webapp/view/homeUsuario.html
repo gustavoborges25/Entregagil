@@ -1,0 +1,358 @@
+<div class="col-md-10 col-sm-9 pull-right" id="dash" ng-init="init()">
+    <div class="row">
+        <div class="col-lg-3 col-md-6">
+            <div class="painel">
+                <div class="bloco">
+                    <div class="row">
+                        <div class="col-md-12 stars huge">
+                            <img ng-show="mediaAnunciante>0" src="img/star.png" class="star">
+                            <img ng-show="mediaAnunciante>1" src="img/star.png" class="star">
+                            <img ng-show="mediaAnunciante>2" src="img/star.png" class="star">
+                            <img ng-show="mediaAnunciante>3" src="img/star.png" class="star">
+                            <img ng-show="mediaAnunciante>4" src="img/star.png" class="star">
+
+                            <img ng-show="mediaAnunciante==0" src="img/starEmpty.png" class="star"/>
+                            <img ng-show="mediaAnunciante<2" src="img/starEmpty.png" class="star"/>
+                            <img ng-show="mediaAnunciante<3" src="img/starEmpty.png" class="star"/>
+                            <img ng-show="mediaAnunciante<4" src="img/starEmpty.png" class="star"/>
+                            <img ng-show="mediaAnunciante<5" src="img/starEmpty.png" class="star"/>
+                        </div>
+                    </div>
+                    <div class="row text-right">
+                        <div>Reputação anuciante</div>
+                    </div>
+                </div>
+                <div class="panel-footer base">
+                    <span class="pull-right texto">
+                        <a ng-href="#/usuario/acessar-perfil/{{usuario.pessoa.id}}" style="color: #ffffff">  Detalhes  <i class="fa fa-arrow-circle-right"></i></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="painel">
+                <div class="bloco">
+                    <div class="row">
+                        <div class="col-md-12 stars huge">
+                            <img ng-show="mediaTransportador>0" src="img/star.png" class="star">
+                            <img ng-show="mediaTransportador>1" src="img/star.png" class="star">
+                            <img ng-show="mediaTransportador>2" src="img/star.png" class="star">
+                            <img ng-show="mediaTransportador>3" src="img/star.png" class="star">
+                            <img ng-show="mediaTransportador>4" src="img/star.png" class="star">
+
+                            <img ng-show="mediaTransportador==0" src="img/starEmpty.png" class="star"/>
+                            <img ng-show="mediaTransportador<2"  src="img/starEmpty.png" class="star"/>
+                            <img ng-show="mediaTransportador<3"  src="img/starEmpty.png" class="star"/>
+                            <img ng-show="mediaTransportador<4"  src="img/starEmpty.png" class="star"/>
+                            <img ng-show="mediaTransportador<5"  src="img/starEmpty.png" class="star"/>
+                        </div>
+                    </div>
+                    <div class="row text-right">
+                        <div>Reputação transportador</div>
+                    </div>
+                </div>
+                <div class="panel-footer base">
+                    <span class="pull-right texto">
+                        <a href="#/homeUsuario" style="color: #ffffff">Detalhes  <i class="fa fa-arrow-circle-right"></i></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="painel">
+                <div class="bloco">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-file-text-o fa-3x icone"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">10</div>
+                            <div>Relatórios</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer base">
+                    <span class="pull-right texto">
+                        <a href="#/homeUsuario" style="color: #ffffff">Detalhes  <i class="fa fa-arrow-circle-right"></i></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="painel">
+                <div class="bloco">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-bell-o fa-3x icone"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">50</div>
+                            <div>Notificações</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer base">
+                    <span class="pull-right texto">
+                        <a href="#/homeUsuario" style="color: #ffffff">Detalhes  <i class="fa fa-arrow-circle-right"></i></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container" ng-init="tab=1">
+        <ul class="nav nav-tabs" id="myTabs">
+            <li role="presentation" id="tabAnuncio" ng-click="tab=1" ng-class="{'active' : tab==1}">
+                <a href="#meusAnuncios">Meus anúncios</a>
+            </li>
+            <li role="presentation" id="tabTransporte" ng-click="tab=2" ng-class="{'active' : tab==2}">
+                <a href="#meusTransportes">Meus transportes</a>
+            </li>
+        </ul>
+        <br>
+        <div class="tabs-container">
+            <div class="tab-content" ng-show="tab == 1">
+                <div id="meusAnuncios" class="container table-responsive tabela">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label>Procurar</label>
+                            <input type="text" ng-model="procurar" class="form-control" placeholder="Procurar...">
+                        </div>
+                    </form>
+                    <br>
+                    <table id="myTable" class="table table-bordered display">
+                        <thead style="width: 100%">
+                            <tr>
+                                <td align="center">Log </td>
+                                <td ng-click="ordenar('dataCadastro')" align="center">Data</td>
+                                <td ng-click="ordenar('titulo')" align="center">Anúncio</td>
+                                <td ng-click="ordenar('enderecoOrigem.cidade')" align="center">Origem</td>
+                                <td ng-click="ordenar('enderecoDestino.cidade')" align="center">Destino</td>
+                                <td ng-click="ordenar('menorLance')" align="center">Menor lance</td>
+                                <td ng-click="ordenar('dataValidade')" align="center">Expira em</td>
+                                <td align="center" width="10%">Ações</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="linha" align="center" dir-paginate-start="a in anuncio|filter:procurar|orderBy:sortKey:reverse|itemsPerPage:5" pagination-id="paginationAnuncio">
+                                <td ng-class="{'details-control shown' : a.detalhe, 'details-control' : !a.detalhe}" ng-click="a.detalhe = !a.detalhe"></td>
+                                <td class="sorting_1">{{a.dataCadastro | date: 'dd/MM/yyyy'}}</td>
+                                <td>{{a.titulo}}</td>
+                                <td>{{a.enderecoOrigem.cidade}}</td>
+                                <td>{{a.enderecoDestino.cidade}}</td>
+                                <td>{{a.menorLance.valor | currency: 'R$'}}</td>
+                                <td>{{a.dataValidade | date: 'dd/MM/yyyy'}}</td>
+                                <td>
+                                    <a ng-href="#/anuncio-detalhe/{{a.id}}"><img src="../img/detail.png" title="Visualizar detalhes do anúncio"></a>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <a ng-click="cancelarAnuncio(a.id)"><img title="Cancelar anúncio" src="../img/cancel.png"></a>
+                                </td>
+                            </tr>
+                            <tr ng-show="a.detalhe" dir-paginate-end>
+                                <div col-md-10>
+                                    <td colspan="8">
+                                        <div align="horizontal">
+                                            <h4>
+                                                <strong>Log de anúncio</strong>
+                                            </h4>
+                                            <table id="tabelaLog" class="table table-responsive" cellpadding="5" cellspacing="0" border="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="5%"></th>
+                                                        <th width="10%">Data</th>
+                                                        <th width="10%">Hora</th>
+                                                        <th width="10%">Status</th>
+                                                        <th width="10%">Local</th>
+                                                        <tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="log in a.logs">
+                                                        <td ng-class="log.classe"></td>
+                                                        <td>{{log.data | date: 'dd/MM/yyyy'}}</td>
+                                                        <td>{{log.data | date: 'hh:mm:ss'}}</td>
+                                                        <td>{{log.labelStatus}}</td>
+                                                        <td>{{log.local}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                    <!-- CUIDADO! AQUI COMEÇA O POG! -->
+                                    <td class="ng-hide"></td>
+                                    <td class="ng-hide"></td>
+                                    <td class="ng-hide"></td>
+                                    <td class="ng-hide"></td>
+                                    <td class="ng-hide"></td>
+                                    <td class="ng-hide"></td>
+                                    <td class="ng-hide"></td>
+                                    <!-- FIM FO POG! -->
+                                </div>
+                                </tr>
+                        </tbody>
+                    </table>
+                    <dir-pagination-controls pagination-id="paginationAnuncio" max-size="5" auto-hide="false" direction-links="true" boundary-links="true" template-url="js/plugins/dirPagination.tpl.html"></dir-pagination-controls>
+                </div>
+            </div>
+            <div class="tab-content" ng-show="tab == 2">
+                <div id="meusTransportes" class="container table-responsive tabela">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label>Procurar</label>
+                            <input type="text" ng-model="procurar" class="form-control" placeholder="Procurar...">
+                        </div>
+                    </form>
+                    <br>
+                    <table id="myTable2" class="table table-bordered display">
+                        <thead style="width: 100%">
+                            <tr>
+                                <td align="center">Log </td>
+                                <td ng-click="ordenar('dataCadastro')" align="center">Data</td>
+                                <td ng-click="ordenar('titulo')" align="center">Anúncio</td>
+                                <td ng-click="ordenar('enderecoOrigem.cidade')" align="center">Origem</td>
+                                <td ng-click="ordenar('enderecoDestino.cidade')" align="center">Destino</td>
+                                <td ng-click="ordenar('menorLance')" align="center">Menor lance</td>
+                                <td ng-click="ordenar('dataValidade')" align="center">Expira em</td>
+                                <td align="center" width="10%">Ações</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="linha2" align="center" dir-paginate-start="t in transporte|filter:procurar|orderBy:sortKey:reverse|itemsPerPage:5" pagination-id="paginationTransporte">
+                                <td ng-class="{'details-control2 shown' : t.detalhe2, 'details-control2' : !t.detalhe2}" ng-click="t.detalhe2 = !t.detalhe2"></td>
+                                <td class="sorting_1">{{t.dataCadastro | date: 'dd/MM/yyyy'}}</td>
+                                <td>{{t.titulo}}</td>
+                                <td>{{t.enderecoOrigem.cidade}}</td>
+                                <td>{{t.enderecoDestino.cidade}}</td>
+                                <td>{{t.menorLance.valor | currency: 'R$'}}</td>
+                                <td>{{t.dataValidade | date: 'dd/MM/yyyy'}}</td>
+                                <td>
+                                    <a href="#/homeUsuario"><img src="../img/detail.png" title="Visualizar detalhes do transporte"></a>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <a ng-click="cancelarTransporte(t.id)"><img title="Cancelar transporte" src="../img/cancel.png"></a>
+                                </td>
+                            </tr>
+                            <tr ng-show="t.detalhe2" dir-paginate-end>
+                                <div col-md-10>
+                                    <td colspan="8">
+                                        <div align="horizontal">
+                                            <h4>
+                                                <strong>Log de transporte</strong>&nbsp;&nbsp;&nbsp;
+                                                <button id="btnCheckin" class="btn btn-success" data-toggle="modal" data-target="#checkin" ng-click="inicializaCheckin(t.id)">Check-In</button>
+                                            </h4>
+                                            <table id="tabelaLog" class="table table-responsive" cellpadding="5" cellspacing="0" border="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="5%"></th>
+                                                        <th width="10%">Data</th>
+                                                        <th width="10%">Hora</th>
+                                                        <th width="10%">Status</th>
+                                                        <th width="10%">Local</th>
+                                                        <tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="log in t.logs">
+                                                        <td ng-class="log.classe"></td>
+                                                        <td>{{log.data | date: 'dd/MM/yyyy'}}</td>
+                                                        <td>{{log.data | date: 'hh:mm:ss'}}</td>
+                                                        <td>{{log.labelStatus}}</td>
+                                                        <td>{{log.local}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                    <!-- CUIDADO! AQUI COMEÇA O POG! -->
+                                    <td class="ng-hide"></td>
+                                    <td class="ng-hide"></td>
+                                    <td class="ng-hide"></td>
+                                    <td class="ng-hide"></td>
+                                    <td class="ng-hide"></td>
+                                    <td class="ng-hide"></td>
+                                    <td class="ng-hide"></td>
+                                    <!-- FIM FO POG! -->
+                                </div>
+                                </tr>
+                        </tbody>
+                    </table>
+                    <dir-pagination-controls pagination-id="paginationTransporte" max-size="5" auto-hide="false" direction-links="true" boundary-links="true" template-url="js/plugins/dirPagination.tpl.html"></dir-pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- MODAL DO CHECK-IN -->
+<div id="checkin" class="modal" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">Check-In</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-5">
+                        <label>Data: </label>
+                        <input id="dataLog" class="form-control" type="date" name="data" disabled="true" ng-model="checkin.data">
+                    </div>
+                    <div class="col-md-2">
+                        <label>Hora: </label>
+                        <input id="horaLog" class="form-control" name="hora" placeholder="00:00" maxlength="5" onchange="verificaHora(this)" onkeypress="validaHora(this, event)" disabled="true" ng-model="checkin.hora">
+                    </div>
+                    <div class="col-md-5">
+                        <label>Status: </label>
+                        <select class="form-control" name="status" ng-model="checkin.status">
+                            <option value="EM_TRANSPORTE">EM TRANSPORTE</option>
+                            <option value="ENTREGUE">ENTREGUE</option>
+                            <option value="CANCELADO">CANCELADO</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Local: </label> <input type="text" name="localizacao" class="form-control" disabled="true" ng-model="localizacao">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" ng-click="salvarLog(checkin)">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FIM DO MODAL DO CHECK-IN -->
+
+<script type="text/javascript">
+$(document).ready(function() {
+    // Alterna as tabs
+    $('#myTabs a').click(function(e) {
+        e.preventDefault();
+        $(this).class = "active";
+    });
+});
+
+function validaHora(edit, ev) {
+    li = new Array(':');
+    liE = new Array(58);
+    //somenteNumero(edit, ev, li, liE);
+    if (edit.value.length == 2) {
+        edit.value += ":";
+    }
+}
+
+function verificaHora(obj) {
+    if (obj.value.length < 5) {
+        obj.value = '';
+    } else {
+        hr = parseInt(obj.value.substring(0, 2));
+        mi = parseInt(obj.value.substring(3, 5));
+        se = parseInt(obj.value.substring(6, 8));
+        if ((hr < 0 || hr > 23) || (mi < 0 || mi > 60) || (se < 0 || se > 60)) {
+            obj.value = '';
+            alert('Hora inválida');
+        }
+    }
+}
+</script>

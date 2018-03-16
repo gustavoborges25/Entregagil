@@ -1,0 +1,17 @@
+app.controller('domesticoController', ['$scope', '$location', '$rootScope','$window', '$localStorage', 'domesticoService',function($scope, $location, $rootScope, $window, $localStorage, domesticoService){
+
+    $scope.init = function() {
+        $scope.count = 2;
+        fotos = [];
+        $window.scrollTo(0, 0);
+        $scope.subcategoria = $rootScope.subcategoriaMesmaRota;
+    }
+
+    $scope.salvarItem = function () {
+        $rootScope.itemDoAnuncio = $scope.anuncio;
+        $rootScope.itemDoAnuncio.fotos = fotos;
+        $location.path('/anuncio/criar-anuncio');
+    };
+
+
+}])

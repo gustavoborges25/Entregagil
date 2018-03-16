@@ -1,0 +1,41 @@
+#usuarioLista .title-pag {
+  margin-bottom: 45px;
+}
+#usuarioLista th {
+  color:#FFF;
+  text-transform: uppercase;
+}
+#usuarioLista th:first-child {
+  border-top-left-radius: 10px;
+}
+#usuarioLista th:last-child {
+  border-top-right-radius: 10px;
+}
+#usuarioLista td {
+  color:#232222;
+}
+#usuarioLista .search {
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+}
+#usuarioLista td img {
+  max-width: 20px;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+}
+#usuarioLista td img:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+#usuarioLista td img.on {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+#usuarioLista table {
+  margin-top: 35px;
+}
+#usuarioLista thead {
+  background:#232222;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}

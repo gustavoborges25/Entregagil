@@ -1,0 +1,126 @@
+
+/*Anuncios*/
+.etapas {
+	float: left;
+	width: 100%;
+	margin-top: 70px;
+	text-align: center;
+}
+.etapas ul  {
+	border-top: 3px solid #CCC;
+	width: 650px;
+	margin: 0 auto;
+	padding: 0;
+}
+.etapas li {
+	width: 32%;
+    list-style: none;
+    display: inline-block;
+    margin: 30px 0;
+}
+.etapas li.on:before {
+	content: url(../../../img/box.png) ;
+    float: left;
+    width: 100%;
+    margin-top: -65px;
+    height: 80px;
+}
+
+#escritorio .titulocategorias {
+	text-align: center;
+}
+
+#escritorio .btn {
+	margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+#escritorio .title-pag {
+    font-weight: bolder;
+    color: #707171;
+    text-transform: uppercase;
+    margin-top: 35px;
+    font-size: 20px;
+    border-bottom: 2px solid #707171;
+}
+
+.tituloanuncio span {
+	float: right;
+	font-size: 34px;
+	margin-top: -18px;
+	margin-right: 7px;
+	color: #155969;
+	cursor: pointer;
+}
+b {
+	color:#d19925!important;
+}
+
+
+.anuncioBox {
+	background-color: white;
+	max-width: 1200px;
+	margin: 0 auto;
+	top: 20px;
+	margin-bottom: 40px;
+	height: 375px;
+	box-shadow: 0 5px 30px rgba(0,0,0,0.15);
+	position: relative;
+	clear: both;
+}
+.anuncioBox .tituloanuncio {
+	font-weight: bolder;
+    color: #707171;
+    text-transform: uppercase;
+    font-size: 15px;
+    border-bottom: 2px solid #707171;
+    padding-left: 30px;
+    padding-top: 10px;
+}
+.anuncioBox .radio-inline{
+	margin-top: 0px;
+}
+.anuncioBox label {
+	margin-top: 8px;
+}
+.anuncioBox .fotos input {
+	margin-bottom: 6px;
+}
+.anuncioBox .fotos .btn{
+	margin-top: 55px;
+}
+.col-md-8{
+	width: 76%;
+}
+.anuncioBox .title {
+    padding: 10px;
+    float: left;
+    background: #155969;
+    width: 100%;
+    margin: 0;
+    border-radius: 2px;
+    color: #FFF;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.title span {
+	float: right;
+	cursor: pointer;
+}
+.mudancaEscritorio .anuncioBox {
+	height: 600px;
+}
+
+/*IMAGEM*/
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    text-align: right;
+    opacity: 0;
+    background: none;
+    cursor: inherit;
+    display: block;
+}

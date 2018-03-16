@@ -1,0 +1,103 @@
+body {
+	padding-right:0!important;
+}
+
+.checkbox {
+	padding-left: 35px !important;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    text-align: right;
+    opacity: 0;
+    background: none;
+    cursor: inherit;
+    display: block;
+}
+
+.buttonEnviar {
+	margin-top: 0px !important;
+}
+
+.tipos {
+    margin:20px 0;
+    float:  left;
+    width:  100%;
+}
+
+#naoSeiMeuCep {
+    margin-top: 33px;
+}
+
+.asterisk {
+    color: #e60014;
+}
+
+.tooltip.fade.bottom.in {
+    left: -50px !important;
+ }
+#imgDelete {
+    position: relative;
+    z-index: 99999999999999;
+}
+
+/*
+input:focus:invalid {
+    box-shadow: 0 0 5px #ff0000; border-color: #ff0000;
+}
+*/
+
+.modalCadastro .modal-body{
+    height: 450px;
+    overflow: auto;
+}
+
+#modalCadastro {
+    margin-top: -100px;
+    overflow-x: hidden!important;
+    padding-top: -100px;
+}
+
+#imagemTermo {
+    max-width: 650px;
+    margin-left: -50px;
+    margin-top: -50px;
+}
+
+.modalCadastro .modal-title {
+    margin-bottom: 5px;
+    margin-top: -20px;
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #000;
+}
+.modalCadastro .modal-dialog {
+    margin-top: -80px;
+}
+#tela-cadastro {
+	padding-bottom:50px;
+}
+
+#btn-alterar-usuario {
+    margin-bottom: 20px !important;
+}
+#tela-cadastro .termoUso {
+	position: relative;
+	z-index: 9999999999999;
+	cursor: pointer;
+	margin: 10px 10px 0 0;
+}
+#tela-cadastro a.closer {
+  float: right;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: .2;
+}

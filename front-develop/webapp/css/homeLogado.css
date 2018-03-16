@@ -1,0 +1,42 @@
+#topoLogado {
+  border-bottom: 0;
+}
+#topoLogado .nome {
+  display: inline-block;
+  font-weight: bold;
+  color:#FFF;
+}
+#topoLogado i {
+  display: inline-block;;
+}
+#topoLogado i img {
+  display: inline-block;
+  vertical-align: middle;
+}
+#topoLogado li{
+  float: right!important;
+}
+#topoLogado .dropdown-menu li {
+  width: 100%;
+  float: left;
+}
+#topoLogado .dropdown-menu li:last-child {
+  margin-top: 0;
+}
+#topoLogado a.dropdown-toggle {
+  border: 0!important;
+  color:#FFF!important;
+  border-radius: 0!important;
+  background: transparent!important;
+  background-color: transparent!important;
+  margin: 9px 0;
+  position: relative;
+  z-index: 99999999999;
+}
+#topoLogado .caret:hover {
+  color:#FFF!important;
+}
+#topoLogado .dropdown-menu>li>a {
+  margin: 0!important;
+  width: 100%;
+}

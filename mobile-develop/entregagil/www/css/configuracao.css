@@ -1,0 +1,10 @@
+.num{
+    position: absolute;
+    font-size: 15px;
+    top: 0px;
+  }
+  .icoMenu span.num{
+    text-align: center;
+    margin-left: 13px;
+    margin-top: -10px;
+  }

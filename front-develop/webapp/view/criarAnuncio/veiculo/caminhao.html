@@ -1,0 +1,110 @@
+<link href="css/criarAnuncio/veiculo/caminhao.css" rel="stylesheet">
+
+<div id="caminhao" class="container" ng-init="init()">
+    <div class="title-pag">Criar Anúncio</div>
+    <div class="etapas">
+        <ul>
+            <li ng-class="{}"><b>1º | Categoria</b></li>
+            <li ng-class="{on : count==2}"><b>2º | Produto</b></li>
+            <li ng-class="{}"><b>3º | Entrega</b></li>
+        </ul>
+    </div>
+    <div class="titulocategorias">
+        <label>Preencha as informações do produto que será transportado.</label>
+    </div>
+    <form ng-submit="salvarItem()">
+        <div id="criarAnuncio">
+            <div class="veiculoCaminhao">
+                <div class="anuncioBox">
+                    <div class="tituloanuncio">Veículos - Caminhões</div>
+                    <div class="radiobuttonveiculos">
+                        <div class="col-md-12">
+                            <label>Tipo do Caminhão:</label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.tipoCaminhao" value="URBANO_CARGA" name="tipoCaminhao" required>Urbano de Carga
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.tipoCaminhao" value="TOCO" name="tipoCaminhao" required>Semi-pesado (Toco)
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.tipoCaminhao" value="TRUCK" name="tipoCaminhao" required>Pesado (Truck)
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.tipoCaminhao" value="EXTRA_PESADO" name="tipoCaminhao" required>Extra-pesado (Cavalo mecânico)
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.tipoCaminhao" value="LS" name="tipoCaminhao" required>LS (Cavalo mecânico trucado)
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.tipoCaminhao" value="DOIS_EIXOS" name="tipoCaminhao" required>Carreta 2 eixos
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.tipoCaminhao" value="TRES_EIXOS" name="tipoCaminhao" required>Carreta 3 eixos
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="anuncio.tipoCaminhao" value="BI_TREM" name="tipoCaminhao" required>Bi-trem
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Marca e modelo:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="caminhaoMarca" placeholder="Marca" ng-model="anuncio.marca" ng-blur="validarCampoObrigatorio('Marca', '#caminhaoMarca')" required="">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="caminhaoModelo" placeholder="Modelo" ng-model="anuncio.modelo" ng-blur="validarCampoObrigatorio('Modelo', '#caminhaoModelo')" required="">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Está no reboque? </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="anuncio.noReboque" ng-value="true" name="noReboque" required>Sim
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="anuncio.noReboque" ng-value="false" name="noReboque" required>Não
+                        </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Observação: </label>
+                    </div>
+                    <div class="textoarea">
+                        <div class="col-md-12">
+                            <textarea class="form-control" rows="2" id="obs" placeholder="Observação ou instrução adicional (opcional)" ng-model="anuncio.observacao"></textarea>
+                        </div>
+                    </div>
+                    <div class="fotos">
+                        <div class="col-md-6">
+                            <label for="foto1">Fotos:
+                            </label>
+                            <input type="file" alt="Foto" class="img-responsive img-thumbnail" ng-model="item.caminhaoFoto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary pull-right">Próximo</button>
+        <a href="#/anuncio/criar-anuncio" class="btn btn-primary pull-left">Voltar</a>
+
+    </form>
+
+
+</div>

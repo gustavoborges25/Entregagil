@@ -1,0 +1,312 @@
+<link rel="stylesheet" type="text/css" href="css/acessar-perfil.css">
+<link rel="stylesheet" type="text/css" href="../dependencias/bootstrap-slider/bootstrap-slider.css">
+<script type="text/javascript" src="../dependencias/bootstrap-slider/bootstrap-slider.js"></script>
+
+<div class="container" ng-init="init()" id="perfilUsuario">
+
+
+  <div class="modal fade modalCadastro" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+            <a href="javascript:void(0)" class="closer">&times;</a>
+            <h4 class="modal-title">Denunciar Perfil</h4>
+        </div>
+        <div class="modal-body" id="modalCadastro">
+            <form ng-submit="denunciar()">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" > Conteúdo Impróprio
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" > Perfil Falso
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" > Nome Impróprio
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" > Outra pessoa esta usando esta conta
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" > Uso indevido do serviço
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" > Direito de propriedade intelectual infringidos
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" > Outros
+                </label>
+              </div>
+              <div class="form-group">
+                <label for="comment">Comentário:</label>
+                <textarea class="form-control" rows="5"></textarea>
+              </div>
+              <div class="form-group text-right">
+                <input type="submit" class="btn btn-primary " value="Denunciar">
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="perfil">
+    <div class="row">
+        <div class="col-lg-3 col-md-6">
+            <div class="painel"></div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2" >
+          <img src="{{usuarioBuscado.foto}}" width="175" height="" ="175"  class="img-responsive">
+          <label for="imagem" class="control-label"></label>
+          <img src="img/quality.png" class="selo">
+      </div>
+      <div class="col-md-4">
+          <div class="usuarioNome">{{usuarioBuscado.nome}} {{usuarioBuscado.sobrenome}} {{usuarioBuscado.fantasia}}</div>
+          <div class="usuarioData">Usuário desde: {{usuarioBuscado.dataCadastro | date: 'dd/MM/yyyy' }}</div>
+          <img src="img/negative.png" class="negative">
+          <div class="denunciarPerfil"><a href="javascript:void(0)" data-toggle="modal" data-target="#myModal">Denunciar Perfil</a></div>
+        </div>
+    </div>
+  </div>
+  <ul class="nav nav-tabs" id="myTabs">
+      <li role="e" id="tabAnuncio" ng-click="tab=1" ng-class="{'active' : tab==1}">
+          <a href="#anunciante">Anunciante</a>
+      </li>
+      <li role="e" id="tabTransporte" ng-click="tab=2" ng-class="{'active' : tab==2}">
+          <a href="#transportador">Transportador</a>
+      </li>
+  </ul>
+  <div class="tab-content" ng-show="tab == 1">
+    <div id="anunciante" class="container table-responsive tabela">
+      <div class="col-md-6 box">
+        <div class="col-md-6 no-padding anuncioQtd">
+          <span class="qtd">{{qtdAnuncios}}</span>
+          <span>Anúncios</span>
+        </div>
+        <div class="col-md-6 no-padding avaliacoes">
+          <span>{{avaliacoesComoAnunciante.quantidade}} avaliações</span>
+          <img ng-show="mediaAnunciante>0" src="img/star.png" class="star">
+          <img ng-show="mediaAnunciante>1" src="img/star.png" class="star">
+          <img ng-show="mediaAnunciante>2" src="img/star.png" class="star">
+          <img ng-show="mediaAnunciante>3"src="img/star.png" class="star">
+          <img ng-show="mediaAnunciante>4"src="img/star.png" class="star">
+
+
+          <img ng-show="mediaAnunciante==0" src="img/starEmpty.png" class="star"/>
+          <img ng-show="mediaAnunciante<2" src="img/starEmpty.png" class="star"/>
+          <img ng-show="mediaAnunciante<3" src="img/starEmpty.png" class="star"/>
+          <img ng-show="mediaAnunciante<4" src="img/starEmpty.png" class="star"/>
+          <img ng-show="mediaAnunciante<5" src="img/starEmpty.png" class="star"/>
+
+
+          <span>{{mediaAnunciante}} de 5</span>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <p ng-show="avaliacoesComoAnunciante.length == 0">Nenhuma avaliação recebida!</p>
+        <div class="info" ng-repeat="avaliacao in avaliacoesComoAnunciante">
+          <div class="col-md-12">
+            <img src="img/avatar.png">
+            {{ avaliacao.avaliador.nome + ' ' + avaliacao.avaliador.sobrenome }}
+            <div class="stars">
+              <img ng-show="avaliacao.avaliacaoGeral>0" src="img/star.png" class="star responsive">
+              <img ng-show="avaliacao.avaliacaoGeral>1" src="img/star.png" class="star responsive">
+              <img ng-show="avaliacao.avaliacaoGeral>2" src="img/star.png" class="star responsive">
+              <img ng-show="avaliacao.avaliacaoGeral>3"src="img/star.png" class="star responsive">
+              <img ng-show="avaliacao.avaliacaoGeral>4"src="img/star.png" class="star responsive">
+
+
+              <img ng-show="avaliacao.avaliacaoGeral==0" src="img/starEmpty.png" class="star responsive"/>
+              <img ng-show="avaliacao.avaliacaoGeral<2" src="img/starEmpty.png" class="star responsive"/>
+              <img ng-show="avaliacao.avaliacaoGeral<3" src="img/starEmpty.png" class="star responsive"/>
+              <img ng-show="avaliacao.avaliacaoGeral<4" src="img/starEmpty.png" class="star responsive"/>
+              <img ng-show="avaliacao.avaliacaoGeral<5" src="img/starEmpty.png" class="star responsive"/>
+            </div>
+            {{ avaliacao.recomenda ? 'Recomendo' : 'Não recomendo' }}
+            <div class="data"><span>{{avaliacao.dataCadastro | date:'dd/MM/yyyy'}}</span></div>
+          </div>
+          <div class="col-md-10 desc">
+            {{ avaliacao.comentario }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-content" ng-show="tab == 2">
+    <div id="transportador" class="container table-responsive tabela">
+      <div class="col-md-6 box">
+        <div class="col-md-4 no-padding avaliacoes">
+          <span>{{avaliacoesComoTransportador.length}} avaliações</span>
+          <img ng-show="mediaTransportador>0" src="img/star.png" class="star">
+          <img ng-show="mediaTransportador>1" src="img/star.png" class="star">
+          <img ng-show="mediaTransportador>2" src="img/star.png" class="star">
+          <img ng-show="mediaTransportador>3"src="img/star.png" class="star">
+          <img ng-show="mediaTransportador>4"src="img/star.png" class="star">
+
+
+          <img ng-show="mediaTransportador==0" src="img/starEmpty.png" class="star"/>
+          <img ng-show="mediaTransportador<2" src="img/starEmpty.png" class="star"/>
+          <img ng-show="mediaTransportador<3" src="img/starEmpty.png" class="star"/>
+          <img ng-show="mediaTransportador<4" src="img/starEmpty.png" class="star"/>
+          <img ng-show="mediaTransportador<5" src="img/starEmpty.png" class="star"/>
+
+
+          <span>{{mediaTransportador}} de 5</span>
+        </div>
+        <div class="col-md-4 no-padding transportes">
+          <span class="qtd">{{transportesRealizados}}</span>
+          <span>Transportes Finalizados</span>
+        </div>
+        <div class="col-md-4 no-padding recomendacoes">
+          <span>{{porcentagemTransportador}}% dos <br> anunciantes <br> recomendam</span>
+        </div>
+      </div>
+      <div class="col-md-6" ng-show="avaliacoesComoTransportador.length == 0">
+        <p>Nenhuma avaliação recebida!</p>
+      </div>
+    </div>
+
+    <div ng-hide="avaliacoesComoTransportador.length == 0" class="col-md-6">
+      <div class="geral col-md-9">
+        <div class="col-md-12 pull-right">
+          <ul class="grafic pull-right">
+            <li ng-class="{'on': valorMediaTempoEntrega == 10}"></li>
+            <li ng-class="{'on': valorMediaTempoEntrega == 20}"></li>
+            <li ng-class="{'on': valorMediaTempoEntrega == 30}"></li>
+            <li ng-class="{'on': valorMediaTempoEntrega == 40}"></li>
+            <li ng-class="{'on': valorMediaTempoEntrega == 50}"></li>
+          </ul>
+          <span>Tempo de Entrega</span>
+        </div>
+        <div class="col-md-12 pull-right">
+          <ul class="grafic pull-right">
+            <li ng-class="{'on': valorMediaIntegridadeMercadoria == 10}"></li>
+            <li ng-class="{'on': valorMediaIntegridadeMercadoria == 20}"></li>
+            <li ng-class="{'on': valorMediaIntegridadeMercadoria == 30}"></li>
+            <li ng-class="{'on': valorMediaIntegridadeMercadoria == 40}"></li>
+            <li ng-class="{'on': valorMediaIntegridadeMercadoria == 50}"></li>
+          </ul>
+          <span>Integridade da Mercadoria</span>
+        </div>
+        <!-- FITRO COMENTADO
+        <div class="col-md-12 range one">
+          <span>Tempo de Entrega</span>
+          <input id="tempoEntrega" type="text" ng-model="tempoEntrega"/>
+        </div>
+        <div class="col-md-12 range two">
+          <span>Integridade da Entrega</span>
+          <input id="integridadeEntrega" type="text" ng-model="integridadeEntrega"/>
+        </div> FILTRO COMENTADO -->
+      </div>
+    </div>
+    <div ng-hide="avaliacoesComoTransportador.length == 0" class="col-md-6">
+
+      <div class="col-md-12" ng-repeat="avt in avaliacoesComoTransportador">
+        <div class="info">
+          <div class="col-md-12" >
+            <img src="img/avatar.png">
+            {{avt.avaliador.nome}}
+            <div class="stars">
+              <img ng-show="avt.avaliacaoGeral>0" src="img/star.png" class="star responsive">
+              <img ng-show="avt.avaliacaoGeral>1" src="img/star.png" class="star responsive">
+              <img ng-show="avt.avaliacaoGeral>2" src="img/star.png" class="star responsive">
+              <img ng-show="avt.avaliacaoGeral>3"src="img/star.png" class="star responsive">
+              <img ng-show="avt.avaliacaoGeral>4"src="img/star.png" class="star responsive">
+
+
+              <img ng-show="avt.avaliacaoGeral==0" src="img/starEmpty.png" class="star responsive"/>
+              <img ng-show="avt.avaliacaoGeral<2" src="img/starEmpty.png" class="star responsive"/>
+              <img ng-show="avt.avaliacaoGeral<3" src="img/starEmpty.png" class="star responsive"/>
+              <img ng-show="avt.avaliacaoGeral<4" src="img/starEmpty.png" class="star responsive"/>
+              <img ng-show="avt.avaliacaoGeral<5" src="img/starEmpty.png" class="star responsive"/>
+            </div>
+            {{ avt.recomenda ? 'Recomendo' : 'Não recomendo'  }}
+            <div class="data">{{avt.dataCadastro | date : 'dd/MM/yyyy'}}</div>
+          </div>
+          <div class="col-md-12 pontuacao">
+            <label>Pontuação</label>
+            <div class="geral col-md-9">
+              <div class="col-md-12 pull-right">
+                <ul class="grafic pull-right">
+                  <li ng-class="{'on': avt.tempoDeEntrega == 10}"></li>
+                  <li ng-class="{'on': avt.tempoDeEntrega == 20}"></li>
+                  <li ng-class="{'on': avt.tempoDeEntrega == 30}"></li>
+                  <li ng-class="{'on': avt.tempoDeEntrega == 40}"></li>
+                  <li ng-class="{'on': avt.tempoDeEntrega == 50}"></li>
+                </ul>
+                <span>Tempo de Entrega</span>
+              </div>
+              <div class="col-md-12 pull-right">
+                <ul class="grafic pull-right">
+                  <li ng-class="{'on': avt.integridadeMercadoria == 10}"></li>
+                  <li ng-class="{'on': avt.integridadeMercadoria == 20}"></li>
+                  <li ng-class="{'on': avt.integridadeMercadoria == 30}"></li>
+                  <li ng-class="{'on': avt.integridadeMercadoria == 40}"></li>
+                  <li ng-class="{'on': avt.integridadeMercadoria == 50}"></li>
+                </ul>
+                <span>Integridade da Mercadoria</span>
+              </div>
+	        </div>
+            <div class="col-md-12 transportador desc">
+            	{{ avt.comentario }}
+    		</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('#myTabs a').click(function (e) {
+        e.preventDefault();
+        // $(this).tab('show');
+        // $(this).class = active;
+      });
+
+      // BARRA DE FILTRO
+      $("#tempoEntrega").slider();
+      $("#integridadeEntrega").slider();
+
+      //PEGA O VALOR DO FILTRO POR ENQUANTO SOMENTE COM JQUERY
+
+      // $('#tempoEntrega').change(function(){
+      //   console.log($(this).val());
+      // });
+
+      // $('#integridadeEntrega').change(function(){
+      //   console.log($(this).val());
+      // });
+
+      // AJUSTES CSS BARRA FILTRO
+      element = $('.range.one .slider.slider-horizontal').find('.top')[0];
+      $(element).css('opacity','1');
+
+      element = $('.range.two .slider.slider-horizontal').find('.top')[0];
+      $(element).css('opacity','1');
+
+      //MODAL BOTAO FECHAR
+      $(function($){
+        $('.modal-header .closer').click(function(){
+          $('body').removeClass('modal-open');
+          $('#myModal').fadeOut();
+          $('.modal-backdrop.fade.in').fadeOut();
+        })
+      })
+    })
+
+</script>
